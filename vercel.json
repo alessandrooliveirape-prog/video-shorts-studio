@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "rootDirectory": "adult-site",
+  "cleanUrls": true,
+  "trailingSlash": false
+}
