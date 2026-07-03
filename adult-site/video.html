@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeo - PleasureHub</title>
+  <meta name="description" content="Assista aos melhores vídeos adultos gratuitos no PleasureHub.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23ff2d5c'/><stop offset='1' stop-color='%23b829e0'/></linearGradient></defs><text x='16' y='22' font-size='18' fill='white' text-anchor='middle'>P</text></svg>">
+</head>
+<body>
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">P</span> PleasureHub
+      </a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Pesquisar vídeos..." aria-label="Pesquisar">
+        <button type="button" aria-label="Buscar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+        </button>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" aria-label="Favoritos">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
+        <a href="category.html" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+          </svg>
+          <span>Categorias</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-item"><span class="nav-icon">🔥</span> Em Alta</a>
+      <a href="category.html" class="nav-item"><span class="nav-icon">📂</span> Todas</a>
+      <a href="category.html?cat=brasileiras" class="nav-item"><span class="nav-icon">🇧🇷</span> Brasileiras</a>
+      <a href="category.html?cat=milf" class="nav-item"><span class="nav-icon">🔥</span> MILF</a>
+      <a href="category.html?cat=latina" class="nav-item"><span class="nav-icon">💃</span> Latina</a>
+      <a href="category.html?cat=amador" class="nav-item"><span class="nav-icon">📱</span> Amador</a>
+      <a href="category.html?cat=hentai" class="nav-item"><span class="nav-icon">🎨</span> Hentai</a>
+      <a href="category.html?cat=lesbian" class="nav-item"><span class="nav-icon">💋</span> Lésbicas</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- AD LEADERBOARD -->
+    <div id="ad-leaderboard" class="ad-container ad-leaderboard">
+      <span class="ad-label">Publicidade</span>
+    </div>
+
+    <div class="video-page">
+      <div class="video-layout" style="display: grid; grid-template-columns: 1fr 300px; gap: 20px;">
+        <!-- Main Content -->
+        <div class="video-main">
+          <!-- Video Player -->
+          <div class="video-player-wrapper">
+            <div class="player-placeholder" id="playerPlaceholder">
+              <div style="text-align: center;">
+                <div class="big-play-btn" id="playBtn">▶</div>
+                <p style="margin-top: 16px;">Clique para reproduzir o vídeo</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;" id="videoMetaPlayer">Carregando...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Info -->
+          <div class="video-info-section">
+            <h1 class="video-title" id="videoTitle">Carregando...</h1>
+            
+            <div class="video-stats" id="videoStats">
+              <span>👁️ <span id="videoViews">0</span> visualizações</span>
+              <span>📅 <span id="videoDate">---</span></span>
+              <span>⭐ <span id="videoRating">0</span></span>
+            </div>
+
+            <div class="video-actions">
+              <button class="video-action-btn liked" data-action="like">
+                👍 <span id="likeCount">0</span>
+              </button>
+              <button class="video-action-btn" data-action="dislike">
+                👎 <span id="dislikeCount">0</span>
+              </button>
+              <button class="video-action-btn" data-action="share">🔗 Compartilhar</button>
+              <button class="video-action-btn no-pop">⭐ Favoritar</button>
+              <button class="video-action-btn no-pop">📥 Baixar</button>
+              <button class="video-action-btn no-pop">🚨 Denunciar</button>
+            </div>
+
+            <!-- AD in-content -->
+            <div id="ad-rectangle" class="ad-container ad-banner">
+              <span class="ad-label">Publicidade</span>
+            </div>
+
+            <div class="video-description" id="videoDescription">
+              <p id="videoDescText">Carregando descrição...</p>
+              <div class="tags" id="videoTags">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- COMMENTS SECTION -->
+            <div class="comments-section">
+              <div id="commentsContainer">
+                <div class="comments-header">
+                  <h3 class="comments-title">💬 Comentários <span class="comments-count">(0)</span></h3>
+                </div>
+                <div class="comments-empty">Carregando comentários...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="video-sidebar">
+          <!-- Ad Sidebar -->
+          <div id="ad-native" class="ad-container ad-sidebar">
+            <span class="ad-label">Publicidade</span>
+          </div>
+
+          <!-- Related Videos -->
+          <h3 style="font-size: 1rem; font-weight: 700; margin: 16px 0 12px;">📺 Relacionados</h3>
+          <div id="relatedVideos" style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 12px; display: inline-block;">
+            <span class="logo-icon">P</span> PleasureHub
+          </a>
+          <p>O maior portal de entretenimento adulto gratuito do Brasil.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="category.html?cat=brasileiras">Brasileiras</a></li>
+            <li><a href="category.html?cat=milf">MILF</a></li>
+            <li><a href="category.html?cat=latina">Latina</a></li>
+            <li><a href="category.html?cat=amador">Amador</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="privacy.html">Política de Privacidade</a></li>
+            <li><a href="terms.html">Termos de Uso</a></li>
+            <li><a href="dmca.html">DMCA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Parceiros</h4>
+          <ul>
+            <li><a href="#">OnlyFans Models</a></li>
+            <li><a href="#">Anuncie Conosco</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 PleasureHub. 18+</span>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacidade</a>
+          <a href="terms.html">Termos</a>
+          <a href="dmca.html">DMCA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/embed.js"></script>
+  <script src="js/adcash.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/comments.js"></script>
+  <script src="js/analytics.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const videoId = parseInt(params.get('id')) || 1;
+      const video = SITE_DATA.getVideoById(videoId);
+
+      if (!video) {
+        document.getElementById('videoTitle').textContent = 'Vídeo não encontrado';
+        return;
+      }
+
+      document.title = `${video.title} - PleasureHub`;
+      document.querySelector('meta[name="description"]').content = `Assista: ${video.title}. Vídeo adulto gratuito em ${video.quality}.`;
+
+      // Player
+      document.getElementById('playerPlaceholder').style.background = video.gradient;
+      document.getElementById('videoMetaPlayer').textContent = `${video.quality} • ${video.duration} • 👁️ ${video.views}`;
+
+      // Info
+      document.getElementById('videoTitle').textContent = video.title;
+      document.getElementById('videoViews').textContent = video.views;
+      document.getElementById('videoDate').textContent = video.date;
+      document.getElementById('videoRating').textContent = (4 + Math.random()).toFixed(1);
+      document.getElementById('likeCount').textContent = video.likes.toLocaleString();
+      document.getElementById('dislikeCount').textContent = video.dislikes.toLocaleString();
+      
+      const cat = SITE_DATA.categories.find(c => c.id === video.category);
+      document.getElementById('videoDescText').textContent = 
+        `Assista "${video.title}" gratuitamente no PleasureHub. ${video.quality} • ${video.duration} • ${video.views} visualizações. ` +
+        `Categoria: ${cat ? cat.emoji + ' ' + cat.name : 'Geral'}. ` +
+        `Atualizado em ${video.date}. Melhores vídeos adultos grátis em HD e 4K.`;
+
+      // Tags
+      const tagsContainer = document.getElementById('videoTags');
+      video.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = `#${tag}`;
+        tagsContainer.appendChild(span);
+      });
+
+      // Play button - carrega embed real
+      document.getElementById('playBtn').addEventListener('click', () => {
+        const placeholder = document.getElementById('playerPlaceholder');
+        
+        // Verificar se tem embed URL
+        if (video.embedUrl && typeof EMBED !== 'undefined') {
+          EMBED.loadIntoPlayer('playerPlaceholder', video.embedUrl, video.title);
+          
+          // Tracking
+          if (typeof ANALYTICS !== 'undefined') {
+            ANALYTICS.trackVideoEvent('play', video);
+          }
+        } else {
+          // Fallback se não tiver embed configurado
+          placeholder.innerHTML = `
+            <div style="text-align: center; padding: 40px;">
+              <div style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 16px;">🎬 Player de Vídeo</div>
+              <div style="font-size: 4rem; margin-bottom: 16px; opacity: 0.3;">▶</div>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">
+                ${video.title}<br>
+                <span style="font-size: 0.8rem;">${video.quality} • ${video.duration}</span>
+              </p>
+              <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 16px;">
+                Configure a URL de embed no data.js para ativar o player real
+              </p>
+            </div>
+          `;
+        }
+      });
+
+      // Related Videos
+      const relatedContainer = document.getElementById('relatedVideos');
+      const related = SITE_DATA.getRelatedVideos(video.category, video.id, 6);
+      related.forEach(v => {
+        const item = document.createElement('a');
+        item.href = `video.html?id=${v.id}`;
+        item.style.cssText = 'display: flex; gap: 10px; background: var(--bg-card); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s ease; cursor: pointer;';
+        item.innerHTML = `
+          <div style="width: 120px; min-height: 68px; background: ${v.gradient}; flex-shrink: 0; position: relative;">
+            <span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.85); padding: 1px 5px; border-radius: 3px; font-size: 0.65rem; font-weight: 600;">${v.duration}</span>
+          </div>
+          <div style="padding: 8px 8px 8px 0; flex: 1;">
+            <div style="font-size: 0.8rem; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${v.title}</div>
+            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">👁️ ${v.views}</div>
+          </div>
+        `;
+        item.addEventListener('mouseenter', () => {
+          item.style.background = 'var(--bg-hover)';
+          item.style.transform = 'translateX(4px)';
+        });
+        item.addEventListener('mouseleave', () => {
+          item.style.background = '';
+          item.style.transform = '';
+        });
+        relatedContainer.appendChild(item);
+      });
+
+      // Init Comments
+      if (typeof COMMENTS !== 'undefined') {
+        setTimeout(() => {
+          COMMENTS.renderComments('commentsContainer', videoId);
+        }, 100);
+      }
+
+      // Init Analytics
+      if (typeof ANALYTICS !== 'undefined') {
+        ANALYTICS.init();
+      }
+    });
+  </script>
+</body>
+</html>
