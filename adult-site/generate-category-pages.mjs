@@ -281,7 +281,7 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
       
       videos.forEach(v => {
         const card = document.createElement('a');
-        card.href = \`video.html?id=\${v.id}\`;
+        card.href = 'video/' + v.id + '.html';
         card.className = 'content-card';
         card.innerHTML = \`
           <div class="card-thumb" style="background: \${v.gradient};">

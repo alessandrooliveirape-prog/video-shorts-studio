@@ -4,7 +4,7 @@
    Usage: node generate-bulk-content.mjs
    ============================================ */
 
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -569,6 +569,409 @@ ${categoriesData}
   return template;
 }
 
+const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${video.title} - PleasureHub</title>
+  <meta name="description" content="Watch ${video.title} for free on PleasureHub. Quality: ${video.quality} • Duration: ${video.duration}. The best free adult videos.">
+  <meta name="keywords" content="${video.tags.join(', ')}, adult videos, free porn, hd videos">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pleasurehub.com/video/${video.id}">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="${video.title} - PleasureHub">
+  <meta property="og:description" content="Watch ${video.title} in ${video.quality} for free on PleasureHub.">
+  <meta property="og:type" content="video.other">
+  <meta property="og:url" content="https://pleasurehub.com/video/${video.id}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${video.title} - PleasureHub">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23ff2d5c'/><stop offset='1' stop-color='%23b829e0'/></linearGradient></defs><text x='16' y='22' font-size='18' fill='white' text-anchor='middle'>P</text></svg>">
+  
+  <!-- Geo targeting for US -->
+  <meta name="geo.region" content="US" />
+  <meta name="geo.placename" content="United States" />
+  <link rel="alternate" hreflang="en" href="https://pleasurehub.com/video/${video.id}" />
+  <link rel="alternate" hreflang="x-default" href="https://pleasurehub.com/video/${video.id}" />
+
+  <!-- AdCash Ads -->
+  <script type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+  <script type="text/javascript">
+    aclib.runAutoTag({
+      zoneId: 'jhy3sbhcwe',
+    });
+  </script>
+
+  <!-- Schema Markup (VideoObject) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "${video.title.replace(/"/g, '\\"')}",
+    "description": "Watch ${video.title.replace(/"/g, '\\"')} for free on PleasureHub. Quality: ${video.quality} • Duration: ${video.duration}.",
+    "thumbnailUrl": [
+      "https://pleasurehub.com/img/video-placeholder.jpg"
+    ],
+    "uploadDate": "${video.date}T08:00:00Z",
+    "duration": "PT${video.duration.split(':')[0]}M${video.duration.split(':')[1]}S",
+    "embedUrl": "${video.embedUrl}",
+    "interactionStatistic": {
+      "@type": "InteractionCounter",
+      "interactionType": { "@type": "WatchAction" },
+      "userInteractionCount": ${parseInt(String(video.views).replace(/[KM]/g, m => m === 'K' ? '000' : '000000'))}
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">P</span> PleasureHub</a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search videos...">
+        <button type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      </div>
+      <div class="header-actions">
+        <a href="../category.html" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Categories</span></a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-item"><span class="nav-icon">🔥</span> Trending</a>
+      <a href="../category.html" class="nav-item"><span class="nav-icon">📂</span> All</a>
+      <a href="../brazilian.html" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian</a>
+      <a href="../milf.html" class="nav-item"><span class="nav-icon">🔥</span> MILF</a>
+      <a href="../latina.html" class="nav-item"><span class="nav-icon">💃</span> Latina</a>
+      <a href="../amateur.html" class="nav-item"><span class="nav-icon">📱</span> Amateur</a>
+      <a href="../hentai.html" class="nav-item"><span class="nav-icon">🎨</span> Hentai</a>
+      <a href="../lesbian.html" class="nav-item"><span class="nav-icon">💋</span> Lesbians</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- AD LEADERBOARD -->
+    <div id="ad-leaderboard" class="ad-container ad-leaderboard">
+      <span class="ad-label">Advertisement</span>
+    </div>
+
+    <div class="video-page">
+      <div class="video-layout" style="display: grid; grid-template-columns: 1fr 300px; gap: 20px;">
+        <!-- Main Content -->
+        <div class="video-main">
+          <!-- Video Player -->
+          <div class="video-player-wrapper">
+            <div class="player-placeholder" id="playerPlaceholder">
+              <div style="text-align: center;">
+                <div class="big-play-btn" id="playBtn">▶</div>
+                <p style="margin-top: 16px;">Click to play the video</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;" id="videoMetaPlayer">${video.quality} • ${video.duration}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Info -->
+          <div class="video-info-section">
+            <h1 class="video-title" id="videoTitle">${video.title}</h1>
+            
+            <div class="video-stats" id="videoStats">
+              <span>👁️ <span id="videoViews">${video.views}</span> views</span>
+              <span>📅 <span id="videoDate">${video.date}</span></span>
+              <span>⭐ <span id="videoRating">⭐ ${(4 + Math.random()).toFixed(1)}</span></span>
+            </div>
+
+            <div class="video-actions">
+              <button class="video-action-btn liked" data-action="like">
+                👍 <span id="likeCount">${video.likes}</span>
+              </button>
+              <button class="video-action-btn" data-action="dislike">
+                👎 <span id="dislikeCount">${video.dislikes}</span>
+              </button>
+              <button class="video-action-btn" data-action="share">🔗 Share</button>
+              <button class="video-action-btn no-pop">⭐ Favorite</button>
+              <button class="video-action-btn no-pop">📥 Download</button>
+              <button class="video-action-btn no-pop">🚨 Report</button>
+            </div>
+
+            <!-- AD in-content -->
+            <div id="ad-rectangle" class="ad-container ad-banner">
+              <span class="ad-label">Advertisement</span>
+            </div>
+
+            <div class="video-description" id="videoDescription">
+              <p id="videoDescText">Updated on ${video.date}. Best free adult videos in HD and 4K.</p>
+              <div class="tags" id="videoTags">
+                ${video.tags.map(tag => '<span class="tag">#' + tag + '</span>').join('\n                ')}
+              </div>
+            </div>
+
+            <!-- COMMENTS SECTION -->
+            <div class="comments-section">
+              <div id="commentsContainer">
+                <div class="comments-header">
+                  <h3 class="comments-title">💬 Comments <span class="comments-count">(0)</span></h3>
+                </div>
+                <div class="comments-empty">Loading comments...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="video-sidebar">
+          <!-- Ad Sidebar -->
+          <div id="ad-native" class="ad-container ad-sidebar">
+            <span class="ad-label">Advertisement</span>
+          </div>
+
+          <!-- Related Videos -->
+          <h3 style="font-size: 1rem; font-weight: 700; margin: 16px 0 12px;">📺 Related Videos</h3>
+          <div id="relatedVideos" style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo" style="margin-bottom: 12px; display: inline-block;"><span class="logo-icon">P</span> PleasureHub</a>
+          <p>The largest free adult entertainment portal. Thousands of HD and 4K videos updated daily.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../brazilian.html">Brazilian</a></li>
+            <li><a href="../milf.html">MILF</a></li>
+            <li><a href="../latina.html">Latina</a></li>
+            <li><a href="../amateur.html">Amateur</a></li>
+            <li><a href="../hentai.html">Hentai</a></li>
+            <li><a href="../lesbian.html">Lesbians</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Service</a></li>
+            <li><a href="../dmca.html">DMCA</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Partners</h4>
+          <ul>
+            <li><a href="#">OnlyFans Models</a></li>
+            <li><a href="#">Become an Affiliate</a></li>
+            <li><a href="#">Advertise with Us</a></li>
+            <li><a href="#">AdCash Ads</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 PleasureHub. All rights reserved. 18+</span>
+        <div class="footer-bottom-links">
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+          <a href="../dmca.html">DMCA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/adcash.js"></script>
+  <script src="../js/embed.js"></script>
+  <script src="../js/comments.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const videoId = ${video.id};
+      const video = SITE_DATA.getVideoById(videoId);
+      
+      if (!video) return;
+
+      // Play button - loads real embed
+      document.getElementById('playBtn').addEventListener('click', () => {
+        const placeholder = document.getElementById('playerPlaceholder');
+        
+        if (video.embedUrl && typeof EMBED !== 'undefined') {
+          EMBED.loadIntoPlayer('playerPlaceholder', video.embedUrl, video.title);
+          
+          if (typeof ANALYTICS !== 'undefined') {
+            ANALYTICS.trackVideoEvent('play', video);
+          }
+        }
+      });
+
+      // Related Videos
+      const relatedContainer = document.getElementById('relatedVideos');
+      const related = SITE_DATA.getRelatedVideos(video.category, video.id, 6);
+      related.forEach(v => {
+        const item = document.createElement('a');
+        item.href = v.id + '.html';
+        item.style.cssText = 'display: flex; gap: 10px; background: var(--bg-card); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s ease; cursor: pointer;';
+        item.innerHTML = 
+          '<div style="width: 120px; min-height: 68px; background: ' + v.gradient + '; flex-shrink: 0; position: relative;">' +
+            '<span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.85); padding: 1px 5px; border-radius: 3px; font-size: 0.65rem; font-weight: 600;">' + v.duration + '</span>' +
+          '</div>' +
+          '<div style="padding: 8px 8px 8px 0; flex: 1;">' +
+            '<div style="font-size: 0.8rem; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">' + v.title + '</div>' +
+            '<div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">👁️ ' + v.views + ' views</div>' +
+          '</div>';
+        item.addEventListener('mouseenter', () => {
+          item.style.background = 'var(--bg-hover)';
+          item.style.transform = 'translateX(4px)';
+        });
+        item.addEventListener('mouseleave', () => {
+          item.style.background = '';
+          item.style.transform = '';
+        });
+        relatedContainer.appendChild(item);
+      });
+
+      // Init Comments
+      if (typeof COMMENTS !== 'undefined') {
+        setTimeout(() => {
+          COMMENTS.renderComments('commentsContainer', videoId);
+        }, 100);
+      }
+
+      // Init Analytics
+      if (typeof ANALYTICS !== 'undefined') {
+        ANALYTICS.init();
+      }
+    });
+  </script>
+</body>
+</html>`;
+
+function getDurationInSeconds(durationStr) {
+  const parts = durationStr.split(':');
+  if (parts.length === 2) {
+    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+  }
+  return 300; // default 5 minutes
+}
+
+function generateSitemapXML(videos) {
+  const todayStr = new Date().toISOString().split('T')[0];
+  const categoriesList = [
+    'milf', 'latina', 'amateur', 'hentai', 'lesbian', 'brazilian',
+    'anal', 'teen', 'gangbang', 'solo', 'couple', 'fetish', 'orgy',
+    'trans', 'interracial', 'cosplay'
+  ];
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- HOME PAGE -->
+  <url>
+    <loc>https://pleasurehub.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+
+  <!-- CATEGORY PAGES -->
+`;
+
+  categoriesList.forEach(cat => {
+    xml += `  <url>
+    <loc>https://pleasurehub.com/${cat}</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>\n`;
+  });
+
+  xml += `
+  <!-- DYNAMIC CATEGORY PAGE -->
+  <url>
+    <loc>https://pleasurehub.com/category</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+
+  <!-- FALLBACK VIDEO PAGE -->
+  <url>
+    <loc>https://pleasurehub.com/video</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+
+  <!-- LEGAL PAGES -->
+  <url>
+    <loc>https://pleasurehub.com/privacy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+  <url>
+    <loc>https://pleasurehub.com/terms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+  <url>
+    <loc>https://pleasurehub.com/dmca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+  <url>
+    <loc>https://pleasurehub.com/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+
+  <!-- INDIVIDUAL VIDEO PAGES WITH VIDEO OBJECT SCHEMA -->
+`;
+
+  videos.forEach(v => {
+    const titleEsc = v.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+    const descEsc = `Watch ${titleEsc} for free in ${v.quality} on PleasureHub.`;
+    const embedEsc = v.embedUrl ? v.embedUrl.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+    const durationSec = getDurationInSeconds(v.duration);
+
+    xml += `  <url>
+    <loc>https://pleasurehub.com/video/${v.id}</loc>
+    <lastmod>${v.date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://pleasurehub.com/img/video-placeholder.jpg</video:thumbnail_loc>
+      <video:title>${titleEsc}</video:title>
+      <video:description>${descEsc}</video:description>
+      <video:player_loc>${embedEsc}</video:player_loc>
+      <video:duration>${durationSec}</video:duration>
+      <video:publication_date>${v.date}T08:00:00Z</video:publication_date>
+    </video:video>
+  </url>\n`;
+  });
+
+  xml += `\n</urlset>\n`;
+  return xml;
+}
+
 // === EXECUTE ===
 console.log('🚀 PLEASUREHUB - Bulk Content Generator (English)\n');
 console.log(`📊 Generating ${TOTAL_VIDEOS} videos in ${CATEGORIES.length} categories...\n`);
@@ -577,6 +980,24 @@ const videos = generateVideos(TOTAL_VIDEOS);
 const output = generateDataJS(videos);
 
 writeFileSync(OUTPUT_FILE, output, 'utf-8');
+
+// Create video directory
+const videoDir = join(__dirname, 'video');
+mkdirSync(videoDir, { recursive: true });
+
+// Generate static video pages
+videos.forEach(v => {
+  const html = VIDEO_TEMPLATE(v);
+  const filePath = join(videoDir, `${v.id}.html`);
+  writeFileSync(filePath, html, 'utf-8');
+});
+console.log(`✅ Pre-rendered ${videos.length} static video HTML pages in video/`);
+
+// Generate sitemap.xml
+const sitemapXML = generateSitemapXML(videos);
+const sitemapPath = join(__dirname, 'sitemap.xml');
+writeFileSync(sitemapPath, sitemapXML, 'utf-8');
+console.log('✅ Generated sitemap.xml with 120 video schema mappings');
 
 // Print summary
 console.log('\n📁 File generated: js/data.js');

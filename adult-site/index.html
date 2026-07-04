@@ -165,7 +165,7 @@
     <div class="container">
       <div class="hero-grid">
         <!-- Featured Video -->
-        <a href="video.html?id=1" class="hero-featured" id="heroFeatured">
+        <a href="video/1.html" class="hero-featured" id="heroFeatured">
           <div class="thumb-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #2d1b3d); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--text-muted);">
             <div style="text-align: center;">
               <div style="font-size: 3rem; margin-bottom: 8px;">🎬</div>
@@ -336,7 +336,7 @@
         const sideVideos = trending.slice(1, 4);
         sideVideos.forEach(v => {
           const item = document.createElement('a');
-          item.href = `video.html?id=${v.id}`;
+          item.href = `video/${v.id}.html`;
           item.className = 'hero-side-item';
           item.innerHTML = `
             <div class="side-thumb" style="background: ${v.gradient};">
@@ -374,7 +374,7 @@
         
         videos.forEach(v => {
           const card = document.createElement('a');
-          card.href = `video.html?id=${v.id}`;
+          card.href = `video/${v.id}.html`;
           card.className = 'content-card';
           card.innerHTML = `
             <div class="card-thumb" style="background: ${v.gradient};">
