@@ -37,13 +37,13 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
   <meta name="description" content="${cat.desc}">
   <meta name="keywords" content="${cat.keywords}">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://pleasurehub.com/${cat.id}.html">
+  <link rel="canonical" href="https://pleasurehub.com/${cat.id}">
   
   <!-- Open Graph -->
   <meta property="og:title" content="${cat.emoji} ${cat.name} - PleasureHub">
   <meta property="og:description" content="${cat.desc.substring(0, 150)}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pleasurehub.com/${cat.id}.html">
+  <meta property="og:url" content="https://pleasurehub.com/${cat.id}">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -52,6 +52,20 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23ff2d5c'/><stop offset='1' stop-color='%23b829e0'/></linearGradient></defs><text x='16' y='22' font-size='18' fill='white' text-anchor='middle'>P</text></svg>">
 
+  <!-- Geo targeting for US -->
+  <meta name="geo.region" content="US" />
+  <meta name="geo.placename" content="United States" />
+  <link rel="alternate" hreflang="pt" href="https://pleasurehub.com/${cat.id}" />
+  <link rel="alternate" hreflang="x-default" href="https://pleasurehub.com/${cat.id}" />
+
+  <!-- AdCash Ads -->
+  <script type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+  <script type="text/javascript">
+    aclib.runAutoTag({
+      zoneId: 'jhy3sbhcwe',
+    });
+  </script>
+
   <!-- Schema Markup -->
   <script type="application/ld+json">
   {
@@ -59,7 +73,7 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
     "@type": "CollectionPage",
     "name": "${cat.emoji} ${cat.name}",
     "description": "${cat.desc}",
-    "url": "https://pleasurehub.com/${cat.id}.html",
+    "url": "https://pleasurehub.com/${cat.id}",
     "about": {
       "@type": "Thing",
       "name": "${cat.name}"
