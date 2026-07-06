@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Importador de Embed URLs - PleasureHub Admin</title>
+  <title>Embed URL Importer - PleasureHub Admin</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -210,67 +210,67 @@
 </head>
 <body>
   <div class="container">
-    <h1>📦 Importador de Embed URLs</h1>
-    <p class="subtitle">Cole URLs de vídeos do XVideos, Pornhub, XNXX, XHamster ou RedTube — o sistema detecta a plataforma automaticamente</p>
+    <h1>📦 Embed URL Importer</h1>
+    <p class="subtitle">Paste video URLs from XVideos, Pornhub, XNXX, XHamster, or RedTube — the system detects the platform automatically</p>
 
     <div class="stats" id="statsContainer">
-      <div class="stat-card"><div class="value" id="statTotal">0</div><div class="label">URLs Importadas</div></div>
-      <div class="stat-card"><div class="value" id="statDetected">0</div><div class="label">Detectadas</div></div>
-      <div class="stat-card"><div class="value" id="statAssigned">0</div><div class="label">Com Categoria</div></div>
-      <div class="stat-card"><div class="value" id="statCategories">0</div><div class="label">Categorias</div></div>
+      <div class="stat-card"><div class="value" id="statTotal">0</div><div class="label">URLs Imported</div></div>
+      <div class="stat-card"><div class="value" id="statDetected">0</div><div class="label">Detected</div></div>
+      <div class="stat-card"><div class="value" id="statAssigned">0</div><div class="label">With Category</div></div>
+      <div class="stat-card"><div class="value" id="statCategories">0</div><div class="label">Categories</div></div>
     </div>
 
     <div class="tabs">
-      <div class="tab active" data-tab="import">📥 Importar URLs</div>
-      <div class="tab" data-tab="manage">📋 Gerenciar</div>
-      <div class="tab" data-tab="export">📤 Exportar</div>
+      <div class="tab active" data-tab="import">📥 Import URLs</div>
+      <div class="tab" data-tab="manage">📋 Manage</div>
+      <div class="tab" data-tab="export">📤 Export</div>
     </div>
 
     <!-- TAB 1: IMPORT -->
     <div class="tab-content active" id="tab-import">
       <div class="card">
-        <h2>📥 Colar URLs de Embed</h2>
+        <h2>📥 Paste Embed URLs</h2>
         <div class="info-box">
-          <strong>💡 Como conseguir URLs de embed:</strong><br>
-          1. Acesse o site (ex: xvideos.com, pornhub.com)<br>
-          2. Abra o vídeo que deseja adicionar<br>
-          3. Clique em "Compartilhar" → "Incorporar" (Embed)<br>
-          4. Copie a URL do iframe (src="...") ou a URL completa da página do vídeo<br>
-          5. Cole abaixo (uma URL por linha)
+          <strong>💡 How to get embed URLs:</strong><br>
+          1. Go to the site (e.g., xvideos.com, pornhub.com)<br>
+          2. Open the video you want to add<br>
+          3. Click "Share" → "Embed"<br>
+          4. Copy the iframe src URL or the video page URL<br>
+          5. Paste below (one URL per line)
         </div>
         <div class="row">
           <select id="categorySelect">
-            <option value="">🔀 Detectar automaticamente</option>
+            <option value="">🔀 Detect automatically</option>
             <option value="milf">🔥 MILF</option>
-            <option value="brasileiras">🇧🇷 Brasileiras</option>
+            <option value="brazilian">🇧🇷 Brazilian</option>
             <option value="latina">💃 Latina</option>
-            <option value="amador">📱 Amador</option>
+            <option value="amateur">📱 Amateur</option>
             <option value="hentai">🎨 Hentai</option>
-            <option value="lesbian">💋 Lésbicas</option>
+            <option value="lesbian">💋 Lesbians</option>
             <option value="anal">🔞 Anal</option>
-            <option value="teen">🌸 18+ Novinhas</option>
+            <option value="teen">🌸 Teens (18+)</option>
             <option value="gangbang">🔥 Gang Bang</option>
-            <option value="solo">✊ Solo</option>
-            <option value="casal">💑 Casal</option>
-            <option value="fetish">⛓️ Fetiche</option>
-            <option value="orgy">🎉 Suruba</option>
+            <option value="solo">✊ Solo / Masturbation</option>
+            <option value="couple">💑 Amateur Couples</option>
+            <option value="fetish">⛓️ Fetish</option>
+            <option value="orgy">🎉 Orgy</option>
             <option value="trans">⚧️ Trans</option>
             <option value="interracial">🌍 Interracial</option>
             <option value="cosplay">🎭 Cosplay</option>
           </select>
         </div>
         <div class="row">
-          <textarea id="urlInput" rows="8" placeholder="Cole as URLs aqui (uma por linha)&#10;&#10;Exemplo:&#10;https://www.xvideos.com/video73246147/titulo-do-video&#10;https://www.pornhub.com/view_video.php?viewkey=ph6582e9b4e6ff4&#10;https://www.xnxx.com/video-1234567/titulo"></textarea>
+          <textarea id="urlInput" rows="8" placeholder="Paste URLs here (one per line)&#10;&#10;Example:&#10;https://www.xvideos.com/video73246147/video-title&#10;https://www.pornhub.com/view_video.php?viewkey=ph6582e9b4e6ff4&#10;https://www.xnxx.com/video-1234567/title"></textarea>
         </div>
         <div class="row">
-          <button class="btn" onclick="processUrls()">🔍 Detectar e Importar</button>
-          <button class="btn btn-secondary" onclick="clearAll()">🗑️ Limpar</button>
+          <button class="btn" onclick="processUrls()">🔍 Detect & Import</button>
+          <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
         </div>
       </div>
 
       <div class="results hidden" id="resultsContainer">
         <div class="card">
-          <h2>📋 URLs Detectadas</h2>
+          <h2>📋 Detected URLs</h2>
           <div id="resultsList"></div>
         </div>
       </div>
@@ -279,11 +279,11 @@
     <!-- TAB 2: MANAGE -->
     <div class="tab-content" id="tab-manage">
       <div class="card">
-        <h2>📋 URLs Armazenadas</h2>
+        <h2>📋 Stored URLs</h2>
         <p style="color:#6b6b80;font-size:0.85rem;margin-bottom:16px;">Total: <span id="storedCount">0</span> URLs</p>
         <div id="storedUrls"></div>
         <div style="margin-top:16px;">
-          <button class="btn btn-sm btn-secondary" onclick="clearStored()">🗑️ Limpar todas</button>
+          <button class="btn btn-sm btn-secondary" onclick="clearStored()">🗑️ Clear all</button>
         </div>
       </div>
     </div>
@@ -291,50 +291,50 @@
     <!-- TAB 3: EXPORT -->
     <div class="tab-content" id="tab-export">
       <div class="card">
-        <h2>📤 Exportar JSON para data.js</h2>
+        <h2>📤 Export JSON for data.js</h2>
         <div class="info-box">
-          <strong>📌 Instruções:</strong><br>
-          1. Copie o JSON abaixo<br>
-          2. Abra o arquivo <strong>js/data.js</strong><br>
-          3. Localize a seção <strong>embedPools</strong><br>
-          4. Substitua os URLs existentes pelos gerados aqui<br>
-          5. Ou: cole o JSON em <strong>js/imported-urls.json</strong> e carregue via script
+          <strong>📌 Instructions:</strong><br>
+          1. Copy the JSON below<br>
+          2. Open the <strong>js/data.js</strong> file<br>
+          3. Find the <strong>embedPools</strong> section<br>
+          4. Replace the existing URLs with the ones generated here<br>
+          5. Or: save the JSON in <strong>js/imported-urls.json</strong> and load via script
         </div>
-        <button class="btn btn-sm btn-success" onclick="generateExport()">📤 Gerar JSON de Exportação</button>
-        <div id="exportOutput" class="output-box">Clique em "Gerar" para exportar...</div>
-        <button class="btn btn-sm" style="margin-top:12px;" onclick="copyExport()">📋 Copiar para área de transferência</button>
+        <button class="btn btn-sm btn-success" onclick="generateExport()">📤 Generate Export JSON</button>
+        <div id="exportOutput" class="output-box">Click "Generate" to export...</div>
+        <button class="btn btn-sm" style="margin-top:12px;" onclick="copyExport()">📋 Copy to clipboard</button>
       </div>
     </div>
   </div>
 
   <script>
-    // === PLATFORM DETECTION (mesma lógica do embed.js) ===
+    // === PLATFORM DETECTION (same logic as embed.js) ===
     const PLATFORMS = [
-      { key: 'xvideos', name: 'XVideos', detect: (u) => u.match(/(?:xvideos\.com\/video|xvideos\.com\/embedframe)\/([a-z0-9]+)/i) ? 'xvideos' : null },
-      { key: 'pornhub', name: 'Pornhub', detect: (u) => u.match(/(?:pornhub\.com\/view_video\.php\?viewkey=|pornhub\.com\/embed\/)([a-z0-9]+)/i) ? 'pornhub' : null },
-      { key: 'xnxx', name: 'XNXX', detect: (u) => u.match(/(?:xnxx\.com\/video-|xnxx\.com\/embedframe\/)([a-z0-9]+)/i) ? 'xnxx' : null },
-      { key: 'xhamster', name: 'XHamster', detect: (u) => u.match(/(?:xhamster\.com\/videos\/|xhamster\.com\/embed\/)([a-z0-9-]+)/i) ? 'xhamster' : null },
-      { key: 'redtube', name: 'RedTube', detect: (u) => u.match(/(?:redtube\.com\/|redtube\.com\/embed\/)([a-z0-9]+)/i) ? 'redtube' : null },
+      { key: 'xvideos', name: 'XVideos', detect: (u) => u.match(/(?:xvideos\\.com\\/video|xvideos\\.com\\/embedframe)\\/([a-z0-9]+)/i) ? 'xvideos' : null },
+      { key: 'pornhub', name: 'Pornhub', detect: (u) => u.match(/(?:pornhub\\.com\\/view_video\\.php\\?viewkey=|pornhub\\.com\\/embed\\/)([a-z0-9]+)/i) ? 'pornhub' : null },
+      { key: 'xnxx', name: 'XNXX', detect: (u) => u.match(/(?:xnxx\\.com\\/video-|xnxx\\.com\\/embedframe\\/)([a-z0-9]+)/i) ? 'xnxx' : null },
+      { key: 'xhamster', name: 'XHamster', detect: (u) => u.match(/(?:xhamster\\.com\\/videos\\/|xhamster\\.com\\/embed\\/)([a-z0-9-]+)/i) ? 'xhamster' : null },
+      { key: 'redtube', name: 'RedTube', detect: (u) => u.match(/(?:redtube\\.com\\/|redtube\\.com\\/embed\\/)([a-z0-9]+)/i) ? 'redtube' : null },
     ];
 
     // --- Category keywords for auto-detection ---
     const CATEGORY_KEYWORDS = {
-      milf: ['milf', 'coroa', 'madura', 'mãe', 'madrasta', 'professora', 'mature'],
-      brasileiras: ['brasileira', 'brasil', 'brazil', 'carioca', 'paulista', 'mineira', 'gaúcha', 'baiana'],
-      latina: ['latina', 'espanhola', 'colombiana', 'mexicana', 'argentina', 'cubana', 'venezuelana', 'chilena'],
-      amador: ['amador', 'caseiro', 'amateur', 'webcam', 'vazou', 'vazado', 'sigilo'],
-      hentai: ['hentai', 'anime', 'animado', '3d', 'desenho', 'futanari', 'yuri'],
-      lesbian: ['lésbica', 'lesbica', 'lesbian', 'amigas', 'mulheres'],
-      anal: ['anal', 'cu', 'cuzinho', 'anal'],
-      teen: ['novinha', 'teen', 'jovem', '18', 'primeira vez'],
-      gangbang: ['gangbang', 'gang bang', 'grupo', 'grupal', 'suruba', 'orgia'],
-      solo: ['solo', 'masturbação', 'masturbacao', 'sozinha', 'webcam'],
-      casal: ['casal', 'namorados', 'marido', 'transando'],
-      fetish: ['fetiche', 'fetish', 'bdsm', 'algemas', 'dominação', 'shibari'],
-      orgy: ['orgia', 'suruba', 'orgy', 'grupo', 'troca de casais'],
-      trans: ['trans', 'travesti', 'transexual', 'transsexual'],
-      interracial: ['interracial', 'gringo', 'racas', 'raças'],
-      cosplay: ['cosplay', 'fantasia', 'personagem'],
+      milf: ['milf', 'mature', 'mom', 'stepmom', 'teacher', 'mother', 'mature'],
+      brazilian: ['brazilian', 'brazil', 'brasil', 'carioca', 'paulista', 'mineira', 'gaucha', 'baiana'],
+      latina: ['latina', 'spanish', 'colombian', 'mexican', 'argentina', 'cuban', 'venezuelan', 'chilean'],
+      amateur: ['amateur', 'homemade', 'webcam', 'leaked', 'exhibitionist'],
+      hentai: ['hentai', 'anime', 'animated', '3d', 'cartoon', 'futanari', 'yuri'],
+      lesbian: ['lesbian', 'lesbians', 'girls', 'women kissing'],
+      anal: ['anal', 'ass', 'butt', 'anal'],
+      teen: ['teen', 'young', '18', 'first time', 'adult'],
+      gangbang: ['gangbang', 'gang bang', 'group', 'multiple guys'],
+      solo: ['solo', 'masturbation', 'alone', 'webcam', 'self'],
+      couple: ['couple', 'boyfriend', 'girlfriend', 'husband', 'wife', 'lovers'],
+      fetish: ['fetish', 'bdsm', 'handcuffs', 'domination', 'shibari', 'leather'],
+      orgy: ['orgy', 'group sex', 'swinger', 'swapping'],
+      trans: ['trans', 'shemale', 'transexual', 'transsexual'],
+      interracial: ['interracial', 'mixed', 'black', 'white', 'foreigner'],
+      cosplay: ['cosplay', 'costume', 'fantasy', 'character'],
     };
 
     function detectPlatform(url) {
@@ -355,7 +355,7 @@
           if (lower.includes(kw)) score++;
         }
         // Bonus if the word appears in the URL slug
-        const slugMatch = lower.match(/\/([^\/]+)$/);
+        const slugMatch = lower.match(/\\/([^\\/]+)$/);
         if (slugMatch) {
           const slug = slugMatch[1].replace(/-/g, ' ');
           for (const kw of keywords) {
@@ -385,7 +385,7 @@
       const text = document.getElementById('urlInput').value.trim();
       if (!text) return;
 
-      const lines = text.split('\n').filter(l => l.trim());
+      const lines = text.split('\\n').filter(l => l.trim());
       const results = [];
       
       lines.forEach(line => {
@@ -423,7 +423,7 @@
         <div class="result-item">
           <span class="status ${r.success ? 'ok' : 'err'}"></span>
           <span class="platform platform-badge ${r.platform ? r.platform.key : 'unknown'}">
-            ${r.platform ? r.platform.name : '❓ Não detectado'}
+            ${r.platform ? r.platform.name : '❓ Not detected'}
           </span>
           <span class="url">${r.url}</span>
           ${r.category ? `<span class="category-tag">${r.category}</span>` : ''}
@@ -437,7 +437,7 @@
       if (!container) return;
       
       if (importedUrls.length === 0) {
-        container.innerHTML = '<p style="color:#6b6b80;font-size:0.85rem;">Nenhuma URL importada ainda.</p>';
+        container.innerHTML = '<p style="color:#6b6b80;font-size:0.85rem;">No URLs imported yet.</p>';
         return;
       }
 
@@ -460,7 +460,7 @@
     };
 
     window.clearStored = function() {
-      if (confirm('Limpar todas as URLs importadas?')) {
+      if (confirm('Clear all imported URLs?')) {
         importedUrls = [];
         saveState();
       }
@@ -489,7 +489,7 @@
     window.generateExport = function() {
       const valid = importedUrls.filter(r => r.success);
       if (valid.length === 0) {
-        document.getElementById('exportOutput').textContent = 'Nenhuma URL válida para exportar. Importe URLs primeiro!';
+        document.getElementById('exportOutput').textContent = 'No valid URLs to export. Import URLs first!';
         return;
       }
 
@@ -517,12 +517,12 @@
 
     window.copyExport = function() {
       const text = document.getElementById('exportOutput').textContent;
-      if (!text || text === 'Clique em "Gerar" para exportar...') return;
+      if (!text || text === 'Click "Generate" to export...') return;
       
       navigator.clipboard.writeText(text).then(() => {
         const btn = document.querySelector('.btn-sm:last-child');
-        btn.textContent = '✅ Copiado!';
-        setTimeout(() => { btn.textContent = '📋 Copiar para área de transferência'; }, 2000);
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = '📋 Copy to clipboard'; }, 2000);
       });
     };
 

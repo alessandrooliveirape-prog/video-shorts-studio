@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // === CONFIGURATION ===
-const TOTAL_VIDEOS = 120;  // Total number of videos
+const TOTAL_VIDEOS = 328;  // Total: 15 cats × 8 + 108 brazilian + 50 amadoras + 50 idosas-taradas
 const OUTPUT_FILE = join(__dirname, 'js', 'data.js');
 
 // === CATEGORIES ===
@@ -32,7 +32,18 @@ const CATEGORIES = [
   { id: 'trans', name: 'Trans', emoji: '⚧️', color: '#a29bfe' },
   { id: 'interracial', name: 'Interracial', emoji: '🌍', color: '#00cec9' },
   { id: 'cosplay', name: 'Cosplay', emoji: '🎭', color: '#fd79a8' },
+  { id: 'brazilian-amateurs', name: 'Brazilian Amateurs', emoji: '🇧🇷', color: '#00cec9' },
+  { id: 'horny-grannies', name: 'Horny Grannies', emoji: '👵', color: '#e17055' },
 ];
+
+// === CUSTOM VIDEO COUNTS PER CATEGORY ===
+// Brazilian gets 100+ videos, new categories get 50 each, rest stay at 8
+const CUSTOM_COUNTS = {
+  brazilian: 108,
+  'brazilian-amateurs': 50,
+  'horny-grannies': 50,
+};
+const DEFAULT_COUNT = 8;
 
 // === TITLE GENERATORS ===
 const TITLES = {
@@ -388,6 +399,110 @@ const TITLES = {
     'Cosplay OnlyFans - best costume 4K',
     'Anime character cosplay - full video',
   ],
+  'brazilian-amateurs': [
+    'Brazilian amateur recording for the first time',
+    'Amateur couple in bedroom - full homemade tape',
+    'Leaked: Best of Brazilian amateur OnlyFans',
+    'Brazilian amateur secret tape - full video',
+    'Exhibitionist on the balcony - busy street',
+    'Chubby couple having wild sex - homemade',
+    'Brazilian amateur in nature - sex in the woods',
+    'Girlfriend recording boyfriend secretly - spy cam',
+    'Best Brazilian amateur video of 2025',
+    'Hot neighbor through the window - filmed from afar',
+    'Amateur couple having sex in bedroom - HD full',
+    'Brazilian amateur webcam - private show',
+    'Leaked: Brazilian couple recording - full 4K',
+    'Brazilian amateur motel tape - full recording',
+    'Amateur couple in kitchen - caught in action',
+    'Exhibitionist in the car - secretly filmed',
+    'Best Brazilian amateur compilation - 2025',
+    'Brazilian homemade sex - full tape',
+    'Naked amateur couple at home - full video',
+    'First time recording - Brazilian amateur couple',
+    'Brazilian amateur girl recording in bedroom',
+    'Leaked Brazilian OnlyFans amateur - complete',
+    'Sex with the neighbor - Brazilian amateur filmed',
+    'Amateur couple after work - full tape',
+    'Brazilian brunette amateur in the shower - leaked',
+    'Blonde Brazilian amateur secretly recorded',
+    'Brazilian amateur in shower - hot scenes HD',
+    'Amateur couple in living room - secretly filmed',
+    'Hot girlfriend - secret recording in bedroom',
+    'Brazilian exhibitionist amateur - full video',
+    'Amateur couple on vacation - filmed complete',
+    'Brazilian amateur at motel with lover - full',
+    'Best Brazilian amateurs compilation - 2025',
+    'Brazilian brunette amateur having sex - HD',
+    'Blonde Brazilian amateur - first time on webcam',
+    'Hot Brazilian amateur girl - full 4K video',
+    'Amateur couple secretly filming in bedroom',
+    'Brazilian mature amateur - filmed with lover',
+    'Brazilian amateur leaked - full video online',
+    'Best Brazilian OnlyFans amateurs - 2025',
+    'Brazilian brunette amateur - filmed at motel',
+    'Young Brazilian amateur couple - first time full',
+    'Hot Brazilian amateur girl - full HD video',
+    'Brazilian amateur in the shower - secretly filmed',
+    'Blonde Brazilian amateur having sex - full 4K',
+    'Brazilian amateur on OnlyFans - complete video',
+    'Hot Brazilian amateur couple - filmed complete',
+    'Brunette Brazilian amateur in bedroom - leaked',
+    'Brazilian amateur filming for OnlyFans - full HD',
+    'Best Brazilian amateur girls - compilation 2025',
+  ],
+  'horny-grannies': [
+    'Horny granny from the neighborhood - caught the young neighbor',
+    'Hot mature woman after divorce - 55 years young',
+    'Horny granny at motel with younger lover',
+    'Hot stepmom caught stepson red-handed',
+    'Horny granny shaking and riding hard - full video',
+    'Let me teach you everything says the horny granny',
+    'Hottest granny in town - full 4K video',
+    'Blonde mature woman secretly recorded - homemade',
+    'Exhibitionist granny at the beach - caught on tape',
+    'Horny granny OnlyFans leaked - full video',
+    'Hot mature woman at motel - wild night',
+    'Horny mature after 50 - full homemade video',
+    'Hot stepmom secretly filmed by stepson',
+    'Horny granny in the shower - hot scenes HD',
+    'Hot mature woman having sex - full HD 4K',
+    'Neighbor granny caught on camera - through window',
+    'Horny granny OnlyFans - best scenes compilation',
+    'Brunette mature woman - full homemade tape',
+    'Horny stepmom teaches everything - full video',
+    'Hot mature woman on webcam - private show',
+    'Horny granny at motel - secretly filmed',
+    'Best horny grannies compilation - 2025',
+    'Hot mature woman after 60 - still knows how',
+    'Blonde horny granny - secretly recorded',
+    'Horny stepmom caught by husband - full tape',
+    'Horny granny shaking - hot scenes HD',
+    'Hot mature woman in bed - night of love',
+    'Brunette mature on OnlyFans - leaked complete',
+    'Neighbor horny granny - having sex with young guy',
+    'Horny exhibitionist granny - full 4K video',
+    'Best horny granny scenes - 2025 compilation',
+    'Horny granny in the kitchen - secretly filmed',
+    'Horny mature after lunch - full video',
+    'Hot stepmom teaching stepson - full HD video',
+    'Horny granny in the shower - secretly recorded',
+    'Hot mature woman on OnlyFans - full 4K video',
+    'Blonde horny granny - wild night at motel',
+    'Neighbor horny granny - filmed from bedroom',
+    'Brunette mature woman - full homemade HD tape',
+    'Horny granny teaches young boy - full scene',
+    'Best horny granny compilations - 2025',
+    'Hot exhibitionist mature woman - secretly filmed',
+    'Horny granny having sex with lover - full video',
+    'Horny stepmom in bedroom - secretly filmed',
+    'Hot mature woman shaking - HD 4K scenes',
+    'Horny granny on webcam - private show',
+    'Neighbor mature woman - secretly recorded',
+    'Brunette horny granny - full video at motel',
+    'Horny granny on OnlyFans - full HD video',
+    'Best hot mature woman scenes - compilation 2025',
+  ],
 };
 
 // === DURATION POOL ===
@@ -443,6 +558,62 @@ const TAG_POOLS = [
   ['solo', 'masturbation', 'webcam', 'toys'],
 ];
 
+// === THUMBNAIL GENERATOR ===
+const CATEGORY_EMOJIS = {
+  milf: '🔥', latina: '💃', amateur: '📱', hentai: '🎨',
+  lesbian: '💋', brazilian: '🇧🇷', anal: '🔞', teen: '🌸',
+  gangbang: '🔥', solo: '✊', couple: '💑', fetish: '⛓️',
+  orgy: '🎉', trans: '⚧️', interracial: '🌍', cosplay: '🎭',
+  'brazilian-amateurs': '🇧🇷', 'horny-grannies': '👵',
+};
+
+function generateThumbnailSVG(videoId, hue, category) {
+  const hue2 = (hue + 40) % 360;
+  const emoji = CATEGORY_EMOJIS[category] || '🎬';
+  const idStr = String(videoId).padStart(3, '0');
+  
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="hsl(${hue}, 70%, 25%)"/>
+      <stop offset="50%" stop-color="hsl(${(hue + 20) % 360}, 65%, 18%)"/>
+      <stop offset="100%" stop-color="hsl(${hue2}, 60%, 12%)"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="hsla(${hue}, 100%, 70%, 0.15)"/>
+      <stop offset="100%" stop-color="hsla(${hue2}, 100%, 50%, 0)"/>
+    </linearGradient>
+    <pattern id="dots" patternUnits="userSpaceOnUse" width="24" height="24">
+      <circle cx="12" cy="12" r="1.5" fill="rgba(255,255,255,0.04)"/>
+    </pattern>
+    <pattern id="grid" patternUnits="userSpaceOnUse" width="40" height="40">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <rect width="320" height="180" fill="url(#dots)"/>
+  <rect width="320" height="180" fill="url(#grid)"/>
+  <!-- Radial glow behind emoji -->
+  <radialGradient id="radial" cx="50%" cy="40%" r="35%">
+    <stop offset="0%" stop-color="rgba(255,255,255,0.08)"/>
+    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+  </radialGradient>
+  <rect width="320" height="180" fill="url(#radial)"/>
+  <!-- Play button -->
+  <g transform="translate(160, 75)">
+    <circle cx="0" cy="0" r="28" fill="rgba(0,0,0,0.5)"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+    <polygon points="-8,-10 -8,10 12,0" fill="rgba(255,255,255,0.7)" opacity="0.8"/>
+  </g>
+  <!-- Category emoji on right side -->
+  <text x="280" y="40" font-size="36" text-anchor="end" fill="rgba(255,255,255,0.15)">${emoji}</text>
+  <!-- Video ID tag -->
+  <rect x="8" y="158" width="52" height="16" rx="3" fill="rgba(0,0,0,0.4)"/>
+  <text x="34" y="170" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle" font-family="monospace" font-weight="600">#${idStr}</text>
+</svg>`;
+}
+
 // === EMBED URL PATTERNS BY PLATFORM ===
 const EMBED_PATTERNS = [
   (id) => `https://www.xvideos.com/embedframe/xv${id}`,
@@ -458,15 +629,20 @@ function generateVideos(count = TOTAL_VIDEOS) {
   const catIds = CATEGORIES.map(c => c.id);
   let id = 1;
 
-  const videosPerCategory = Math.ceil(count / catIds.length);
-
   catIds.forEach((catId) => {
     const titles = TITLES[catId] || [];
-    for (let i = 0; i < videosPerCategory && id <= count; i++) {
+    const targetCount = CUSTOM_COUNTS[catId] || DEFAULT_COUNT;
+    for (let i = 0; i < targetCount && id <= count; i++) {
       const titleIdx = i % titles.length;
       const hue = (id * 137.508) % 360;
       const embedFn = EMBED_PATTERNS[id % EMBED_PATTERNS.length];
       const videoId = String(id).padStart(6, '0');
+
+      const thumbnailSVG = generateThumbnailSVG(id, hue, catId);
+      const thumbFileName = `video-${id}.svg`;
+      const thumbPath = join(__dirname, 'img', 'thumbs', thumbFileName);
+      mkdirSync(join(__dirname, 'img', 'thumbs'), { recursive: true });
+      writeFileSync(thumbPath, thumbnailSVG, 'utf-8');
 
       videos.push({
         id: id,
@@ -480,6 +656,7 @@ function generateVideos(count = TOTAL_VIDEOS) {
         dislikes: Math.floor(Math.random() * 600) + 5,
         date: generateRandomDate(),
         gradient: `linear-gradient(135deg, hsl(${hue}, 70%, 30%), hsl(${(hue + 40) % 360}, 60%, 20%))`,
+        thumbnail: `img/thumbs/${thumbFileName}`,
         embedUrl: embedFn(videoId),
       });
       id++;
@@ -507,9 +684,7 @@ function generateDataJS(videos) {
     `    { id: '${cat.id}', name: '${cat.name}', emoji: '${cat.emoji}', count: ${counts[cat.id] || 0}, color: '${cat.color}' }`
   ).join(',\n');
 
-  let formatted = JSON.stringify(videos, null, 2);
-  
-  formatted = formatted
+  let formatted = JSON.stringify(videos, null, 2);    formatted = formatted
     .replace(/"id": /g, 'id: ')
     .replace(/"title": /g, 'title: ')
     .replace(/"category": /g, 'category: ')
@@ -521,6 +696,7 @@ function generateDataJS(videos) {
     .replace(/"dislikes": /g, 'dislikes: ')
     .replace(/"date": /g, 'date: ')
     .replace(/"gradient": /g, 'gradient: ')
+    .replace(/"thumbnail": /g, 'thumbnail: ')
     .replace(/"embedUrl": /g, 'embedUrl: ')
     ;
 
@@ -610,6 +786,31 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
     });
   </script>
 
+  <!-- Schema Markup - Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PleasureHub",
+    "url": "https://pleasurehub.com",
+    "description": "Free adult entertainment portal. Thousands of HD and 4K videos.",
+    "foundingDate": "2024",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Schema Markup - BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pleasurehub.com/" },
+      { "@type": "ListItem", "position": 2, "name": "${video.title.replace(/"/g, '\\"')}", "item": "https://pleasurehub.com/video/${video.id}" }
+    ]
+  }
+  </script>
+
   <!-- Schema Markup (VideoObject) -->
   <script type="application/ld+json">
   {
@@ -618,7 +819,7 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
     "name": "${video.title.replace(/"/g, '\\"')}",
     "description": "Watch ${video.title.replace(/"/g, '\\"')} for free on PleasureHub. Quality: ${video.quality} • Duration: ${video.duration}.",
     "thumbnailUrl": [
-      "https://pleasurehub.com/img/video-placeholder.jpg"
+      "https://pleasurehub.com/${video.thumbnail}"
     ],
     "uploadDate": "${video.date}T08:00:00Z",
     "duration": "PT${video.duration.split(':')[0]}M${video.duration.split(':')[1]}S",
@@ -627,6 +828,10 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
       "@type": "InteractionCounter",
       "interactionType": { "@type": "WatchAction" },
       "userInteractionCount": ${parseInt(String(video.views).replace(/[KM]/g, m => m === 'K' ? '000' : '000000'))}
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "PleasureHub"
     }
   }
   </script>
@@ -635,27 +840,30 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
   <!-- TOP BAR -->
   <header class="top-bar">
     <div class="top-bar-inner">
-      <a href="../index.html" class="logo"><span class="logo-icon">P</span> PleasureHub</a>
+      <a href="/" class="logo"><span class="logo-icon">P</span> PleasureHub</a>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search videos...">
         <button type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
       </div>
       <div class="header-actions">
-        <a href="../category.html" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Categories</span></a>
+        <a href="/category" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Categories</span></a>
       </div>
     </div>
   </header>
 
   <nav class="main-nav">
     <div class="nav-inner">
-      <a href="../index.html" class="nav-item"><span class="nav-icon">🔥</span> Trending</a>
-      <a href="../category.html" class="nav-item"><span class="nav-icon">📂</span> All</a>
-      <a href="../brazilian.html" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian</a>
-      <a href="../milf.html" class="nav-item"><span class="nav-icon">🔥</span> MILF</a>
-      <a href="../latina.html" class="nav-item"><span class="nav-icon">💃</span> Latina</a>
-      <a href="../amateur.html" class="nav-item"><span class="nav-icon">📱</span> Amateur</a>
-      <a href="../hentai.html" class="nav-item"><span class="nav-icon">🎨</span> Hentai</a>
-      <a href="../lesbian.html" class="nav-item"><span class="nav-icon">💋</span> Lesbians</a>
+      <a href="/" class="nav-item"><span class="nav-icon">🔥</span> Trending</a>
+      <a href="/category" class="nav-item"><span class="nav-icon">📂</span> All</a>
+      <a href="/brazilian" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian</a>
+      <a href="/milf" class="nav-item"><span class="nav-icon">🔥</span> MILF</a>
+      <a href="/latina" class="nav-item"><span class="nav-icon">💃</span> Latina</a>
+      <a href="/amateur" class="nav-item"><span class="nav-icon">📱</span> Amateur</a>
+      <a href="/hentai" class="nav-item"><span class="nav-icon">🎨</span> Hentai</a>
+      <a href="/lesbian" class="nav-item"><span class="nav-icon">💋</span> Lesbians</a>
+      <a href="/brazilian-amateurs" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian Amateurs</a>
+      <a href="/horny-grannies" class="nav-item"><span class="nav-icon">👵</span> Horny Grannies</a>
+      <a href="/blog" class="nav-item"><span class="nav-icon">📝</span> Blog</a>
     </div>
   </nav>
 
@@ -671,11 +879,13 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
         <div class="video-main">
           <!-- Video Player -->
           <div class="video-player-wrapper">
-            <div class="player-placeholder" id="playerPlaceholder">
-              <div style="text-align: center;">
+            <div class="player-placeholder" id="playerPlaceholder" style="background: ${video.gradient}; background-size: cover; background-position: center;">
+              <img src="../${video.thumbnail}" alt="${video.title}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" loading="lazy">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 2;"></div>
+              <div style="text-align: center; position: relative; z-index: 3;">
                 <div class="big-play-btn" id="playBtn">▶</div>
-                <p style="margin-top: 16px;">Click to play the video</p>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;" id="videoMetaPlayer">${video.quality} • ${video.duration}</p>
+                <p style="margin-top: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Click to play the video</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);" id="videoMetaPlayer">${video.quality} • ${video.duration}</p>
               </div>
             </div>
           </div>
@@ -748,27 +958,29 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="../index.html" class="logo" style="margin-bottom: 12px; display: inline-block;"><span class="logo-icon">P</span> PleasureHub</a>
+          <a href="/" class="logo" style="margin-bottom: 12px; display: inline-block;"><span class="logo-icon">P</span> PleasureHub</a>
           <p>The largest free adult entertainment portal. Thousands of HD and 4K videos updated daily.</p>
         </div>
         <div class="footer-col">
           <h4>Categories</h4>
           <ul>
-            <li><a href="../brazilian.html">Brazilian</a></li>
-            <li><a href="../milf.html">MILF</a></li>
-            <li><a href="../latina.html">Latina</a></li>
-            <li><a href="../amateur.html">Amateur</a></li>
-            <li><a href="../hentai.html">Hentai</a></li>
-            <li><a href="../lesbian.html">Lesbians</a></li>
+            <li><a href="/brazilian">Brazilian</a></li>
+            <li><a href="/milf">MILF</a></li>
+            <li><a href="/latina">Latina</a></li>
+            <li><a href="/amateur">Amateur</a></li>
+            <li><a href="/hentai">Hentai</a></li>
+            <li><a href="/lesbian">Lesbians</a></li>
+            <li><a href="/brazilian-amateurs">Brazilian Amateurs</a></li>
+            <li><a href="/horny-grannies">Horny Grannies</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Site</h4>
           <ul>
-            <li><a href="../privacy.html">Privacy Policy</a></li>
-            <li><a href="../terms.html">Terms of Service</a></li>
-            <li><a href="../dmca.html">DMCA</a></li>
-            <li><a href="../contact.html">Contact Us</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/dmca">DMCA</a></li>
+            <li><a href="/contact">Contact Us</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -784,9 +996,9 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
       <div class="footer-bottom">
         <span>&copy; 2025 PleasureHub. All rights reserved. 18+</span>
         <div class="footer-bottom-links">
-          <a href="../privacy.html">Privacy</a>
-          <a href="../terms.html">Terms</a>
-          <a href="../dmca.html">DMCA</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/dmca">DMCA</a>
         </div>
       </div>
     </div>
@@ -823,11 +1035,12 @@ const VIDEO_TEMPLATE = (video) => `<!DOCTYPE html>
       const related = SITE_DATA.getRelatedVideos(video.category, video.id, 6);
       related.forEach(v => {
         const item = document.createElement('a');
-        item.href = v.id + '.html';
+        item.href = '/video/' + v.id;
         item.style.cssText = 'display: flex; gap: 10px; background: var(--bg-card); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s ease; cursor: pointer;';
         item.innerHTML = 
-          '<div style="width: 120px; min-height: 68px; background: ' + v.gradient + '; flex-shrink: 0; position: relative;">' +
-            '<span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.85); padding: 1px 5px; border-radius: 3px; font-size: 0.65rem; font-weight: 600;">' + v.duration + '</span>' +
+          '<div style="width: 120px; min-height: 68px; background: ' + v.gradient + '; flex-shrink: 0; position: relative; overflow: hidden;">' +
+            '<img src="../' + v.thumbnail + '" alt="' + v.title.replace(/'/g, '\\'') + '" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display=\'none\'">' +
+            '<span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.85); padding: 1px 5px; border-radius: 3px; font-size: 0.65rem; font-weight: 600; z-index: 2;">' + v.duration + '</span>' +
           '</div>' +
           '<div style="padding: 8px 8px 8px 0; flex: 1;">' +
             '<div style="font-size: 0.8rem; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">' + v.title + '</div>' +
@@ -873,7 +1086,7 @@ function generateSitemapXML(videos) {
   const categoriesList = [
     'milf', 'latina', 'amateur', 'hentai', 'lesbian', 'brazilian',
     'anal', 'teen', 'gangbang', 'solo', 'couple', 'fetish', 'orgy',
-    'trans', 'interracial', 'cosplay'
+    'trans', 'interracial', 'cosplay',    'brazilian-amateurs', 'horny-grannies'
   ];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -914,6 +1127,40 @@ function generateSitemapXML(videos) {
     <loc>https://pleasurehub.com/video</loc>
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+
+  <!-- BLOG PAGES -->
+  <url>
+    <loc>https://pleasurehub.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+  <url>
+    <loc>https://pleasurehub.com/blog/top-milf-content-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+  <url>
+    <loc>https://pleasurehub.com/blog/brazilian-adult-content-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+  <url>
+    <loc>https://pleasurehub.com/blog/amateur-homemade-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>${todayStr}</lastmod>
+  </url>
+
+  <!-- ABOUT PAGE -->
+  <url>
+    <loc>https://pleasurehub.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
     <lastmod>${todayStr}</lastmod>
   </url>
 
@@ -958,7 +1205,7 @@ function generateSitemapXML(videos) {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <video:video>
-      <video:thumbnail_loc>https://pleasurehub.com/img/video-placeholder.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://pleasurehub.com/${v.thumbnail}</video:thumbnail_loc>
       <video:title>${titleEsc}</video:title>
       <video:description>${descEsc}</video:description>
       <video:player_loc>${embedEsc}</video:player_loc>
@@ -997,7 +1244,7 @@ console.log(`✅ Pre-rendered ${videos.length} static video HTML pages in video/
 const sitemapXML = generateSitemapXML(videos);
 const sitemapPath = join(__dirname, 'sitemap.xml');
 writeFileSync(sitemapPath, sitemapXML, 'utf-8');
-console.log('✅ Generated sitemap.xml with 120 video schema mappings');
+console.log(`✅ Generated sitemap.xml with ${videos.length} video schema mappings`);
 
 // Print summary
 console.log('\n📁 File generated: js/data.js');

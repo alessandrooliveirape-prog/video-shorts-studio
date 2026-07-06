@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const category = this.dataset.category;
       if (category && category !== 'all') {
-        window.location.href = `category.html?cat=${category}`;
+        window.location.href = `/category?cat=${category}`;
       }
     });
   });
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (searchInput) {
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && searchInput.value.trim()) {
-        window.location.href = `category.html?q=${encodeURIComponent(searchInput.value.trim())}`;
+        window.location.href = `/category?q=${encodeURIComponent(searchInput.value.trim())}`;
       }
     });
   }

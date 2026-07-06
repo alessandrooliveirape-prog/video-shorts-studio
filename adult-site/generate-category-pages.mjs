@@ -26,6 +26,8 @@ const categories = [
   { id: 'trans', name: 'Trans', emoji: '⚧️', count: 892, desc: 'Hot trans women. Brazilian and international trans content. Shemales and transsexuals in exclusive HD videos.', keywords: 'trans, shemale, trans woman, trans onlyfans, transsexuals, trans videos' },
   { id: 'interracial', name: 'Interracial', emoji: '🌍', count: 634, desc: 'Interracial sex. Women and men of all races and colors. High-quality interracial content in HD and 4K.', keywords: 'interracial, interracial sex, mixed couples, black white, ebony, interracial videos' },
   { id: 'cosplay', name: 'Cosplay', emoji: '🎭', count: 567, desc: 'Adult cosplay and fantasy. Animated and game characters in adult versions. OnlyFans cosplay content in HD and 4K.', keywords: 'cosplay, adult cosplay, costume, anime cosplay, onlyfans cosplay, erotica cosplay' },
+  { id: 'brazilian-amateurs', name: 'Brazilian Amateurs', emoji: '🇧🇷', count: 50, desc: 'The best Brazilian amateur videos. Real homemade content, amateur recordings, webcam, and leaked OnlyFans. Brazilian amateur content in HD and 4K.', keywords: 'brazilian amateur, brazilian homemade, brazilian onlyfans, amateur brazil, homemade brazil, brazilian amateur video' },
+  { id: 'horny-grannies', name: 'Horny Grannies', emoji: '👵', count: 50, desc: 'The horniest grannies and mature women. Exclusive videos of hot mature women, stepmoms, and elderly ladies. Mature content in HD and 4K.', keywords: 'horny granny, hot mature woman, granny onlyfans, mature milf, horny stepmom, granny video' },
 ];
 
 const TEMPLATE = (cat) => `<!DOCTYPE html>
@@ -66,7 +68,31 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
     });
   </script>
 
-  <!-- Schema Markup -->
+  <!-- Schema Markup - Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PleasureHub",
+    "url": "https://pleasurehub.com",
+    "description": "Free adult entertainment portal.",
+    "foundingDate": "2024"
+  }
+  </script>
+
+  <!-- Schema Markup - BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pleasurehub.com/" },
+      { "@type": "ListItem", "position": 2, "name": "${cat.name}", "item": "https://pleasurehub.com/${cat.id}" }
+    ]
+  }
+  </script>
+
+  <!-- Schema Markup - CollectionPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,12 +106,46 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
     }
   }
   </script>
+
+  <!-- Schema Markup - FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best ${cat.name} content on PleasureHub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PleasureHub offers the best curated ${cat.name} adult videos in HD and 4K quality. Our collection features exclusive content from top creators and studios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is ${cat.name} content on PleasureHub free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all ${cat.name} videos on PleasureHub are completely free to watch. No registration or payment required. Browse our collection of ${cat.count}+ videos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often is new ${cat.name} content added?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We update our ${cat.name} category daily with fresh videos in HD and 4K quality. New content is added every day to keep your experience exciting."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- TOP BAR -->
   <header class="top-bar">
     <div class="top-bar-inner">
-      <a href="index.html" class="logo"><span class="logo-icon">P</span> PleasureHub</a>
+      <a href="/" class="logo"><span class="logo-icon">P</span> PleasureHub</a>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search videos..." aria-label="Search">
         <button type="button" aria-label="Search">
@@ -100,7 +160,7 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
         </button>
-        <a href="category.html" class="btn-primary">
+        <a href="/category" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
             <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
@@ -114,14 +174,17 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
   <!-- NAV -->
   <nav class="main-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-item"><span class="nav-icon">🔥</span> Trending</a>
-      <a href="category.html" class="nav-item"><span class="nav-icon">📂</span> All</a>
-      <a href="brazilian.html" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian</a>
-      <a href="milf.html" class="nav-item"><span class="nav-icon">🔥</span> MILF</a>
-      <a href="latina.html" class="nav-item"><span class="nav-icon">💃</span> Latina</a>
-      <a href="amateur.html" class="nav-item"><span class="nav-icon">📱</span> Amateur</a>
-      <a href="hentai.html" class="nav-item"><span class="nav-icon">🎨</span> Hentai</a>
-      <a href="lesbian.html" class="nav-item"><span class="nav-icon">💋</span> Lesbians</a>
+      <a href="/" class="nav-item"><span class="nav-icon">🔥</span> Trending</a>
+      <a href="/category" class="nav-item"><span class="nav-icon">📂</span> All</a>
+      <a href="/brazilian" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian</a>
+      <a href="/milf" class="nav-item"><span class="nav-icon">🔥</span> MILF</a>
+      <a href="/latina" class="nav-item"><span class="nav-icon">💃</span> Latina</a>
+      <a href="/amateur" class="nav-item"><span class="nav-icon">📱</span> Amateur</a>
+      <a href="/hentai" class="nav-item"><span class="nav-icon">🎨</span> Hentai</a>
+      <a href="/lesbian" class="nav-item"><span class="nav-icon">💋</span> Lesbians</a>
+      <a href="/brazilian-amateurs" class="nav-item"><span class="nav-icon">🇧🇷</span> Brazilian Amateurs</a>
+      <a href="/horny-grannies" class="nav-item"><span class="nav-icon">👵</span> Horny Grannies</a>
+      <a href="/blog" class="nav-item"><span class="nav-icon">📝</span> Blog</a>
     </div>
   </nav>
 
@@ -163,7 +226,7 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
       <div class="section-title">
         <span>${cat.emoji} ${cat.name} - Featured Videos</span>
         <span class="badge">${cat.count}+ videos</span>
-        <a href="category.html?cat=${cat.id}" class="see-all">See all →</a>
+        <a href="/category?cat=${cat.id}" class="see-all">See all →</a>
       </div>
       <div class="content-grid" id="categoryGrid">
         <!-- Populated by JS -->
@@ -205,7 +268,7 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
         </p>
         <p>
           PleasureHub respects copyright laws and all content is verified for DMCA compliance. For content removal 
-          requests, please visit our <a href="dmca.html" style="color:var(--accent-primary);">DMCA page</a>.
+          requests, please visit our <a href="/dmca" style="color:var(--accent-primary);">DMCA page</a>.
         </p>
 
         <h3 style="color:var(--text-primary);font-weight:700;margin:20px 0 8px;">Related keywords</h3>
@@ -221,27 +284,31 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo" style="margin-bottom:12px;display:inline-block;"><span class="logo-icon">P</span> PleasureHub</a>
+          <a href="/" class="logo" style="margin-bottom:12px;display:inline-block;"><span class="logo-icon">P</span> PleasureHub</a>
           <p>The largest free adult entertainment portal. Thousands of HD and 4K videos updated daily.</p>
         </div>
         <div class="footer-col">
           <h4>Categories</h4>
           <ul>
-            <li><a href="brazilian.html">Brazilian</a></li>
-            <li><a href="milf.html">MILF</a></li>
-            <li><a href="latina.html">Latina</a></li>
-            <li><a href="amateur.html">Amateur</a></li>
-            <li><a href="hentai.html">Hentai</a></li>
-            <li><a href="lesbian.html">Lesbians</a></li>
+            <li><a href="/brazilian">Brazilian</a></li>
+            <li><a href="/milf">MILF</a></li>
+            <li><a href="/latina">Latina</a></li>
+            <li><a href="/amateur">Amateur</a></li>
+            <li><a href="/hentai">Hentai</a></li>
+            <li><a href="/lesbian">Lesbians</a></li>
+            <li><a href="/brazilian-amateurs">Brazilian Amateurs</a></li>
+            <li><a href="/horny-grannies">Horny Grannies</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/about">About Us</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Site</h4>
           <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="dmca.html">DMCA / Removal</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/dmca">DMCA / Removal</a></li>
+            <li><a href="/contact">Contact Us</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -257,9 +324,9 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
       <div class="footer-bottom">
         <span>&copy; 2025 PleasureHub. All rights reserved. 18+</span>
         <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="dmca.html">DMCA</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/dmca">DMCA</a>
         </div>
       </div>
     </div>
@@ -281,10 +348,11 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
       
       videos.forEach(v => {
         const card = document.createElement('a');
-        card.href = 'video/' + v.id + '.html';
+        card.href = '/video/' + v.id;
         card.className = 'content-card';
         card.innerHTML = \`
           <div class="card-thumb" style="background: \${v.gradient};">
+            <img src="\${v.thumbnail}" alt="\${v.title.replace(/"/g, '\\"')}" class="card-thumb-img" loading="lazy" onerror="this.style.display='none'">
             <div class="card-gradient"></div>
             <span class="quality-badge">\${v.quality}</span>
             <span class="duration-badge">\${v.duration}</span>
