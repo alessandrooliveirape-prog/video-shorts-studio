@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/",
       "destination": "/adult-site/index.html"
+    },
+    {
+      "source": "/([^.]+)",
+      "destination": "/adult-site/$1.html"
+    },
+    {
+      "source": "/([^/.]+)/([^.]+)",
+      "destination": "/adult-site/$1/$2.html"
     },
     {
       "source": "/(.*)",
