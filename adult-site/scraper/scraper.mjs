@@ -186,10 +186,10 @@ function loadCurrentData() {
   
   try {
     const content = readFileSync(DATA_FILE, 'utf-8');
-    // Extrair vídeos atuais avaliando o SITE_DATA
-    const match = content.match(/videos:\s*\[([\s\S]*?)\],\s*\n\s*getVideosByCategory/);
+    // Extrair vídeos atuais avaliando o SITE_DATA (regex flexível para ambos os formatos)
+    const match = content.match(/videos:\s*\[([\s\S]*?)\],/);
     if (match) {
-      // Parse aproximado para contar
+      // Parse aproximado para contar (aceita qq estilo de aspas)
       const videoMatches = content.match(/\{[\s\S]*?id:\s*(\d+)[\s\S]*?\}/g);
       if (videoMatches) {
         const ids = videoMatches.map(m => {
@@ -611,14 +611,14 @@ async function runDailyUpdate(count = 2) {
       // Extrair dados do data.js avaliando no Node
       const dataContent = readFileSync(DATA_FILE, 'utf-8');
       
-      // Extrair array de vídeos usando regex
-      const videoMatches = dataContent.match(/\{[\s\S]*?id:\s*(\d+)[\s\S]*?embedUrl:\s*'[^']+'[\s\S]*?\}/g);
+      // Extrair array de vídeos usando regex (aceita aspas simples E duplas)
+      const videoMatches = dataContent.match(/\{[\s\S]*?id:\s*(\d+)[\s\S]*?embedUrl:\s*['"][^'"]+['"][\s\S]*?\}/g);
       if (videoMatches) {
         existingVideos = videoMatches.map((match, idx) => {
           const idMatch = match.match(/id:\s*(\d+)/);
-          const titleMatch = match.match(/title:\s*"([^"]+)"/);
-          const catMatch = match.match(/category:\s*'([^']+)'/);
-          const embedMatch = match.match(/embedUrl:\s*'([^']+)'/);
+          const titleMatch = match.match(/title:\s*["']([^"']+)["']/);
+          const catMatch = match.match(/category:\s*["']([^"']+)["']/);
+          const embedMatch = match.match(/embedUrl:\s*["']([^"']+)["']/);
           return {
             id: idMatch ? parseInt(idMatch[1]) : idx + 1,
             title: titleMatch ? titleMatch[1] : '',

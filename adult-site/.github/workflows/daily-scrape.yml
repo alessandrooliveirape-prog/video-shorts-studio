@@ -1,0 +1,54 @@
+name: Daily Content Update
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci || echo "No dependencies to install"
+      
+      - name: Run daily scraper (fetch new Eporner URLs)
+        run: node scraper/scraper.mjs --daily=3
+        continue-on-error: true
+      
+      - name: Regenerate static pages (if needed)
+        run: node generate-bulk-content.mjs || echo "Generator not available"
+        continue-on-error: true
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "bot@pleasurehub.app"
+          git config --local user.name "PleasureHub Bot"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "chore: daily content update [skip ci]" && \
+             git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
