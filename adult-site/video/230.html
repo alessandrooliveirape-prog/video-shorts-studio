@@ -1454,7 +1454,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     ],
     "uploadDate": "2025-01-22T08:00:00Z",
     "duration": "PT20M00S",
-    "embedUrl": "https://www.xvideos.com/embedframe/xv000230",
+    "embedUrl": "https://www.eporner.com/embed/JUFcc8SVmkv",
     "interactionStatistic": {
       "@type": "InteractionCounter",
       "interactionType": { "@type": "WatchAction" },
@@ -1514,8 +1514,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
               <img src="../img/thumbs/video-230.svg" alt="Amateur couple in bedroom - full homemade tape" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" loading="lazy">
               <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 2;"></div>
               <div style="text-align: center; position: relative; z-index: 3;">
-                <div class="big-play-btn" id="playBtn">▶</div>
-                <p style="margin-top: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Click to play the video</p>
+                <div class="big-play-btn" id="playBtn">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+                </div>
+                <p style="margin-top: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Click to play</p>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);" id="videoMetaPlayer">HD • 20:00</p>
               </div>
             </div>
@@ -1656,7 +1658,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         const placeholder = document.getElementById('playerPlaceholder');
         
         if (video.embedUrl && typeof EMBED !== 'undefined') {
-          EMBED.loadIntoPlayer('playerPlaceholder', video.embedUrl, video.title);
+          EMBED.loadIntoPlayer('playerPlaceholder', video.embedUrl, video.title, { autoplay: true });
           
           if (typeof ANALYTICS !== 'undefined') {
             ANALYTICS.trackVideoEvent('play', video);
@@ -1673,7 +1675,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         item.style.cssText = 'display: flex; gap: 10px; background: var(--bg-card); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s ease; cursor: pointer;';
         item.innerHTML = 
           '<div style="width: 120px; min-height: 68px; background: ' + v.gradient + '; flex-shrink: 0; position: relative; overflow: hidden;">' +
-            '<img src="../' + v.thumbnail + '" alt="' + v.title.replace(/'/g, '\'') + '" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display='none'">' +
+            '<img src="../' + v.thumbnail + '" alt="' + v.title.replace(/'/g, '\'') + '" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display=\'none\'">' +
             '<span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.85); padding: 1px 5px; border-radius: 3px; font-size: 0.65rem; font-weight: 600; z-index: 2;">' + v.duration + '</span>' +
           '</div>' +
           '<div style="padding: 8px 8px 8px 0; flex: 1;">' +

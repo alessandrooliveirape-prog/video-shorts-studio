@@ -1437,6 +1437,63 @@ button {
   to { opacity: 1; }
 }
 
+/* Player spinner */
+@keyframes ph-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ph-dash {
+  0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; }
+  50% { stroke-dasharray: 89, 200; stroke-dashoffset: -35px; }
+  100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; }
+}
+
+/* Player styles */
+.ph-player {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.ph-player video::-webkit-media-controls {
+  display: none !important;
+}
+
+.ph-btn:hover {
+  color: white !important;
+  background: rgba(255,255,255,0.1) !important;
+}
+
+.ph-progress-container:hover .ph-progress-bg {
+  height: 6px !important;
+}
+
+.ph-progress-container:hover .ph-progress-thumb {
+  opacity: 1 !important;
+}
+
+.ph-volume-wrap:hover .ph-volume-slider {
+  width: 64px !important;
+  overflow: visible !important;
+}
+
+/* Mobile player adjustments */
+@media (max-width: 768px) {
+  .ph-big-play-btn {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .ph-big-play-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .ph-time {
+    font-size: 0.7rem !important;
+  }
+  .ph-title-badge {
+    font-size: 0.75rem !important;
+    max-width: 60% !important;
+  }
+}
+
 
 
 /* Responsive: Video Layout */

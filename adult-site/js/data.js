@@ -45,7 +45,7 @@ const SITE_DATA = {
     date: "2025-01-08",
     gradient: "linear-gradient(135deg, hsl(137.508, 70%, 30%), hsl(177.508, 60%, 20%))",
     thumbnail: "img/thumbs/video-1.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000001"
+    embedUrl: "https://www.eporner.com/embed/zsbYVHJZfm3"
   },
   {
     id: 2,
@@ -65,7 +65,7 @@ const SITE_DATA = {
     date: "2025-04-28",
     gradient: "linear-gradient(135deg, hsl(275.016, 70%, 30%), hsl(315.016, 60%, 20%))",
     thumbnail: "img/thumbs/video-2.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000002"
+    embedUrl: "https://www.eporner.com/embed/IVCJatwVEOb"
   },
   {
     id: 3,
@@ -85,7 +85,7 @@ const SITE_DATA = {
     date: "2025-02-14",
     gradient: "linear-gradient(135deg, hsl(52.524, 70%, 30%), hsl(92.524, 60%, 20%))",
     thumbnail: "img/thumbs/video-3.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000003"
+    embedUrl: "https://www.eporner.com/embed/1VjZxhXY7J7"
   },
   {
     id: 4,
@@ -105,7 +105,7 @@ const SITE_DATA = {
     date: "2025-01-06",
     gradient: "linear-gradient(135deg, hsl(190.03200000000004, 70%, 30%), hsl(230.03200000000004, 60%, 20%))",
     thumbnail: "img/thumbs/video-4.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000004"
+    embedUrl: "https://www.eporner.com/embed/X16vFQCJH3L"
   },
   {
     id: 5,
@@ -125,7 +125,7 @@ const SITE_DATA = {
     date: "2025-02-01",
     gradient: "linear-gradient(135deg, hsl(327.5400000000001, 70%, 30%), hsl(7.540000000000077, 60%, 20%))",
     thumbnail: "img/thumbs/video-5.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000005"
+    embedUrl: "https://www.eporner.com/embed/SIvyYWtoeRA"
   },
   {
     id: 6,
@@ -145,7 +145,7 @@ const SITE_DATA = {
     date: "2025-04-08",
     gradient: "linear-gradient(135deg, hsl(105.048, 70%, 30%), hsl(145.048, 60%, 20%))",
     thumbnail: "img/thumbs/video-6.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000006"
+    embedUrl: "https://www.eporner.com/embed/ilCqEJUkATj"
   },
   {
     id: 7,
@@ -165,7 +165,7 @@ const SITE_DATA = {
     date: "2025-05-17",
     gradient: "linear-gradient(135deg, hsl(242.55600000000004, 70%, 30%), hsl(282.55600000000004, 60%, 20%))",
     thumbnail: "img/thumbs/video-7.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000007"
+    embedUrl: "https://www.eporner.com/embed/08HWMidc2YA"
   },
   {
     id: 8,
@@ -185,7 +185,7 @@ const SITE_DATA = {
     date: "2025-04-22",
     gradient: "linear-gradient(135deg, hsl(20.064000000000078, 70%, 30%), hsl(60.06400000000008, 60%, 20%))",
     thumbnail: "img/thumbs/video-8.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000008"
+    embedUrl: "https://www.eporner.com/embed/cLIbVNM95rS"
   },
   {
     id: 9,
@@ -205,7 +205,7 @@ const SITE_DATA = {
     date: "2025-03-05",
     gradient: "linear-gradient(135deg, hsl(157.57200000000012, 70%, 30%), hsl(197.57200000000012, 60%, 20%))",
     thumbnail: "img/thumbs/video-9.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000009"
+    embedUrl: "https://www.eporner.com/embed/ROU7ro90d0Q"
   },
   {
     id: 10,
@@ -225,7 +225,7 @@ const SITE_DATA = {
     date: "2025-05-13",
     gradient: "linear-gradient(135deg, hsl(295.08000000000015, 70%, 30%), hsl(335.08000000000015, 60%, 20%))",
     thumbnail: "img/thumbs/video-10.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000010"
+    embedUrl: "https://www.eporner.com/embed/OY088ckHd5M"
   },
   {
     id: 11,
@@ -245,7 +245,7 @@ const SITE_DATA = {
     date: "2025-02-23",
     gradient: "linear-gradient(135deg, hsl(72.58800000000019, 70%, 30%), hsl(112.58800000000019, 60%, 20%))",
     thumbnail: "img/thumbs/video-11.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000011"
+    embedUrl: "https://www.eporner.com/embed/bXPUzafPktH"
   },
   {
     id: 12,
@@ -265,7 +265,7 @@ const SITE_DATA = {
     date: "2025-05-19",
     gradient: "linear-gradient(135deg, hsl(210.096, 70%, 30%), hsl(250.096, 60%, 20%))",
     thumbnail: "img/thumbs/video-12.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000012"
+    embedUrl: "https://www.eporner.com/embed/Xhv3i9zLV0z"
   },
   {
     id: 13,
@@ -285,7 +285,7 @@ const SITE_DATA = {
     date: "2025-02-06",
     gradient: "linear-gradient(135deg, hsl(347.60400000000004, 70%, 30%), hsl(27.604000000000042, 60%, 20%))",
     thumbnail: "img/thumbs/video-13.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000013"
+    embedUrl: "https://www.eporner.com/embed/Hspe814Wt7q"
   },
   {
     id: 14,
@@ -305,7 +305,7 @@ const SITE_DATA = {
     date: "2025-01-18",
     gradient: "linear-gradient(135deg, hsl(125.11200000000008, 70%, 30%), hsl(165.11200000000008, 60%, 20%))",
     thumbnail: "img/thumbs/video-14.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000014"
+    embedUrl: "https://www.eporner.com/embed/Sena8bu8mPF"
   },
   {
     id: 15,
@@ -325,7 +325,7 @@ const SITE_DATA = {
     date: "2025-05-11",
     gradient: "linear-gradient(135deg, hsl(262.62000000000035, 70%, 30%), hsl(302.62000000000035, 60%, 20%))",
     thumbnail: "img/thumbs/video-15.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000015"
+    embedUrl: "https://www.eporner.com/embed/RtiblkAtoxR"
   },
   {
     id: 16,
@@ -345,7 +345,7 @@ const SITE_DATA = {
     date: "2025-03-23",
     gradient: "linear-gradient(135deg, hsl(40.128000000000156, 70%, 30%), hsl(80.12800000000016, 60%, 20%))",
     thumbnail: "img/thumbs/video-16.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000016"
+    embedUrl: "https://www.eporner.com/embed/fDxlwT3Cd9k"
   },
   {
     id: 17,
@@ -365,7 +365,7 @@ const SITE_DATA = {
     date: "2025-05-20",
     gradient: "linear-gradient(135deg, hsl(177.63599999999997, 70%, 30%), hsl(217.63599999999997, 60%, 20%))",
     thumbnail: "img/thumbs/video-17.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000017"
+    embedUrl: "https://www.eporner.com/embed/yLgHzLgd9qL"
   },
   {
     id: 18,
@@ -385,7 +385,7 @@ const SITE_DATA = {
     date: "2025-03-25",
     gradient: "linear-gradient(135deg, hsl(315.14400000000023, 70%, 30%), hsl(355.14400000000023, 60%, 20%))",
     thumbnail: "img/thumbs/video-18.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000018"
+    embedUrl: "https://www.eporner.com/embed/rJfly6xnyhK"
   },
   {
     id: 19,
@@ -405,7 +405,7 @@ const SITE_DATA = {
     date: "2025-01-23",
     gradient: "linear-gradient(135deg, hsl(92.65200000000004, 70%, 30%), hsl(132.65200000000004, 60%, 20%))",
     thumbnail: "img/thumbs/video-19.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000019"
+    embedUrl: "https://www.eporner.com/embed/UJhODmDI2WH"
   },
   {
     id: 20,
@@ -425,7 +425,7 @@ const SITE_DATA = {
     date: "2025-05-05",
     gradient: "linear-gradient(135deg, hsl(230.1600000000003, 70%, 30%), hsl(270.1600000000003, 60%, 20%))",
     thumbnail: "img/thumbs/video-20.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000020"
+    embedUrl: "https://www.eporner.com/embed/PxMOXjmzS1r"
   },
   {
     id: 21,
@@ -445,7 +445,7 @@ const SITE_DATA = {
     date: "2025-04-11",
     gradient: "linear-gradient(135deg, hsl(7.66800000000012, 70%, 30%), hsl(47.66800000000012, 60%, 20%))",
     thumbnail: "img/thumbs/video-21.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000021"
+    embedUrl: "https://www.eporner.com/embed/3InF3V5jAhv"
   },
   {
     id: 22,
@@ -465,7 +465,7 @@ const SITE_DATA = {
     date: "2025-01-26",
     gradient: "linear-gradient(135deg, hsl(145.17600000000039, 70%, 30%), hsl(185.17600000000039, 60%, 20%))",
     thumbnail: "img/thumbs/video-22.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000022"
+    embedUrl: "https://www.eporner.com/embed/l202DYqDy1L"
   },
   {
     id: 23,
@@ -485,7 +485,7 @@ const SITE_DATA = {
     date: "2025-03-28",
     gradient: "linear-gradient(135deg, hsl(282.6840000000002, 70%, 30%), hsl(322.6840000000002, 60%, 20%))",
     thumbnail: "img/thumbs/video-23.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000023"
+    embedUrl: "https://www.eporner.com/embed/fdc1B3SXD5s"
   },
   {
     id: 24,
@@ -505,7 +505,7 @@ const SITE_DATA = {
     date: "2025-03-16",
     gradient: "linear-gradient(135deg, hsl(60.19200000000001, 70%, 30%), hsl(100.19200000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-24.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000024"
+    embedUrl: "https://www.eporner.com/embed/d248B2I3nvM"
   },
   {
     id: 25,
@@ -525,7 +525,7 @@ const SITE_DATA = {
     date: "2025-03-22",
     gradient: "linear-gradient(135deg, hsl(197.70000000000027, 70%, 30%), hsl(237.70000000000027, 60%, 20%))",
     thumbnail: "img/thumbs/video-25.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000025"
+    embedUrl: "https://www.eporner.com/embed/E8YE4EW1nuP"
   },
   {
     id: 26,
@@ -545,7 +545,7 @@ const SITE_DATA = {
     date: "2025-01-12",
     gradient: "linear-gradient(135deg, hsl(335.2080000000001, 70%, 30%), hsl(15.208000000000084, 60%, 20%))",
     thumbnail: "img/thumbs/video-26.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000026"
+    embedUrl: "https://www.eporner.com/embed/MhfoMSVSXd4"
   },
   {
     id: 27,
@@ -565,7 +565,7 @@ const SITE_DATA = {
     date: "2025-02-27",
     gradient: "linear-gradient(135deg, hsl(112.71600000000035, 70%, 30%), hsl(152.71600000000035, 60%, 20%))",
     thumbnail: "img/thumbs/video-27.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000027"
+    embedUrl: "https://www.eporner.com/embed/dVMqQSlsyDL"
   },
   {
     id: 28,
@@ -585,7 +585,7 @@ const SITE_DATA = {
     date: "2025-05-24",
     gradient: "linear-gradient(135deg, hsl(250.22400000000016, 70%, 30%), hsl(290.22400000000016, 60%, 20%))",
     thumbnail: "img/thumbs/video-28.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000028"
+    embedUrl: "https://www.eporner.com/embed/cIO9vYhXDnX"
   },
   {
     id: 29,
@@ -605,7 +605,7 @@ const SITE_DATA = {
     date: "2025-03-24",
     gradient: "linear-gradient(135deg, hsl(27.732000000000426, 70%, 30%), hsl(67.73200000000043, 60%, 20%))",
     thumbnail: "img/thumbs/video-29.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000029"
+    embedUrl: "https://www.eporner.com/embed/vMTWyaS3CR2"
   },
   {
     id: 30,
@@ -625,7 +625,7 @@ const SITE_DATA = {
     date: "2025-03-20",
     gradient: "linear-gradient(135deg, hsl(165.2400000000007, 70%, 30%), hsl(205.2400000000007, 60%, 20%))",
     thumbnail: "img/thumbs/video-30.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000030"
+    embedUrl: "https://www.eporner.com/embed/vCib7VvBnke"
   },
   {
     id: 31,
@@ -645,7 +645,7 @@ const SITE_DATA = {
     date: "2025-03-12",
     gradient: "linear-gradient(135deg, hsl(302.7480000000005, 70%, 30%), hsl(342.7480000000005, 60%, 20%))",
     thumbnail: "img/thumbs/video-31.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000031"
+    embedUrl: "https://www.eporner.com/embed/ASBP5tpqa61"
   },
   {
     id: 32,
@@ -665,7 +665,7 @@ const SITE_DATA = {
     date: "2025-02-26",
     gradient: "linear-gradient(135deg, hsl(80.25600000000031, 70%, 30%), hsl(120.25600000000031, 60%, 20%))",
     thumbnail: "img/thumbs/video-32.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000032"
+    embedUrl: "https://www.eporner.com/embed/S9g7Ar6JWQE"
   },
   {
     id: 33,
@@ -685,7 +685,7 @@ const SITE_DATA = {
     date: "2025-05-18",
     gradient: "linear-gradient(135deg, hsl(217.76400000000012, 70%, 30%), hsl(257.7640000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-33.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000033"
+    embedUrl: "https://www.eporner.com/embed/7ZMa1reJLKT"
   },
   {
     id: 34,
@@ -705,7 +705,7 @@ const SITE_DATA = {
     date: "2025-05-02",
     gradient: "linear-gradient(135deg, hsl(355.27199999999993, 70%, 30%), hsl(35.271999999999935, 60%, 20%))",
     thumbnail: "img/thumbs/video-34.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000034"
+    embedUrl: "https://www.eporner.com/embed/QbD27dEkyWj"
   },
   {
     id: 35,
@@ -725,7 +725,7 @@ const SITE_DATA = {
     date: "2025-05-24",
     gradient: "linear-gradient(135deg, hsl(132.78000000000065, 70%, 30%), hsl(172.78000000000065, 60%, 20%))",
     thumbnail: "img/thumbs/video-35.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000035"
+    embedUrl: "https://www.eporner.com/embed/aZn61wj9xPy"
   },
   {
     id: 36,
@@ -745,7 +745,7 @@ const SITE_DATA = {
     date: "2025-01-04",
     gradient: "linear-gradient(135deg, hsl(270.28800000000047, 70%, 30%), hsl(310.28800000000047, 60%, 20%))",
     thumbnail: "img/thumbs/video-36.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000036"
+    embedUrl: "https://www.eporner.com/embed/Wgy6rxNy31Y"
   },
   {
     id: 37,
@@ -765,7 +765,7 @@ const SITE_DATA = {
     date: "2025-05-15",
     gradient: "linear-gradient(135deg, hsl(47.79600000000028, 70%, 30%), hsl(87.79600000000028, 60%, 20%))",
     thumbnail: "img/thumbs/video-37.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000037"
+    embedUrl: "https://www.eporner.com/embed/e5lkwvuOB6j"
   },
   {
     id: 38,
@@ -785,7 +785,7 @@ const SITE_DATA = {
     date: "2025-05-03",
     gradient: "linear-gradient(135deg, hsl(185.3040000000001, 70%, 30%), hsl(225.3040000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-38.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000038"
+    embedUrl: "https://www.eporner.com/embed/hiVgcPK7A1V"
   },
   {
     id: 39,
@@ -805,7 +805,7 @@ const SITE_DATA = {
     date: "2025-01-15",
     gradient: "linear-gradient(135deg, hsl(322.8120000000008, 70%, 30%), hsl(2.8120000000008076, 60%, 20%))",
     thumbnail: "img/thumbs/video-39.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000039"
+    embedUrl: "https://www.eporner.com/embed/zJJNgK2lfe0"
   },
   {
     id: 40,
@@ -825,7 +825,7 @@ const SITE_DATA = {
     date: "2025-04-02",
     gradient: "linear-gradient(135deg, hsl(100.32000000000062, 70%, 30%), hsl(140.32000000000062, 60%, 20%))",
     thumbnail: "img/thumbs/video-40.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000040"
+    embedUrl: "https://www.eporner.com/embed/IQRUnBzzfko"
   },
   {
     id: 41,
@@ -845,7 +845,7 @@ const SITE_DATA = {
     date: "2025-02-20",
     gradient: "linear-gradient(135deg, hsl(237.82800000000043, 70%, 30%), hsl(277.82800000000043, 60%, 20%))",
     thumbnail: "img/thumbs/video-41.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000041"
+    embedUrl: "https://www.eporner.com/embed/sVRaLdbuIcy"
   },
   {
     id: 42,
@@ -865,7 +865,7 @@ const SITE_DATA = {
     date: "2025-02-09",
     gradient: "linear-gradient(135deg, hsl(15.33600000000024, 70%, 30%), hsl(55.33600000000024, 60%, 20%))",
     thumbnail: "img/thumbs/video-42.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000042"
+    embedUrl: "https://www.eporner.com/embed/EkqoGTaVbRg"
   },
   {
     id: 43,
@@ -885,7 +885,7 @@ const SITE_DATA = {
     date: "2025-03-23",
     gradient: "linear-gradient(135deg, hsl(152.84400000000005, 70%, 30%), hsl(192.84400000000005, 60%, 20%))",
     thumbnail: "img/thumbs/video-43.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000043"
+    embedUrl: "https://www.eporner.com/embed/8so2yGQmxI4"
   },
   {
     id: 44,
@@ -905,7 +905,7 @@ const SITE_DATA = {
     date: "2025-04-26",
     gradient: "linear-gradient(135deg, hsl(290.35200000000077, 70%, 30%), hsl(330.35200000000077, 60%, 20%))",
     thumbnail: "img/thumbs/video-44.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000044"
+    embedUrl: "https://www.eporner.com/embed/4hY5hQjh1P8"
   },
   {
     id: 45,
@@ -925,7 +925,7 @@ const SITE_DATA = {
     date: "2025-02-09",
     gradient: "linear-gradient(135deg, hsl(67.86000000000058, 70%, 30%), hsl(107.86000000000058, 60%, 20%))",
     thumbnail: "img/thumbs/video-45.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000045"
+    embedUrl: "https://www.eporner.com/embed/cC1fpKYM3tS"
   },
   {
     id: 46,
@@ -945,7 +945,7 @@ const SITE_DATA = {
     date: "2025-02-24",
     gradient: "linear-gradient(135deg, hsl(205.3680000000004, 70%, 30%), hsl(245.3680000000004, 60%, 20%))",
     thumbnail: "img/thumbs/video-46.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000046"
+    embedUrl: "https://www.eporner.com/embed/TXpKMzcU8H0"
   },
   {
     id: 47,
@@ -965,7 +965,7 @@ const SITE_DATA = {
     date: "2025-02-10",
     gradient: "linear-gradient(135deg, hsl(342.8760000000002, 70%, 30%), hsl(22.876000000000204, 60%, 20%))",
     thumbnail: "img/thumbs/video-47.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000047"
+    embedUrl: "https://www.eporner.com/embed/LuuOOaqroIV"
   },
   {
     id: 48,
@@ -985,7 +985,7 @@ const SITE_DATA = {
     date: "2025-05-14",
     gradient: "linear-gradient(135deg, hsl(120.38400000000001, 70%, 30%), hsl(160.38400000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-48.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000048"
+    embedUrl: "https://www.eporner.com/embed/jGTHjk74W97"
   },
   {
     id: 49,
@@ -1005,7 +1005,7 @@ const SITE_DATA = {
     date: "2025-05-04",
     gradient: "linear-gradient(135deg, hsl(257.89200000000073, 70%, 30%), hsl(297.89200000000073, 60%, 20%))",
     thumbnail: "img/thumbs/video-49.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000049"
+    embedUrl: "https://www.eporner.com/embed/V95Fcl3h5uT"
   },
   {
     id: 50,
@@ -1025,7 +1025,7 @@ const SITE_DATA = {
     date: "2025-03-15",
     gradient: "linear-gradient(135deg, hsl(35.400000000000546, 70%, 30%), hsl(75.40000000000055, 60%, 20%))",
     thumbnail: "img/thumbs/video-50.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000050"
+    embedUrl: "https://www.eporner.com/embed/lR9M6WyIn9k"
   },
   {
     id: 51,
@@ -1045,7 +1045,7 @@ const SITE_DATA = {
     date: "2025-04-07",
     gradient: "linear-gradient(135deg, hsl(172.90800000000036, 70%, 30%), hsl(212.90800000000036, 60%, 20%))",
     thumbnail: "img/thumbs/video-51.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000051"
+    embedUrl: "https://www.eporner.com/embed/VLpSCblxFNw"
   },
   {
     id: 52,
@@ -1065,7 +1065,7 @@ const SITE_DATA = {
     date: "2025-02-06",
     gradient: "linear-gradient(135deg, hsl(310.41600000000017, 70%, 30%), hsl(350.41600000000017, 60%, 20%))",
     thumbnail: "img/thumbs/video-52.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000052"
+    embedUrl: "https://www.eporner.com/embed/xpLefCTPkLO"
   },
   {
     id: 53,
@@ -1085,7 +1085,7 @@ const SITE_DATA = {
     date: "2025-04-20",
     gradient: "linear-gradient(135deg, hsl(87.92400000000089, 70%, 30%), hsl(127.92400000000089, 60%, 20%))",
     thumbnail: "img/thumbs/video-53.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000053"
+    embedUrl: "https://www.eporner.com/embed/KUVJk3WcYoK"
   },
   {
     id: 54,
@@ -1105,7 +1105,7 @@ const SITE_DATA = {
     date: "2025-05-06",
     gradient: "linear-gradient(135deg, hsl(225.4320000000007, 70%, 30%), hsl(265.4320000000007, 60%, 20%))",
     thumbnail: "img/thumbs/video-54.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000054"
+    embedUrl: "https://www.eporner.com/embed/mrHwNZ9UUlu"
   },
   {
     id: 55,
@@ -1125,7 +1125,7 @@ const SITE_DATA = {
     date: "2025-04-21",
     gradient: "linear-gradient(135deg, hsl(2.9400000000005093, 70%, 30%), hsl(42.94000000000051, 60%, 20%))",
     thumbnail: "img/thumbs/video-55.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000055"
+    embedUrl: "https://www.eporner.com/embed/L1sp51MJ1S1"
   },
   {
     id: 56,
@@ -1145,7 +1145,7 @@ const SITE_DATA = {
     date: "2025-05-08",
     gradient: "linear-gradient(135deg, hsl(140.44800000000032, 70%, 30%), hsl(180.44800000000032, 60%, 20%))",
     thumbnail: "img/thumbs/video-56.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000056"
+    embedUrl: "https://www.eporner.com/embed/J6lQ7KUx6wb"
   },
   {
     id: 57,
@@ -1165,7 +1165,7 @@ const SITE_DATA = {
     date: "2025-05-18",
     gradient: "linear-gradient(135deg, hsl(277.95600000000013, 70%, 30%), hsl(317.95600000000013, 60%, 20%))",
     thumbnail: "img/thumbs/video-57.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000057"
+    embedUrl: "https://www.eporner.com/embed/sY3KrlYanyk"
   },
   {
     id: 58,
@@ -1185,7 +1185,7 @@ const SITE_DATA = {
     date: "2025-04-04",
     gradient: "linear-gradient(135deg, hsl(55.46400000000085, 70%, 30%), hsl(95.46400000000085, 60%, 20%))",
     thumbnail: "img/thumbs/video-58.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000058"
+    embedUrl: "https://www.eporner.com/embed/TrOd9u6sgBE"
   },
   {
     id: 59,
@@ -1205,7 +1205,7 @@ const SITE_DATA = {
     date: "2025-05-15",
     gradient: "linear-gradient(135deg, hsl(192.97200000000066, 70%, 30%), hsl(232.97200000000066, 60%, 20%))",
     thumbnail: "img/thumbs/video-59.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000059"
+    embedUrl: "https://www.eporner.com/embed/S5gFceCfDQX"
   },
   {
     id: 60,
@@ -1225,7 +1225,7 @@ const SITE_DATA = {
     date: "2025-03-02",
     gradient: "linear-gradient(135deg, hsl(330.4800000000014, 70%, 30%), hsl(10.480000000001382, 60%, 20%))",
     thumbnail: "img/thumbs/video-60.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000060"
+    embedUrl: "https://www.eporner.com/embed/C6LJDjEIuJd"
   },
   {
     id: 61,
@@ -1245,7 +1245,7 @@ const SITE_DATA = {
     date: "2025-02-12",
     gradient: "linear-gradient(135deg, hsl(107.9880000000012, 70%, 30%), hsl(147.9880000000012, 60%, 20%))",
     thumbnail: "img/thumbs/video-61.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000061"
+    embedUrl: "https://www.eporner.com/embed/AOQZ2jVKjKJ"
   },
   {
     id: 62,
@@ -1265,7 +1265,7 @@ const SITE_DATA = {
     date: "2025-03-14",
     gradient: "linear-gradient(135deg, hsl(245.496000000001, 70%, 30%), hsl(285.496000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-62.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000062"
+    embedUrl: "https://www.eporner.com/embed/JilmEtmF0ND"
   },
   {
     id: 63,
@@ -1285,7 +1285,7 @@ const SITE_DATA = {
     date: "2025-03-12",
     gradient: "linear-gradient(135deg, hsl(23.004000000000815, 70%, 30%), hsl(63.004000000000815, 60%, 20%))",
     thumbnail: "img/thumbs/video-63.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000063"
+    embedUrl: "https://www.eporner.com/embed/UL9MFl4PJ6z"
   },
   {
     id: 64,
@@ -1305,7 +1305,7 @@ const SITE_DATA = {
     date: "2025-02-03",
     gradient: "linear-gradient(135deg, hsl(160.51200000000063, 70%, 30%), hsl(200.51200000000063, 60%, 20%))",
     thumbnail: "img/thumbs/video-64.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000064"
+    embedUrl: "https://www.eporner.com/embed/KwK0PelGYbq"
   },
   {
     id: 65,
@@ -1325,7 +1325,7 @@ const SITE_DATA = {
     date: "2025-03-14",
     gradient: "linear-gradient(135deg, hsl(298.02000000000044, 70%, 30%), hsl(338.02000000000044, 60%, 20%))",
     thumbnail: "img/thumbs/video-65.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000065"
+    embedUrl: "https://www.eporner.com/embed/d36aO2fO2C6"
   },
   {
     id: 66,
@@ -1345,7 +1345,7 @@ const SITE_DATA = {
     date: "2025-03-02",
     gradient: "linear-gradient(135deg, hsl(75.52800000000025, 70%, 30%), hsl(115.52800000000025, 60%, 20%))",
     thumbnail: "img/thumbs/video-66.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000066"
+    embedUrl: "https://www.eporner.com/embed/YBOzFkFA80p"
   },
   {
     id: 67,
@@ -1365,7 +1365,7 @@ const SITE_DATA = {
     date: "2025-01-08",
     gradient: "linear-gradient(135deg, hsl(213.03600000000006, 70%, 30%), hsl(253.03600000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-67.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000067"
+    embedUrl: "https://www.eporner.com/embed/IQYeHhLWfdi"
   },
   {
     id: 68,
@@ -1385,7 +1385,7 @@ const SITE_DATA = {
     date: "2025-04-14",
     gradient: "linear-gradient(135deg, hsl(350.54399999999987, 70%, 30%), hsl(30.54399999999987, 60%, 20%))",
     thumbnail: "img/thumbs/video-68.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000068"
+    embedUrl: "https://www.eporner.com/embed/nASi96ZhE9J"
   },
   {
     id: 69,
@@ -1405,7 +1405,7 @@ const SITE_DATA = {
     date: "2025-01-11",
     gradient: "linear-gradient(135deg, hsl(128.0520000000015, 70%, 30%), hsl(168.0520000000015, 60%, 20%))",
     thumbnail: "img/thumbs/video-69.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000069"
+    embedUrl: "https://www.eporner.com/embed/XanwewaJzvD"
   },
   {
     id: 70,
@@ -1425,7 +1425,7 @@ const SITE_DATA = {
     date: "2025-03-11",
     gradient: "linear-gradient(135deg, hsl(265.5600000000013, 70%, 30%), hsl(305.5600000000013, 60%, 20%))",
     thumbnail: "img/thumbs/video-70.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000070"
+    embedUrl: "https://www.eporner.com/embed/YZ5QUXfTzss"
   },
   {
     id: 71,
@@ -1445,7 +1445,7 @@ const SITE_DATA = {
     date: "2025-04-13",
     gradient: "linear-gradient(135deg, hsl(43.06800000000112, 70%, 30%), hsl(83.06800000000112, 60%, 20%))",
     thumbnail: "img/thumbs/video-71.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000071"
+    embedUrl: "https://www.eporner.com/embed/LCneB8GlPVA"
   },
   {
     id: 72,
@@ -1465,7 +1465,7 @@ const SITE_DATA = {
     date: "2025-04-10",
     gradient: "linear-gradient(135deg, hsl(180.57600000000093, 70%, 30%), hsl(220.57600000000093, 60%, 20%))",
     thumbnail: "img/thumbs/video-72.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000072"
+    embedUrl: "https://www.eporner.com/embed/bwC3gktSWO7"
   },
   {
     id: 73,
@@ -1485,7 +1485,7 @@ const SITE_DATA = {
     date: "2025-03-23",
     gradient: "linear-gradient(135deg, hsl(318.08400000000074, 70%, 30%), hsl(358.08400000000074, 60%, 20%))",
     thumbnail: "img/thumbs/video-73.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000073"
+    embedUrl: "https://www.eporner.com/embed/tXYAa8OM7r5"
   },
   {
     id: 74,
@@ -1505,7 +1505,7 @@ const SITE_DATA = {
     date: "2025-04-16",
     gradient: "linear-gradient(135deg, hsl(95.59200000000055, 70%, 30%), hsl(135.59200000000055, 60%, 20%))",
     thumbnail: "img/thumbs/video-74.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000074"
+    embedUrl: "https://www.eporner.com/embed/OMXCo6AtQux"
   },
   {
     id: 75,
@@ -1525,7 +1525,7 @@ const SITE_DATA = {
     date: "2025-04-14",
     gradient: "linear-gradient(135deg, hsl(233.10000000000036, 70%, 30%), hsl(273.10000000000036, 60%, 20%))",
     thumbnail: "img/thumbs/video-75.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000075"
+    embedUrl: "https://www.eporner.com/embed/2wEUsCAtff0"
   },
   {
     id: 76,
@@ -1545,7 +1545,7 @@ const SITE_DATA = {
     date: "2025-02-17",
     gradient: "linear-gradient(135deg, hsl(10.608000000000175, 70%, 30%), hsl(50.608000000000175, 60%, 20%))",
     thumbnail: "img/thumbs/video-76.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000076"
+    embedUrl: "https://www.eporner.com/embed/3BcWGJ6Bils"
   },
   {
     id: 77,
@@ -1565,7 +1565,7 @@ const SITE_DATA = {
     date: "2025-03-19",
     gradient: "linear-gradient(135deg, hsl(148.11599999999999, 70%, 30%), hsl(188.11599999999999, 60%, 20%))",
     thumbnail: "img/thumbs/video-77.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000077"
+    embedUrl: "https://www.eporner.com/embed/4ab712208qQ"
   },
   {
     id: 78,
@@ -1585,7 +1585,7 @@ const SITE_DATA = {
     date: "2025-02-02",
     gradient: "linear-gradient(135deg, hsl(285.6240000000016, 70%, 30%), hsl(325.6240000000016, 60%, 20%))",
     thumbnail: "img/thumbs/video-78.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000078"
+    embedUrl: "https://www.eporner.com/embed/pDhAqKVZatv"
   },
   {
     id: 79,
@@ -1605,7 +1605,7 @@ const SITE_DATA = {
     date: "2025-05-18",
     gradient: "linear-gradient(135deg, hsl(63.132000000001426, 70%, 30%), hsl(103.13200000000143, 60%, 20%))",
     thumbnail: "img/thumbs/video-79.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000079"
+    embedUrl: "https://www.eporner.com/embed/i1PTvJeMv5C"
   },
   {
     id: 80,
@@ -1625,7 +1625,7 @@ const SITE_DATA = {
     date: "2025-03-16",
     gradient: "linear-gradient(135deg, hsl(200.64000000000124, 70%, 30%), hsl(240.64000000000124, 60%, 20%))",
     thumbnail: "img/thumbs/video-80.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000080"
+    embedUrl: "https://www.eporner.com/embed/MrYlCgxm8mJ"
   },
   {
     id: 81,
@@ -1645,7 +1645,7 @@ const SITE_DATA = {
     date: "2025-03-19",
     gradient: "linear-gradient(135deg, hsl(338.14800000000105, 70%, 30%), hsl(18.148000000001048, 60%, 20%))",
     thumbnail: "img/thumbs/video-81.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000081"
+    embedUrl: "https://www.eporner.com/embed/POtDdVJVjpj"
   },
   {
     id: 82,
@@ -1665,7 +1665,7 @@ const SITE_DATA = {
     date: "2025-03-09",
     gradient: "linear-gradient(135deg, hsl(115.65600000000086, 70%, 30%), hsl(155.65600000000086, 60%, 20%))",
     thumbnail: "img/thumbs/video-82.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000082"
+    embedUrl: "https://www.eporner.com/embed/4rqEC3WBE2O"
   },
   {
     id: 83,
@@ -1685,7 +1685,7 @@ const SITE_DATA = {
     date: "2025-01-24",
     gradient: "linear-gradient(135deg, hsl(253.16400000000067, 70%, 30%), hsl(293.16400000000067, 60%, 20%))",
     thumbnail: "img/thumbs/video-83.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000083"
+    embedUrl: "https://www.eporner.com/embed/k7PmEXq59Sf"
   },
   {
     id: 84,
@@ -1705,7 +1705,7 @@ const SITE_DATA = {
     date: "2025-01-15",
     gradient: "linear-gradient(135deg, hsl(30.67200000000048, 70%, 30%), hsl(70.67200000000048, 60%, 20%))",
     thumbnail: "img/thumbs/video-84.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000084"
+    embedUrl: "https://www.eporner.com/embed/RmOn8Ode1p1"
   },
   {
     id: 85,
@@ -1725,7 +1725,7 @@ const SITE_DATA = {
     date: "2025-05-06",
     gradient: "linear-gradient(135deg, hsl(168.1800000000003, 70%, 30%), hsl(208.1800000000003, 60%, 20%))",
     thumbnail: "img/thumbs/video-85.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000085"
+    embedUrl: "https://www.eporner.com/embed/1BEov6ovLfj"
   },
   {
     id: 86,
@@ -1745,7 +1745,7 @@ const SITE_DATA = {
     date: "2025-05-20",
     gradient: "linear-gradient(135deg, hsl(305.6880000000001, 70%, 30%), hsl(345.6880000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-86.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000086"
+    embedUrl: "https://www.eporner.com/embed/vzh7Rm6jK3d"
   },
   {
     id: 87,
@@ -1765,7 +1765,7 @@ const SITE_DATA = {
     date: "2025-02-03",
     gradient: "linear-gradient(135deg, hsl(83.19600000000173, 70%, 30%), hsl(123.19600000000173, 60%, 20%))",
     thumbnail: "img/thumbs/video-87.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000087"
+    embedUrl: "https://www.eporner.com/embed/HEF4bHzPvDs"
   },
   {
     id: 88,
@@ -1785,7 +1785,7 @@ const SITE_DATA = {
     date: "2025-05-02",
     gradient: "linear-gradient(135deg, hsl(220.70400000000154, 70%, 30%), hsl(260.70400000000154, 60%, 20%))",
     thumbnail: "img/thumbs/video-88.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000088"
+    embedUrl: "https://www.eporner.com/embed/Fz4torEFDXo"
   },
   {
     id: 89,
@@ -1805,7 +1805,7 @@ const SITE_DATA = {
     date: "2025-01-24",
     gradient: "linear-gradient(135deg, hsl(358.21200000000135, 70%, 30%), hsl(38.21200000000135, 60%, 20%))",
     thumbnail: "img/thumbs/video-89.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000089"
+    embedUrl: "https://www.eporner.com/embed/t9bujcznuuH"
   },
   {
     id: 90,
@@ -1825,7 +1825,7 @@ const SITE_DATA = {
     date: "2025-04-17",
     gradient: "linear-gradient(135deg, hsl(135.72000000000116, 70%, 30%), hsl(175.72000000000116, 60%, 20%))",
     thumbnail: "img/thumbs/video-90.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000090"
+    embedUrl: "https://www.eporner.com/embed/ixbT5SJSn7b"
   },
   {
     id: 91,
@@ -1845,7 +1845,7 @@ const SITE_DATA = {
     date: "2025-02-26",
     gradient: "linear-gradient(135deg, hsl(273.228000000001, 70%, 30%), hsl(313.228000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-91.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000091"
+    embedUrl: "https://www.eporner.com/embed/kEMoIaMSs9D"
   },
   {
     id: 92,
@@ -1865,7 +1865,7 @@ const SITE_DATA = {
     date: "2025-04-03",
     gradient: "linear-gradient(135deg, hsl(50.736000000000786, 70%, 30%), hsl(90.73600000000079, 60%, 20%))",
     thumbnail: "img/thumbs/video-92.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000092"
+    embedUrl: "https://www.eporner.com/embed/9KbLWGxxYvb"
   },
   {
     id: 93,
@@ -1885,7 +1885,7 @@ const SITE_DATA = {
     date: "2025-01-15",
     gradient: "linear-gradient(135deg, hsl(188.2440000000006, 70%, 30%), hsl(228.2440000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-93.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000093"
+    embedUrl: "https://www.eporner.com/embed/n0oansjAnsJ"
   },
   {
     id: 94,
@@ -1905,7 +1905,7 @@ const SITE_DATA = {
     date: "2025-02-17",
     gradient: "linear-gradient(135deg, hsl(325.7520000000004, 70%, 30%), hsl(5.7520000000004075, 60%, 20%))",
     thumbnail: "img/thumbs/video-94.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000094"
+    embedUrl: "https://www.eporner.com/embed/y3UwmNEUPk9"
   },
   {
     id: 95,
@@ -1925,7 +1925,7 @@ const SITE_DATA = {
     date: "2025-03-01",
     gradient: "linear-gradient(135deg, hsl(103.26000000000022, 70%, 30%), hsl(143.26000000000022, 60%, 20%))",
     thumbnail: "img/thumbs/video-95.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000095"
+    embedUrl: "https://www.eporner.com/embed/ogO71Yqarq1"
   },
   {
     id: 96,
@@ -1945,7 +1945,7 @@ const SITE_DATA = {
     date: "2025-03-01",
     gradient: "linear-gradient(135deg, hsl(240.76800000000003, 70%, 30%), hsl(280.76800000000003, 60%, 20%))",
     thumbnail: "img/thumbs/video-96.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000096"
+    embedUrl: "https://www.eporner.com/embed/dOZMDjH0F9Y"
   },
   {
     id: 97,
@@ -1965,7 +1965,7 @@ const SITE_DATA = {
     date: "2025-01-28",
     gradient: "linear-gradient(135deg, hsl(18.27600000000166, 70%, 30%), hsl(58.27600000000166, 60%, 20%))",
     thumbnail: "img/thumbs/video-97.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000097"
+    embedUrl: "https://www.eporner.com/embed/Mtlj4FPPPp9"
   },
   {
     id: 98,
@@ -1985,7 +1985,7 @@ const SITE_DATA = {
     date: "2025-01-15",
     gradient: "linear-gradient(135deg, hsl(155.78400000000147, 70%, 30%), hsl(195.78400000000147, 60%, 20%))",
     thumbnail: "img/thumbs/video-98.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000098"
+    embedUrl: "https://www.eporner.com/embed/xE3jF6YECJ4"
   },
   {
     id: 99,
@@ -2005,7 +2005,7 @@ const SITE_DATA = {
     date: "2025-04-20",
     gradient: "linear-gradient(135deg, hsl(293.2920000000013, 70%, 30%), hsl(333.2920000000013, 60%, 20%))",
     thumbnail: "img/thumbs/video-99.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000099"
+    embedUrl: "https://www.eporner.com/embed/z5TQmUi9Nl8"
   },
   {
     id: 100,
@@ -2025,7 +2025,7 @@ const SITE_DATA = {
     date: "2025-02-21",
     gradient: "linear-gradient(135deg, hsl(70.80000000000109, 70%, 30%), hsl(110.80000000000109, 60%, 20%))",
     thumbnail: "img/thumbs/video-100.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000100"
+    embedUrl: "https://www.eporner.com/embed/SeJyhephFN1"
   },
   {
     id: 101,
@@ -2045,7 +2045,7 @@ const SITE_DATA = {
     date: "2025-05-12",
     gradient: "linear-gradient(135deg, hsl(208.3080000000009, 70%, 30%), hsl(248.3080000000009, 60%, 20%))",
     thumbnail: "img/thumbs/video-101.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000101"
+    embedUrl: "https://www.eporner.com/embed/rUeRe1d11gw"
   },
   {
     id: 102,
@@ -2065,7 +2065,7 @@ const SITE_DATA = {
     date: "2025-01-10",
     gradient: "linear-gradient(135deg, hsl(345.8160000000007, 70%, 30%), hsl(25.816000000000713, 60%, 20%))",
     thumbnail: "img/thumbs/video-102.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000102"
+    embedUrl: "https://www.eporner.com/embed/XNUt0XhvzDG"
   },
   {
     id: 103,
@@ -2085,7 +2085,7 @@ const SITE_DATA = {
     date: "2025-02-25",
     gradient: "linear-gradient(135deg, hsl(123.32400000000052, 70%, 30%), hsl(163.32400000000052, 60%, 20%))",
     thumbnail: "img/thumbs/video-103.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000103"
+    embedUrl: "https://www.eporner.com/embed/4Foet5uNknd"
   },
   {
     id: 104,
@@ -2105,7 +2105,7 @@ const SITE_DATA = {
     date: "2025-04-09",
     gradient: "linear-gradient(135deg, hsl(260.83200000000033, 70%, 30%), hsl(300.83200000000033, 60%, 20%))",
     thumbnail: "img/thumbs/video-104.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000104"
+    embedUrl: "https://www.eporner.com/embed/mMZWQ6tLjs9"
   },
   {
     id: 105,
@@ -2125,7 +2125,7 @@ const SITE_DATA = {
     date: "2025-01-14",
     gradient: "linear-gradient(135deg, hsl(38.340000000000146, 70%, 30%), hsl(78.34000000000015, 60%, 20%))",
     thumbnail: "img/thumbs/video-105.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000105"
+    embedUrl: "https://www.eporner.com/embed/U5mofnA1tRQ"
   },
   {
     id: 106,
@@ -2145,7 +2145,7 @@ const SITE_DATA = {
     date: "2025-05-10",
     gradient: "linear-gradient(135deg, hsl(175.84800000000178, 70%, 30%), hsl(215.84800000000178, 60%, 20%))",
     thumbnail: "img/thumbs/video-106.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000106"
+    embedUrl: "https://www.eporner.com/embed/AMtehbBMQRe"
   },
   {
     id: 107,
@@ -2165,7 +2165,7 @@ const SITE_DATA = {
     date: "2025-03-19",
     gradient: "linear-gradient(135deg, hsl(313.3560000000016, 70%, 30%), hsl(353.3560000000016, 60%, 20%))",
     thumbnail: "img/thumbs/video-107.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000107"
+    embedUrl: "https://www.eporner.com/embed/ZGQKynZX8gZ"
   },
   {
     id: 108,
@@ -2185,7 +2185,7 @@ const SITE_DATA = {
     date: "2025-01-26",
     gradient: "linear-gradient(135deg, hsl(90.8640000000014, 70%, 30%), hsl(130.8640000000014, 60%, 20%))",
     thumbnail: "img/thumbs/video-108.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000108"
+    embedUrl: "https://www.eporner.com/embed/mXV9rEYD6x5"
   },
   {
     id: 109,
@@ -2205,7 +2205,7 @@ const SITE_DATA = {
     date: "2025-03-10",
     gradient: "linear-gradient(135deg, hsl(228.3720000000012, 70%, 30%), hsl(268.3720000000012, 60%, 20%))",
     thumbnail: "img/thumbs/video-109.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000109"
+    embedUrl: "https://www.eporner.com/embed/HVBUwNrStEs"
   },
   {
     id: 110,
@@ -2225,7 +2225,7 @@ const SITE_DATA = {
     date: "2025-03-22",
     gradient: "linear-gradient(135deg, hsl(5.880000000001019, 70%, 30%), hsl(45.88000000000102, 60%, 20%))",
     thumbnail: "img/thumbs/video-110.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000110"
+    embedUrl: "https://www.eporner.com/embed/nhx4Vl6tq0R"
   },
   {
     id: 111,
@@ -2245,7 +2245,7 @@ const SITE_DATA = {
     date: "2025-01-25",
     gradient: "linear-gradient(135deg, hsl(143.38800000000083, 70%, 30%), hsl(183.38800000000083, 60%, 20%))",
     thumbnail: "img/thumbs/video-111.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000111"
+    embedUrl: "https://www.eporner.com/embed/V2DdmEsE5vZ"
   },
   {
     id: 112,
@@ -2265,7 +2265,7 @@ const SITE_DATA = {
     date: "2025-05-14",
     gradient: "linear-gradient(135deg, hsl(280.89600000000064, 70%, 30%), hsl(320.89600000000064, 60%, 20%))",
     thumbnail: "img/thumbs/video-112.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000112"
+    embedUrl: "https://www.eporner.com/embed/0eru90dG4Hu"
   },
   {
     id: 113,
@@ -2285,7 +2285,7 @@ const SITE_DATA = {
     date: "2025-04-21",
     gradient: "linear-gradient(135deg, hsl(58.40400000000045, 70%, 30%), hsl(98.40400000000045, 60%, 20%))",
     thumbnail: "img/thumbs/video-113.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000113"
+    embedUrl: "https://www.eporner.com/embed/H779OhVXvYO"
   },
   {
     id: 114,
@@ -2305,7 +2305,7 @@ const SITE_DATA = {
     date: "2025-05-03",
     gradient: "linear-gradient(135deg, hsl(195.91200000000026, 70%, 30%), hsl(235.91200000000026, 60%, 20%))",
     thumbnail: "img/thumbs/video-114.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000114"
+    embedUrl: "https://www.eporner.com/embed/6q3G7BvqpWs"
   },
   {
     id: 115,
@@ -2325,7 +2325,7 @@ const SITE_DATA = {
     date: "2025-05-17",
     gradient: "linear-gradient(135deg, hsl(333.4200000000019, 70%, 30%), hsl(13.420000000001892, 60%, 20%))",
     thumbnail: "img/thumbs/video-115.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000115"
+    embedUrl: "https://www.eporner.com/embed/WF2ETWHFORF"
   },
   {
     id: 116,
@@ -2345,7 +2345,7 @@ const SITE_DATA = {
     date: "2025-04-14",
     gradient: "linear-gradient(135deg, hsl(110.9280000000017, 70%, 30%), hsl(150.9280000000017, 60%, 20%))",
     thumbnail: "img/thumbs/video-116.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000116"
+    embedUrl: "https://www.eporner.com/embed/zRjIzHwr5Gn"
   },
   {
     id: 117,
@@ -2365,7 +2365,7 @@ const SITE_DATA = {
     date: "2025-04-15",
     gradient: "linear-gradient(135deg, hsl(248.4360000000015, 70%, 30%), hsl(288.4360000000015, 60%, 20%))",
     thumbnail: "img/thumbs/video-117.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000117"
+    embedUrl: "https://www.eporner.com/embed/dE9voLFNYPJ"
   },
   {
     id: 118,
@@ -2385,7 +2385,7 @@ const SITE_DATA = {
     date: "2025-04-17",
     gradient: "linear-gradient(135deg, hsl(25.944000000001324, 70%, 30%), hsl(65.94400000000132, 60%, 20%))",
     thumbnail: "img/thumbs/video-118.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000118"
+    embedUrl: "https://www.eporner.com/embed/A9WYB0rH4Im"
   },
   {
     id: 119,
@@ -2405,7 +2405,7 @@ const SITE_DATA = {
     date: "2025-04-12",
     gradient: "linear-gradient(135deg, hsl(163.45200000000114, 70%, 30%), hsl(203.45200000000114, 60%, 20%))",
     thumbnail: "img/thumbs/video-119.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000119"
+    embedUrl: "https://www.eporner.com/embed/PvPzfBlqcP0"
   },
   {
     id: 120,
@@ -2425,7 +2425,7 @@ const SITE_DATA = {
     date: "2025-02-06",
     gradient: "linear-gradient(135deg, hsl(300.96000000000276, 70%, 30%), hsl(340.96000000000276, 60%, 20%))",
     thumbnail: "img/thumbs/video-120.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000120"
+    embedUrl: "https://www.eporner.com/embed/Ru3zCTwE6bE"
   },
   {
     id: 121,
@@ -2445,7 +2445,7 @@ const SITE_DATA = {
     date: "2025-05-02",
     gradient: "linear-gradient(135deg, hsl(78.46800000000076, 70%, 30%), hsl(118.46800000000076, 60%, 20%))",
     thumbnail: "img/thumbs/video-121.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000121"
+    embedUrl: "https://www.eporner.com/embed/VGqHZ1x80TN"
   },
   {
     id: 122,
@@ -2465,7 +2465,7 @@ const SITE_DATA = {
     date: "2025-01-16",
     gradient: "linear-gradient(135deg, hsl(215.9760000000024, 70%, 30%), hsl(255.9760000000024, 60%, 20%))",
     thumbnail: "img/thumbs/video-122.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000122"
+    embedUrl: "https://www.eporner.com/embed/6uxyEnqw3dL"
   },
   {
     id: 123,
@@ -2485,7 +2485,7 @@ const SITE_DATA = {
     date: "2025-03-04",
     gradient: "linear-gradient(135deg, hsl(353.4840000000004, 70%, 30%), hsl(33.48400000000038, 60%, 20%))",
     thumbnail: "img/thumbs/video-123.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000123"
+    embedUrl: "https://www.eporner.com/embed/NubaU6FEgBo"
   },
   {
     id: 124,
@@ -2505,7 +2505,7 @@ const SITE_DATA = {
     date: "2025-01-13",
     gradient: "linear-gradient(135deg, hsl(130.992000000002, 70%, 30%), hsl(170.992000000002, 60%, 20%))",
     thumbnail: "img/thumbs/video-124.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000124"
+    embedUrl: "https://www.eporner.com/embed/2DWokiAAenv"
   },
   {
     id: 125,
@@ -2525,7 +2525,7 @@ const SITE_DATA = {
     date: "2025-04-10",
     gradient: "linear-gradient(135deg, hsl(268.5, 70%, 30%), hsl(308.5, 60%, 20%))",
     thumbnail: "img/thumbs/video-125.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000125"
+    embedUrl: "https://www.eporner.com/embed/ssVWNrONTOZ"
   },
   {
     id: 126,
@@ -2545,7 +2545,7 @@ const SITE_DATA = {
     date: "2025-02-27",
     gradient: "linear-gradient(135deg, hsl(46.00800000000163, 70%, 30%), hsl(86.00800000000163, 60%, 20%))",
     thumbnail: "img/thumbs/video-126.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000126"
+    embedUrl: "https://www.eporner.com/embed/xWekoFHZatz"
   },
   {
     id: 127,
@@ -2565,7 +2565,7 @@ const SITE_DATA = {
     date: "2025-03-14",
     gradient: "linear-gradient(135deg, hsl(183.51599999999962, 70%, 30%), hsl(223.51599999999962, 60%, 20%))",
     thumbnail: "img/thumbs/video-127.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000127"
+    embedUrl: "https://www.eporner.com/embed/teDMj0972S8"
   },
   {
     id: 128,
@@ -2585,7 +2585,7 @@ const SITE_DATA = {
     date: "2025-04-22",
     gradient: "linear-gradient(135deg, hsl(321.02400000000125, 70%, 30%), hsl(1.0240000000012515, 60%, 20%))",
     thumbnail: "img/thumbs/video-128.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000128"
+    embedUrl: "https://www.eporner.com/embed/qFfX1neTKop"
   },
   {
     id: 129,
@@ -2605,7 +2605,7 @@ const SITE_DATA = {
     date: "2025-04-19",
     gradient: "linear-gradient(135deg, hsl(98.53200000000288, 70%, 30%), hsl(138.53200000000288, 60%, 20%))",
     thumbnail: "img/thumbs/video-129.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000129"
+    embedUrl: "https://www.eporner.com/embed/9z95UM66zYo"
   },
   {
     id: 130,
@@ -2625,7 +2625,7 @@ const SITE_DATA = {
     date: "2025-04-13",
     gradient: "linear-gradient(135deg, hsl(236.04000000000087, 70%, 30%), hsl(276.0400000000009, 60%, 20%))",
     thumbnail: "img/thumbs/video-130.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000130"
+    embedUrl: "https://www.eporner.com/embed/7BdDbpaWjAH"
   },
   {
     id: 131,
@@ -2645,7 +2645,7 @@ const SITE_DATA = {
     date: "2025-04-27",
     gradient: "linear-gradient(135deg, hsl(13.548000000002503, 70%, 30%), hsl(53.5480000000025, 60%, 20%))",
     thumbnail: "img/thumbs/video-131.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000131"
+    embedUrl: "https://www.eporner.com/embed/nOjeyFs4R63"
   },
   {
     id: 132,
@@ -2665,7 +2665,7 @@ const SITE_DATA = {
     date: "2025-05-07",
     gradient: "linear-gradient(135deg, hsl(151.0560000000005, 70%, 30%), hsl(191.0560000000005, 60%, 20%))",
     thumbnail: "img/thumbs/video-132.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000132"
+    embedUrl: "https://www.eporner.com/embed/GLt3UqvCxwi"
   },
   {
     id: 133,
@@ -2685,7 +2685,7 @@ const SITE_DATA = {
     date: "2025-01-25",
     gradient: "linear-gradient(135deg, hsl(288.5640000000021, 70%, 30%), hsl(328.5640000000021, 60%, 20%))",
     thumbnail: "img/thumbs/video-133.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000133"
+    embedUrl: "https://www.eporner.com/embed/ETgIFkRc03o"
   },
   {
     id: 134,
@@ -2705,7 +2705,7 @@ const SITE_DATA = {
     date: "2025-04-24",
     gradient: "linear-gradient(135deg, hsl(66.07200000000012, 70%, 30%), hsl(106.07200000000012, 60%, 20%))",
     thumbnail: "img/thumbs/video-134.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000134"
+    embedUrl: "https://www.eporner.com/embed/ikeBLCL8gFb"
   },
   {
     id: 135,
@@ -2725,7 +2725,7 @@ const SITE_DATA = {
     date: "2025-03-02",
     gradient: "linear-gradient(135deg, hsl(203.58000000000175, 70%, 30%), hsl(243.58000000000175, 60%, 20%))",
     thumbnail: "img/thumbs/video-135.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000135"
+    embedUrl: "https://www.eporner.com/embed/PufeNHSikFN"
   },
   {
     id: 136,
@@ -2745,7 +2745,7 @@ const SITE_DATA = {
     date: "2025-04-01",
     gradient: "linear-gradient(135deg, hsl(341.08799999999974, 70%, 30%), hsl(21.087999999999738, 60%, 20%))",
     thumbnail: "img/thumbs/video-136.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000136"
+    embedUrl: "https://www.eporner.com/embed/IWVC3WrKhyO"
   },
   {
     id: 137,
@@ -2765,7 +2765,7 @@ const SITE_DATA = {
     date: "2025-03-09",
     gradient: "linear-gradient(135deg, hsl(118.59600000000137, 70%, 30%), hsl(158.59600000000137, 60%, 20%))",
     thumbnail: "img/thumbs/video-137.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000137"
+    embedUrl: "https://www.eporner.com/embed/O4UyKrgYhRd"
   },
   {
     id: 138,
@@ -2785,7 +2785,7 @@ const SITE_DATA = {
     date: "2025-03-22",
     gradient: "linear-gradient(135deg, hsl(256.104000000003, 70%, 30%), hsl(296.104000000003, 60%, 20%))",
     thumbnail: "img/thumbs/video-138.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000138"
+    embedUrl: "https://www.eporner.com/embed/xZ1YsaUW9YF"
   },
   {
     id: 139,
@@ -2805,7 +2805,7 @@ const SITE_DATA = {
     date: "2025-02-02",
     gradient: "linear-gradient(135deg, hsl(33.61200000000099, 70%, 30%), hsl(73.61200000000099, 60%, 20%))",
     thumbnail: "img/thumbs/video-139.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000139"
+    embedUrl: "https://www.eporner.com/embed/nmsNfi9Vgx6"
   },
   {
     id: 140,
@@ -2825,7 +2825,7 @@ const SITE_DATA = {
     date: "2025-05-27",
     gradient: "linear-gradient(135deg, hsl(171.12000000000262, 70%, 30%), hsl(211.12000000000262, 60%, 20%))",
     thumbnail: "img/thumbs/video-140.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000140"
+    embedUrl: "https://www.eporner.com/embed/j4QZNTsWRju"
   },
   {
     id: 141,
@@ -2845,7 +2845,7 @@ const SITE_DATA = {
     date: "2025-04-21",
     gradient: "linear-gradient(135deg, hsl(308.6280000000006, 70%, 30%), hsl(348.6280000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-141.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000141"
+    embedUrl: "https://www.eporner.com/embed/U6qfO8kNqXv"
   },
   {
     id: 142,
@@ -2865,7 +2865,7 @@ const SITE_DATA = {
     date: "2025-05-23",
     gradient: "linear-gradient(135deg, hsl(86.13600000000224, 70%, 30%), hsl(126.13600000000224, 60%, 20%))",
     thumbnail: "img/thumbs/video-142.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000142"
+    embedUrl: "https://www.eporner.com/embed/POtsjbJBdel"
   },
   {
     id: 143,
@@ -2885,7 +2885,7 @@ const SITE_DATA = {
     date: "2025-05-15",
     gradient: "linear-gradient(135deg, hsl(223.64400000000023, 70%, 30%), hsl(263.64400000000023, 60%, 20%))",
     thumbnail: "img/thumbs/video-143.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000143"
+    embedUrl: "https://www.eporner.com/embed/2krYVM868Wh"
   },
   {
     id: 144,
@@ -2905,7 +2905,7 @@ const SITE_DATA = {
     date: "2025-04-04",
     gradient: "linear-gradient(135deg, hsl(1.1520000000018626, 70%, 30%), hsl(41.15200000000186, 60%, 20%))",
     thumbnail: "img/thumbs/video-144.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000144"
+    embedUrl: "https://www.eporner.com/embed/99RgQAiWl7b"
   },
   {
     id: 145,
@@ -2925,7 +2925,7 @@ const SITE_DATA = {
     date: "2025-04-03",
     gradient: "linear-gradient(135deg, hsl(138.65999999999985, 70%, 30%), hsl(178.65999999999985, 60%, 20%))",
     thumbnail: "img/thumbs/video-145.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000145"
+    embedUrl: "https://www.eporner.com/embed/lVZr8NgfheZ"
   },
   {
     id: 146,
@@ -2945,7 +2945,7 @@ const SITE_DATA = {
     date: "2025-02-09",
     gradient: "linear-gradient(135deg, hsl(276.1680000000015, 70%, 30%), hsl(316.1680000000015, 60%, 20%))",
     thumbnail: "img/thumbs/video-146.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000146"
+    embedUrl: "https://www.eporner.com/embed/5bvvB3uqsg3"
   },
   {
     id: 147,
@@ -2965,7 +2965,7 @@ const SITE_DATA = {
     date: "2025-02-05",
     gradient: "linear-gradient(135deg, hsl(53.676000000003114, 70%, 30%), hsl(93.67600000000311, 60%, 20%))",
     thumbnail: "img/thumbs/video-147.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000147"
+    embedUrl: "https://www.eporner.com/embed/qwvLotWaDkA"
   },
   {
     id: 148,
@@ -2985,7 +2985,7 @@ const SITE_DATA = {
     date: "2025-02-02",
     gradient: "linear-gradient(135deg, hsl(191.1840000000011, 70%, 30%), hsl(231.1840000000011, 60%, 20%))",
     thumbnail: "img/thumbs/video-148.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000148"
+    embedUrl: "https://www.eporner.com/embed/j90ICIpvGuF"
   },
   {
     id: 149,
@@ -3005,7 +3005,7 @@ const SITE_DATA = {
     date: "2025-02-17",
     gradient: "linear-gradient(135deg, hsl(328.69200000000274, 70%, 30%), hsl(8.692000000002736, 60%, 20%))",
     thumbnail: "img/thumbs/video-149.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000149"
+    embedUrl: "https://www.eporner.com/embed/oNlPKjqGmXg"
   },
   {
     id: 150,
@@ -3025,7 +3025,7 @@ const SITE_DATA = {
     date: "2025-02-25",
     gradient: "linear-gradient(135deg, hsl(106.20000000000073, 70%, 30%), hsl(146.20000000000073, 60%, 20%))",
     thumbnail: "img/thumbs/video-150.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000150"
+    embedUrl: "https://www.eporner.com/embed/urfUusLW5W6"
   },
   {
     id: 151,
@@ -3045,7 +3045,7 @@ const SITE_DATA = {
     date: "2025-04-12",
     gradient: "linear-gradient(135deg, hsl(243.70800000000236, 70%, 30%), hsl(283.70800000000236, 60%, 20%))",
     thumbnail: "img/thumbs/video-151.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000151"
+    embedUrl: "https://www.eporner.com/embed/UizybG7cba4"
   },
   {
     id: 152,
@@ -3065,7 +3065,7 @@ const SITE_DATA = {
     date: "2025-02-08",
     gradient: "linear-gradient(135deg, hsl(21.21600000000035, 70%, 30%), hsl(61.21600000000035, 60%, 20%))",
     thumbnail: "img/thumbs/video-152.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000152"
+    embedUrl: "https://www.eporner.com/embed/GO3lWcKgeXm"
   },
   {
     id: 153,
@@ -3085,7 +3085,7 @@ const SITE_DATA = {
     date: "2025-05-03",
     gradient: "linear-gradient(135deg, hsl(158.72400000000198, 70%, 30%), hsl(198.72400000000198, 60%, 20%))",
     thumbnail: "img/thumbs/video-153.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000153"
+    embedUrl: "https://www.eporner.com/embed/NMgliu9MvKP"
   },
   {
     id: 154,
@@ -3105,7 +3105,7 @@ const SITE_DATA = {
     date: "2025-05-17",
     gradient: "linear-gradient(135deg, hsl(296.23199999999997, 70%, 30%), hsl(336.23199999999997, 60%, 20%))",
     thumbnail: "img/thumbs/video-154.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000154"
+    embedUrl: "https://www.eporner.com/embed/J4R0S827bHO"
   },
   {
     id: 155,
@@ -3125,7 +3125,7 @@ const SITE_DATA = {
     date: "2025-05-28",
     gradient: "linear-gradient(135deg, hsl(73.7400000000016, 70%, 30%), hsl(113.7400000000016, 60%, 20%))",
     thumbnail: "img/thumbs/video-155.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000155"
+    embedUrl: "https://www.eporner.com/embed/nTka63Cs6U4"
   },
   {
     id: 156,
@@ -3145,7 +3145,7 @@ const SITE_DATA = {
     date: "2025-03-05",
     gradient: "linear-gradient(135deg, hsl(211.24800000000323, 70%, 30%), hsl(251.24800000000323, 60%, 20%))",
     thumbnail: "img/thumbs/video-156.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000156"
+    embedUrl: "https://www.eporner.com/embed/gdDLZoAamTc"
   },
   {
     id: 157,
@@ -3165,7 +3165,7 @@ const SITE_DATA = {
     date: "2025-05-27",
     gradient: "linear-gradient(135deg, hsl(348.7560000000012, 70%, 30%), hsl(28.756000000001222, 60%, 20%))",
     thumbnail: "img/thumbs/video-157.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000157"
+    embedUrl: "https://www.eporner.com/embed/d7FmTPQgoFI"
   },
   {
     id: 158,
@@ -3185,7 +3185,7 @@ const SITE_DATA = {
     date: "2025-01-06",
     gradient: "linear-gradient(135deg, hsl(126.26400000000285, 70%, 30%), hsl(166.26400000000285, 60%, 20%))",
     thumbnail: "img/thumbs/video-158.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000158"
+    embedUrl: "https://www.eporner.com/embed/7ekdTkWhkB7"
   },
   {
     id: 159,
@@ -3205,7 +3205,7 @@ const SITE_DATA = {
     date: "2025-03-25",
     gradient: "linear-gradient(135deg, hsl(263.77200000000084, 70%, 30%), hsl(303.77200000000084, 60%, 20%))",
     thumbnail: "img/thumbs/video-159.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000159"
+    embedUrl: "https://www.eporner.com/embed/SQOCcmTzjAc"
   },
   {
     id: 160,
@@ -3225,7 +3225,7 @@ const SITE_DATA = {
     date: "2025-05-02",
     gradient: "linear-gradient(135deg, hsl(41.280000000002474, 70%, 30%), hsl(81.28000000000247, 60%, 20%))",
     thumbnail: "img/thumbs/video-160.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000160"
+    embedUrl: "https://www.eporner.com/embed/mg6ZQpEeXV8"
   },
   {
     id: 161,
@@ -3245,7 +3245,7 @@ const SITE_DATA = {
     date: "2025-02-13",
     gradient: "linear-gradient(135deg, hsl(178.78800000000047, 70%, 30%), hsl(218.78800000000047, 60%, 20%))",
     thumbnail: "img/thumbs/video-161.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000161"
+    embedUrl: "https://www.eporner.com/embed/1eoXE3f1w57"
   },
   {
     id: 162,
@@ -3265,7 +3265,7 @@ const SITE_DATA = {
     date: "2025-05-19",
     gradient: "linear-gradient(135deg, hsl(316.2960000000021, 70%, 30%), hsl(356.2960000000021, 60%, 20%))",
     thumbnail: "img/thumbs/video-162.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000162"
+    embedUrl: "https://www.eporner.com/embed/2EJ00jrqy8X"
   },
   {
     id: 163,
@@ -3285,7 +3285,7 @@ const SITE_DATA = {
     date: "2025-01-08",
     gradient: "linear-gradient(135deg, hsl(93.80400000000009, 70%, 30%), hsl(133.8040000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-163.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000163"
+    embedUrl: "https://www.eporner.com/embed/LCgVNQlc7lW"
   },
   {
     id: 164,
@@ -3305,7 +3305,7 @@ const SITE_DATA = {
     date: "2025-05-05",
     gradient: "linear-gradient(135deg, hsl(231.31200000000172, 70%, 30%), hsl(271.3120000000017, 60%, 20%))",
     thumbnail: "img/thumbs/video-164.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000164"
+    embedUrl: "https://www.eporner.com/embed/7XVTZGBGmr4"
   },
   {
     id: 165,
@@ -3325,7 +3325,7 @@ const SITE_DATA = {
     date: "2025-01-26",
     gradient: "linear-gradient(135deg, hsl(8.820000000003347, 70%, 30%), hsl(48.82000000000335, 60%, 20%))",
     thumbnail: "img/thumbs/video-165.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000165"
+    embedUrl: "https://www.eporner.com/embed/9Ak2oMbBzb3"
   },
   {
     id: 166,
@@ -3345,7 +3345,7 @@ const SITE_DATA = {
     date: "2025-02-28",
     gradient: "linear-gradient(135deg, hsl(146.32800000000134, 70%, 30%), hsl(186.32800000000134, 60%, 20%))",
     thumbnail: "img/thumbs/video-166.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000166"
+    embedUrl: "https://www.eporner.com/embed/hXeImxDSSNP"
   },
   {
     id: 167,
@@ -3365,7 +3365,7 @@ const SITE_DATA = {
     date: "2025-05-26",
     gradient: "linear-gradient(135deg, hsl(283.83600000000297, 70%, 30%), hsl(323.83600000000297, 60%, 20%))",
     thumbnail: "img/thumbs/video-167.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000167"
+    embedUrl: "https://www.eporner.com/embed/QWNaCt4NDuI"
   },
   {
     id: 168,
@@ -3385,7 +3385,7 @@ const SITE_DATA = {
     date: "2025-05-10",
     gradient: "linear-gradient(135deg, hsl(61.34400000000096, 70%, 30%), hsl(101.34400000000096, 60%, 20%))",
     thumbnail: "img/thumbs/video-168.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000168"
+    embedUrl: "https://www.eporner.com/embed/5Bj1cW2QRkd"
   },
   {
     id: 169,
@@ -3405,7 +3405,7 @@ const SITE_DATA = {
     date: "2025-03-11",
     gradient: "linear-gradient(135deg, hsl(198.8520000000026, 70%, 30%), hsl(238.8520000000026, 60%, 20%))",
     thumbnail: "img/thumbs/video-169.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000169"
+    embedUrl: "https://www.eporner.com/embed/SijdN20O9Vu"
   },
   {
     id: 170,
@@ -3425,7 +3425,7 @@ const SITE_DATA = {
     date: "2025-02-11",
     gradient: "linear-gradient(135deg, hsl(336.3600000000006, 70%, 30%), hsl(16.360000000000582, 60%, 20%))",
     thumbnail: "img/thumbs/video-170.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000170"
+    embedUrl: "https://www.eporner.com/embed/FsTeoESHMSd"
   },
   {
     id: 171,
@@ -3445,7 +3445,7 @@ const SITE_DATA = {
     date: "2025-01-17",
     gradient: "linear-gradient(135deg, hsl(113.86800000000221, 70%, 30%), hsl(153.8680000000022, 60%, 20%))",
     thumbnail: "img/thumbs/video-171.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000171"
+    embedUrl: "https://www.eporner.com/embed/nTMhiJfXkOL"
   },
   {
     id: 172,
@@ -3465,7 +3465,7 @@ const SITE_DATA = {
     date: "2025-02-26",
     gradient: "linear-gradient(135deg, hsl(251.3760000000002, 70%, 30%), hsl(291.3760000000002, 60%, 20%))",
     thumbnail: "img/thumbs/video-172.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000172"
+    embedUrl: "https://www.eporner.com/embed/ieR79YKYaRw"
   },
   {
     id: 173,
@@ -3485,7 +3485,7 @@ const SITE_DATA = {
     date: "2025-05-18",
     gradient: "linear-gradient(135deg, hsl(28.884000000001834, 70%, 30%), hsl(68.88400000000183, 60%, 20%))",
     thumbnail: "img/thumbs/video-173.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000173"
+    embedUrl: "https://www.eporner.com/embed/rQBpNCohCUi"
   },
   {
     id: 174,
@@ -3505,7 +3505,7 @@ const SITE_DATA = {
     date: "2025-03-03",
     gradient: "linear-gradient(135deg, hsl(166.39200000000346, 70%, 30%), hsl(206.39200000000346, 60%, 20%))",
     thumbnail: "img/thumbs/video-174.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000174"
+    embedUrl: "https://www.eporner.com/embed/pPufbggTsmF"
   },
   {
     id: 175,
@@ -3525,7 +3525,7 @@ const SITE_DATA = {
     date: "2025-01-27",
     gradient: "linear-gradient(135deg, hsl(303.90000000000146, 70%, 30%), hsl(343.90000000000146, 60%, 20%))",
     thumbnail: "img/thumbs/video-175.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000175"
+    embedUrl: "https://www.eporner.com/embed/IxIpbcdpih2"
   },
   {
     id: 176,
@@ -3545,7 +3545,7 @@ const SITE_DATA = {
     date: "2025-01-16",
     gradient: "linear-gradient(135deg, hsl(81.40800000000309, 70%, 30%), hsl(121.40800000000309, 60%, 20%))",
     thumbnail: "img/thumbs/video-176.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000176"
+    embedUrl: "https://www.eporner.com/embed/xGvuhIZ30Ky"
   },
   {
     id: 177,
@@ -3565,7 +3565,7 @@ const SITE_DATA = {
     date: "2025-01-17",
     gradient: "linear-gradient(135deg, hsl(218.91600000000108, 70%, 30%), hsl(258.9160000000011, 60%, 20%))",
     thumbnail: "img/thumbs/video-177.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000177"
+    embedUrl: "https://www.eporner.com/embed/gIqygNfKDg8"
   },
   {
     id: 178,
@@ -3585,7 +3585,7 @@ const SITE_DATA = {
     date: "2025-02-15",
     gradient: "linear-gradient(135deg, hsl(356.4240000000027, 70%, 30%), hsl(36.42400000000271, 60%, 20%))",
     thumbnail: "img/thumbs/video-178.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000178"
+    embedUrl: "https://www.eporner.com/embed/Thd501AUMyW"
   },
   {
     id: 179,
@@ -3605,7 +3605,7 @@ const SITE_DATA = {
     date: "2025-02-04",
     gradient: "linear-gradient(135deg, hsl(133.9320000000007, 70%, 30%), hsl(173.9320000000007, 60%, 20%))",
     thumbnail: "img/thumbs/video-179.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000179"
+    embedUrl: "https://www.eporner.com/embed/oewGmYLkHJa"
   },
   {
     id: 180,
@@ -3625,7 +3625,7 @@ const SITE_DATA = {
     date: "2025-01-20",
     gradient: "linear-gradient(135deg, hsl(271.4400000000023, 70%, 30%), hsl(311.4400000000023, 60%, 20%))",
     thumbnail: "img/thumbs/video-180.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000180"
+    embedUrl: "https://www.eporner.com/embed/ofjlQVHyN1B"
   },
   {
     id: 181,
@@ -3645,7 +3645,7 @@ const SITE_DATA = {
     date: "2025-02-20",
     gradient: "linear-gradient(135deg, hsl(48.94800000000032, 70%, 30%), hsl(88.94800000000032, 60%, 20%))",
     thumbnail: "img/thumbs/video-181.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000181"
+    embedUrl: "https://www.eporner.com/embed/xJgy2qilqwB"
   },
   {
     id: 182,
@@ -3665,7 +3665,7 @@ const SITE_DATA = {
     date: "2025-05-12",
     gradient: "linear-gradient(135deg, hsl(186.45600000000195, 70%, 30%), hsl(226.45600000000195, 60%, 20%))",
     thumbnail: "img/thumbs/video-182.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000182"
+    embedUrl: "https://www.eporner.com/embed/RX15JirMwBk"
   },
   {
     id: 183,
@@ -3685,7 +3685,7 @@ const SITE_DATA = {
     date: "2025-05-20",
     gradient: "linear-gradient(135deg, hsl(323.9640000000036, 70%, 30%), hsl(3.9640000000035798, 60%, 20%))",
     thumbnail: "img/thumbs/video-183.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000183"
+    embedUrl: "https://www.eporner.com/embed/yhSAUB0Ku2x"
   },
   {
     id: 184,
@@ -3705,7 +3705,7 @@ const SITE_DATA = {
     date: "2025-02-27",
     gradient: "linear-gradient(135deg, hsl(101.47200000000157, 70%, 30%), hsl(141.47200000000157, 60%, 20%))",
     thumbnail: "img/thumbs/video-184.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000184"
+    embedUrl: "https://www.eporner.com/embed/eE74NC68dDj"
   },
   {
     id: 185,
@@ -3725,7 +3725,7 @@ const SITE_DATA = {
     date: "2025-03-01",
     gradient: "linear-gradient(135deg, hsl(238.9800000000032, 70%, 30%), hsl(278.9800000000032, 60%, 20%))",
     thumbnail: "img/thumbs/video-185.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000185"
+    embedUrl: "https://www.eporner.com/embed/1tdIZ8gH6Vw"
   },
   {
     id: 186,
@@ -3745,7 +3745,7 @@ const SITE_DATA = {
     date: "2025-01-24",
     gradient: "linear-gradient(135deg, hsl(16.488000000001193, 70%, 30%), hsl(56.48800000000119, 60%, 20%))",
     thumbnail: "img/thumbs/video-186.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000186"
+    embedUrl: "https://www.eporner.com/embed/Kv9WSXdv5sc"
   },
   {
     id: 187,
@@ -3765,7 +3765,7 @@ const SITE_DATA = {
     date: "2025-04-16",
     gradient: "linear-gradient(135deg, hsl(153.99600000000282, 70%, 30%), hsl(193.99600000000282, 60%, 20%))",
     thumbnail: "img/thumbs/video-187.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000187"
+    embedUrl: "https://www.eporner.com/embed/y8z1FCtYeHo"
   },
   {
     id: 188,
@@ -3785,7 +3785,7 @@ const SITE_DATA = {
     date: "2025-05-26",
     gradient: "linear-gradient(135deg, hsl(291.5040000000008, 70%, 30%), hsl(331.5040000000008, 60%, 20%))",
     thumbnail: "img/thumbs/video-188.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000188"
+    embedUrl: "https://www.eporner.com/embed/l6uYEls45t1"
   },
   {
     id: 189,
@@ -3805,7 +3805,7 @@ const SITE_DATA = {
     date: "2025-05-20",
     gradient: "linear-gradient(135deg, hsl(69.01200000000244, 70%, 30%), hsl(109.01200000000244, 60%, 20%))",
     thumbnail: "img/thumbs/video-189.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000189"
+    embedUrl: "https://www.eporner.com/embed/ZlsIjJIjP4H"
   },
   {
     id: 190,
@@ -3825,7 +3825,7 @@ const SITE_DATA = {
     date: "2025-03-07",
     gradient: "linear-gradient(135deg, hsl(206.52000000000044, 70%, 30%), hsl(246.52000000000044, 60%, 20%))",
     thumbnail: "img/thumbs/video-190.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000190"
+    embedUrl: "https://www.eporner.com/embed/P5Nzk1wDpyN"
   },
   {
     id: 191,
@@ -3845,7 +3845,7 @@ const SITE_DATA = {
     date: "2025-01-26",
     gradient: "linear-gradient(135deg, hsl(344.02800000000207, 70%, 30%), hsl(24.028000000002066, 60%, 20%))",
     thumbnail: "img/thumbs/video-191.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000191"
+    embedUrl: "https://www.eporner.com/embed/v7qkgxJLQMI"
   },
   {
     id: 192,
@@ -3865,7 +3865,7 @@ const SITE_DATA = {
     date: "2025-01-21",
     gradient: "linear-gradient(135deg, hsl(121.53600000000006, 70%, 30%), hsl(161.53600000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-192.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000192"
+    embedUrl: "https://www.eporner.com/embed/l3Wk3HOTYfl"
   },
   {
     id: 193,
@@ -3885,7 +3885,7 @@ const SITE_DATA = {
     date: "2025-04-15",
     gradient: "linear-gradient(135deg, hsl(259.0440000000017, 70%, 30%), hsl(299.0440000000017, 60%, 20%))",
     thumbnail: "img/thumbs/video-193.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000193"
+    embedUrl: "https://www.eporner.com/embed/atyPESlOYOu"
   },
   {
     id: 194,
@@ -3905,7 +3905,7 @@ const SITE_DATA = {
     date: "2025-02-10",
     gradient: "linear-gradient(135deg, hsl(36.55200000000332, 70%, 30%), hsl(76.55200000000332, 60%, 20%))",
     thumbnail: "img/thumbs/video-194.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000194"
+    embedUrl: "https://www.eporner.com/embed/jbvuc9TvvkN"
   },
   {
     id: 195,
@@ -3925,7 +3925,7 @@ const SITE_DATA = {
     date: "2025-05-18",
     gradient: "linear-gradient(135deg, hsl(174.0600000000013, 70%, 30%), hsl(214.0600000000013, 60%, 20%))",
     thumbnail: "img/thumbs/video-195.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000195"
+    embedUrl: "https://www.eporner.com/embed/dhj49Yy9lGC"
   },
   {
     id: 196,
@@ -3945,7 +3945,7 @@ const SITE_DATA = {
     date: "2025-04-15",
     gradient: "linear-gradient(135deg, hsl(311.56800000000294, 70%, 30%), hsl(351.56800000000294, 60%, 20%))",
     thumbnail: "img/thumbs/video-196.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000196"
+    embedUrl: "https://www.eporner.com/embed/83qcNXqggv3"
   },
   {
     id: 197,
@@ -3965,7 +3965,7 @@ const SITE_DATA = {
     date: "2025-04-17",
     gradient: "linear-gradient(135deg, hsl(89.07600000000093, 70%, 30%), hsl(129.07600000000093, 60%, 20%))",
     thumbnail: "img/thumbs/video-197.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000197"
+    embedUrl: "https://www.eporner.com/embed/J3NwsP77ZHz"
   },
   {
     id: 198,
@@ -3985,7 +3985,7 @@ const SITE_DATA = {
     date: "2025-03-27",
     gradient: "linear-gradient(135deg, hsl(226.58400000000256, 70%, 30%), hsl(266.58400000000256, 60%, 20%))",
     thumbnail: "img/thumbs/video-198.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000198"
+    embedUrl: "https://www.eporner.com/embed/4VHqrHaeCDQ"
   },
   {
     id: 199,
@@ -4005,7 +4005,7 @@ const SITE_DATA = {
     date: "2025-05-01",
     gradient: "linear-gradient(135deg, hsl(4.092000000000553, 70%, 30%), hsl(44.09200000000055, 60%, 20%))",
     thumbnail: "img/thumbs/video-199.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000199"
+    embedUrl: "https://www.eporner.com/embed/69WiyCiv8Pk"
   },
   {
     id: 200,
@@ -4025,7 +4025,7 @@ const SITE_DATA = {
     date: "2025-04-16",
     gradient: "linear-gradient(135deg, hsl(141.60000000000218, 70%, 30%), hsl(181.60000000000218, 60%, 20%))",
     thumbnail: "img/thumbs/video-200.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000200"
+    embedUrl: "https://www.eporner.com/embed/zhq4zZxIhXI"
   },
   {
     id: 201,
@@ -4045,7 +4045,7 @@ const SITE_DATA = {
     date: "2025-05-25",
     gradient: "linear-gradient(135deg, hsl(279.1080000000002, 70%, 30%), hsl(319.1080000000002, 60%, 20%))",
     thumbnail: "img/thumbs/video-201.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000201"
+    embedUrl: "https://www.eporner.com/embed/mXx2k42hBPT"
   },
   {
     id: 202,
@@ -4065,7 +4065,7 @@ const SITE_DATA = {
     date: "2025-05-04",
     gradient: "linear-gradient(135deg, hsl(56.616000000001804, 70%, 30%), hsl(96.6160000000018, 60%, 20%))",
     thumbnail: "img/thumbs/video-202.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000202"
+    embedUrl: "https://www.eporner.com/embed/vzyZOeGekBY"
   },
   {
     id: 203,
@@ -4085,7 +4085,7 @@ const SITE_DATA = {
     date: "2025-04-19",
     gradient: "linear-gradient(135deg, hsl(194.12400000000343, 70%, 30%), hsl(234.12400000000343, 60%, 20%))",
     thumbnail: "img/thumbs/video-203.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000203"
+    embedUrl: "https://www.eporner.com/embed/74CeW7SJNkW"
   },
   {
     id: 204,
@@ -4105,7 +4105,7 @@ const SITE_DATA = {
     date: "2025-04-08",
     gradient: "linear-gradient(135deg, hsl(331.6320000000014, 70%, 30%), hsl(11.632000000001426, 60%, 20%))",
     thumbnail: "img/thumbs/video-204.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000204"
+    embedUrl: "https://www.eporner.com/embed/c6wTTGL51ci"
   },
   {
     id: 205,
@@ -4125,7 +4125,7 @@ const SITE_DATA = {
     date: "2025-04-20",
     gradient: "linear-gradient(135deg, hsl(109.14000000000306, 70%, 30%), hsl(149.14000000000306, 60%, 20%))",
     thumbnail: "img/thumbs/video-205.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000205"
+    embedUrl: "https://www.eporner.com/embed/yYS4rqjLK24"
   },
   {
     id: 206,
@@ -4145,7 +4145,7 @@ const SITE_DATA = {
     date: "2025-02-01",
     gradient: "linear-gradient(135deg, hsl(246.64800000000105, 70%, 30%), hsl(286.64800000000105, 60%, 20%))",
     thumbnail: "img/thumbs/video-206.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000206"
+    embedUrl: "https://www.eporner.com/embed/wX13VtNYtSp"
   },
   {
     id: 207,
@@ -4165,7 +4165,7 @@ const SITE_DATA = {
     date: "2025-01-10",
     gradient: "linear-gradient(135deg, hsl(24.156000000002678, 70%, 30%), hsl(64.15600000000268, 60%, 20%))",
     thumbnail: "img/thumbs/video-207.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000207"
+    embedUrl: "https://www.eporner.com/embed/ehdsg28cuON"
   },
   {
     id: 208,
@@ -4185,7 +4185,7 @@ const SITE_DATA = {
     date: "2025-02-06",
     gradient: "linear-gradient(135deg, hsl(161.66400000000067, 70%, 30%), hsl(201.66400000000067, 60%, 20%))",
     thumbnail: "img/thumbs/video-208.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000208"
+    embedUrl: "https://www.eporner.com/embed/jLsIjci4qPb"
   },
   {
     id: 209,
@@ -4205,7 +4205,7 @@ const SITE_DATA = {
     date: "2025-05-19",
     gradient: "linear-gradient(135deg, hsl(299.1720000000023, 70%, 30%), hsl(339.1720000000023, 60%, 20%))",
     thumbnail: "img/thumbs/video-209.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000209"
+    embedUrl: "https://www.eporner.com/embed/hK7JP7P94cB"
   },
   {
     id: 210,
@@ -4225,7 +4225,7 @@ const SITE_DATA = {
     date: "2025-05-13",
     gradient: "linear-gradient(135deg, hsl(76.68000000000029, 70%, 30%), hsl(116.68000000000029, 60%, 20%))",
     thumbnail: "img/thumbs/video-210.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000210"
+    embedUrl: "https://www.eporner.com/embed/10II3Mc8lTT"
   },
   {
     id: 211,
@@ -4245,7 +4245,7 @@ const SITE_DATA = {
     date: "2025-03-17",
     gradient: "linear-gradient(135deg, hsl(214.18800000000192, 70%, 30%), hsl(254.18800000000192, 60%, 20%))",
     thumbnail: "img/thumbs/video-211.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000211"
+    embedUrl: "https://www.eporner.com/embed/TWkDcJFfEqV"
   },
   {
     id: 212,
@@ -4265,7 +4265,7 @@ const SITE_DATA = {
     date: "2025-02-22",
     gradient: "linear-gradient(135deg, hsl(351.69600000000355, 70%, 30%), hsl(31.69600000000355, 60%, 20%))",
     thumbnail: "img/thumbs/video-212.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000212"
+    embedUrl: "https://www.eporner.com/embed/kRJtJ3wrfOs"
   },
   {
     id: 213,
@@ -4285,7 +4285,7 @@ const SITE_DATA = {
     date: "2025-04-14",
     gradient: "linear-gradient(135deg, hsl(129.20400000000154, 70%, 30%), hsl(169.20400000000154, 60%, 20%))",
     thumbnail: "img/thumbs/video-213.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000213"
+    embedUrl: "https://www.eporner.com/embed/L0FWY4Sd1Yn"
   },
   {
     id: 214,
@@ -4305,7 +4305,7 @@ const SITE_DATA = {
     date: "2025-04-12",
     gradient: "linear-gradient(135deg, hsl(266.7120000000032, 70%, 30%), hsl(306.7120000000032, 60%, 20%))",
     thumbnail: "img/thumbs/video-214.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000214"
+    embedUrl: "https://www.eporner.com/embed/HcxxEynhRV3"
   },
   {
     id: 215,
@@ -4325,7 +4325,7 @@ const SITE_DATA = {
     date: "2025-01-17",
     gradient: "linear-gradient(135deg, hsl(44.220000000001164, 70%, 30%), hsl(84.22000000000116, 60%, 20%))",
     thumbnail: "img/thumbs/video-215.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000215"
+    embedUrl: "https://www.eporner.com/embed/LZQPPYItpT5"
   },
   {
     id: 216,
@@ -4345,7 +4345,7 @@ const SITE_DATA = {
     date: "2025-02-16",
     gradient: "linear-gradient(135deg, hsl(181.7280000000028, 70%, 30%), hsl(221.7280000000028, 60%, 20%))",
     thumbnail: "img/thumbs/video-216.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000216"
+    embedUrl: "https://www.eporner.com/embed/hA50XZ5I59a"
   },
   {
     id: 217,
@@ -4365,7 +4365,7 @@ const SITE_DATA = {
     date: "2025-01-09",
     gradient: "linear-gradient(135deg, hsl(319.2360000000008, 70%, 30%), hsl(359.2360000000008, 60%, 20%))",
     thumbnail: "img/thumbs/video-217.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000217"
+    embedUrl: "https://www.eporner.com/embed/XU1fOgyAb4K"
   },
   {
     id: 218,
@@ -4385,7 +4385,7 @@ const SITE_DATA = {
     date: "2025-03-10",
     gradient: "linear-gradient(135deg, hsl(96.74400000000242, 70%, 30%), hsl(136.74400000000242, 60%, 20%))",
     thumbnail: "img/thumbs/video-218.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000218"
+    embedUrl: "https://www.eporner.com/embed/5kZhrF8A3kH"
   },
   {
     id: 219,
@@ -4405,7 +4405,7 @@ const SITE_DATA = {
     date: "2025-01-12",
     gradient: "linear-gradient(135deg, hsl(234.2520000000004, 70%, 30%), hsl(274.2520000000004, 60%, 20%))",
     thumbnail: "img/thumbs/video-219.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000219"
+    embedUrl: "https://www.eporner.com/embed/D3m7evvygOp"
   },
   {
     id: 220,
@@ -4425,7 +4425,7 @@ const SITE_DATA = {
     date: "2025-04-08",
     gradient: "linear-gradient(135deg, hsl(11.760000000002037, 70%, 30%), hsl(51.76000000000204, 60%, 20%))",
     thumbnail: "img/thumbs/video-220.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000220"
+    embedUrl: "https://www.eporner.com/embed/7tqOUX8WmXI"
   },
   {
     id: 221,
@@ -4445,7 +4445,7 @@ const SITE_DATA = {
     date: "2025-03-21",
     gradient: "linear-gradient(135deg, hsl(149.26800000000367, 70%, 30%), hsl(189.26800000000367, 60%, 20%))",
     thumbnail: "img/thumbs/video-221.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000221"
+    embedUrl: "https://www.eporner.com/embed/GB6yJa2t3ub"
   },
   {
     id: 222,
@@ -4465,7 +4465,7 @@ const SITE_DATA = {
     date: "2025-05-27",
     gradient: "linear-gradient(135deg, hsl(286.77600000000166, 70%, 30%), hsl(326.77600000000166, 60%, 20%))",
     thumbnail: "img/thumbs/video-222.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000222"
+    embedUrl: "https://www.eporner.com/embed/G8m2WzeAt8g"
   },
   {
     id: 223,
@@ -4485,7 +4485,7 @@ const SITE_DATA = {
     date: "2025-03-23",
     gradient: "linear-gradient(135deg, hsl(64.28400000000329, 70%, 30%), hsl(104.28400000000329, 60%, 20%))",
     thumbnail: "img/thumbs/video-223.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000223"
+    embedUrl: "https://www.eporner.com/embed/stf0MvWWtwp"
   },
   {
     id: 224,
@@ -4505,7 +4505,7 @@ const SITE_DATA = {
     date: "2025-03-28",
     gradient: "linear-gradient(135deg, hsl(201.79200000000128, 70%, 30%), hsl(241.79200000000128, 60%, 20%))",
     thumbnail: "img/thumbs/video-224.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000224"
+    embedUrl: "https://www.eporner.com/embed/niOU9KQGkCP"
   },
   {
     id: 225,
@@ -4525,7 +4525,7 @@ const SITE_DATA = {
     date: "2025-04-06",
     gradient: "linear-gradient(135deg, hsl(339.3000000000029, 70%, 30%), hsl(19.30000000000291, 60%, 20%))",
     thumbnail: "img/thumbs/video-225.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000225"
+    embedUrl: "https://www.eporner.com/embed/nvqHjPBmx9I"
   },
   {
     id: 226,
@@ -4545,7 +4545,7 @@ const SITE_DATA = {
     date: "2025-03-09",
     gradient: "linear-gradient(135deg, hsl(116.8080000000009, 70%, 30%), hsl(156.8080000000009, 60%, 20%))",
     thumbnail: "img/thumbs/video-226.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000226"
+    embedUrl: "https://www.eporner.com/embed/gWiemsE7geR"
   },
   {
     id: 227,
@@ -4565,7 +4565,7 @@ const SITE_DATA = {
     date: "2025-05-02",
     gradient: "linear-gradient(135deg, hsl(254.31600000000253, 70%, 30%), hsl(294.31600000000253, 60%, 20%))",
     thumbnail: "img/thumbs/video-227.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000227"
+    embedUrl: "https://www.eporner.com/embed/mVEjFm6wWoM"
   },
   {
     id: 228,
@@ -4585,7 +4585,7 @@ const SITE_DATA = {
     date: "2025-02-09",
     gradient: "linear-gradient(135deg, hsl(31.824000000000524, 70%, 30%), hsl(71.82400000000052, 60%, 20%))",
     thumbnail: "img/thumbs/video-228.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000228"
+    embedUrl: "https://www.eporner.com/embed/2ZBscTPNRSa"
   },
   {
     id: 229,
@@ -4605,7 +4605,7 @@ const SITE_DATA = {
     date: "2025-02-16",
     gradient: "linear-gradient(135deg, hsl(169.33200000000215, 70%, 30%), hsl(209.33200000000215, 60%, 20%))",
     thumbnail: "img/thumbs/video-229.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000229"
+    embedUrl: "https://www.eporner.com/embed/mbSlL5IBqUl"
   },
   {
     id: 230,
@@ -4625,7 +4625,7 @@ const SITE_DATA = {
     date: "2025-01-22",
     gradient: "linear-gradient(135deg, hsl(306.8400000000038, 70%, 30%), hsl(346.8400000000038, 60%, 20%))",
     thumbnail: "img/thumbs/video-230.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000230"
+    embedUrl: "https://www.eporner.com/embed/JUFcc8SVmkv"
   },
   {
     id: 231,
@@ -4645,7 +4645,7 @@ const SITE_DATA = {
     date: "2025-05-01",
     gradient: "linear-gradient(135deg, hsl(84.34800000000178, 70%, 30%), hsl(124.34800000000178, 60%, 20%))",
     thumbnail: "img/thumbs/video-231.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000231"
+    embedUrl: "https://www.eporner.com/embed/vYAYFSNKvrs"
   },
   {
     id: 232,
@@ -4665,7 +4665,7 @@ const SITE_DATA = {
     date: "2025-01-27",
     gradient: "linear-gradient(135deg, hsl(221.8560000000034, 70%, 30%), hsl(261.8560000000034, 60%, 20%))",
     thumbnail: "img/thumbs/video-232.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000232"
+    embedUrl: "https://www.eporner.com/embed/W5WsxfqWdVb"
   },
   {
     id: 233,
@@ -4685,7 +4685,7 @@ const SITE_DATA = {
     date: "2025-05-24",
     gradient: "linear-gradient(135deg, hsl(359.3640000000014, 70%, 30%), hsl(39.3640000000014, 60%, 20%))",
     thumbnail: "img/thumbs/video-233.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000233"
+    embedUrl: "https://www.eporner.com/embed/AwGWpnPuN5r"
   },
   {
     id: 234,
@@ -4705,7 +4705,7 @@ const SITE_DATA = {
     date: "2025-03-24",
     gradient: "linear-gradient(135deg, hsl(136.87200000000303, 70%, 30%), hsl(176.87200000000303, 60%, 20%))",
     thumbnail: "img/thumbs/video-234.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000234"
+    embedUrl: "https://www.eporner.com/embed/V5JbWmqdgIt"
   },
   {
     id: 235,
@@ -4725,7 +4725,7 @@ const SITE_DATA = {
     date: "2025-04-26",
     gradient: "linear-gradient(135deg, hsl(274.380000000001, 70%, 30%), hsl(314.380000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-235.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000235"
+    embedUrl: "https://www.eporner.com/embed/YKtN3A308AP"
   },
   {
     id: 236,
@@ -4745,7 +4745,7 @@ const SITE_DATA = {
     date: "2025-02-08",
     gradient: "linear-gradient(135deg, hsl(51.88800000000265, 70%, 30%), hsl(91.88800000000265, 60%, 20%))",
     thumbnail: "img/thumbs/video-236.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000236"
+    embedUrl: "https://www.eporner.com/embed/1fA7uFgwbsz"
   },
   {
     id: 237,
@@ -4765,7 +4765,7 @@ const SITE_DATA = {
     date: "2025-03-13",
     gradient: "linear-gradient(135deg, hsl(189.39600000000064, 70%, 30%), hsl(229.39600000000064, 60%, 20%))",
     thumbnail: "img/thumbs/video-237.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000237"
+    embedUrl: "https://www.eporner.com/embed/6BGycujhLJL"
   },
   {
     id: 238,
@@ -4785,7 +4785,7 @@ const SITE_DATA = {
     date: "2025-03-12",
     gradient: "linear-gradient(135deg, hsl(326.90400000000227, 70%, 30%), hsl(6.90400000000227, 60%, 20%))",
     thumbnail: "img/thumbs/video-238.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000238"
+    embedUrl: "https://www.eporner.com/embed/HX7vvm4fzxi"
   },
   {
     id: 239,
@@ -4805,7 +4805,7 @@ const SITE_DATA = {
     date: "2025-05-05",
     gradient: "linear-gradient(135deg, hsl(104.4120000000039, 70%, 30%), hsl(144.4120000000039, 60%, 20%))",
     thumbnail: "img/thumbs/video-239.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000239"
+    embedUrl: "https://www.eporner.com/embed/aIblwgIp4Ou"
   },
   {
     id: 240,
@@ -4825,7 +4825,7 @@ const SITE_DATA = {
     date: "2025-04-13",
     gradient: "linear-gradient(135deg, hsl(241.92000000000553, 70%, 30%), hsl(281.92000000000553, 60%, 20%))",
     thumbnail: "img/thumbs/video-240.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000240"
+    embedUrl: "https://www.eporner.com/embed/YDqE0avlhJc"
   },
   {
     id: 241,
@@ -4845,7 +4845,7 @@ const SITE_DATA = {
     date: "2025-03-01",
     gradient: "linear-gradient(135deg, hsl(19.427999999999884, 70%, 30%), hsl(59.427999999999884, 60%, 20%))",
     thumbnail: "img/thumbs/video-241.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000241"
+    embedUrl: "https://www.eporner.com/embed/dDrdnk2l5sT"
   },
   {
     id: 242,
@@ -4865,7 +4865,7 @@ const SITE_DATA = {
     date: "2025-03-01",
     gradient: "linear-gradient(135deg, hsl(156.9360000000015, 70%, 30%), hsl(196.9360000000015, 60%, 20%))",
     thumbnail: "img/thumbs/video-242.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000242"
+    embedUrl: "https://www.eporner.com/embed/dezVoqBSJuh"
   },
   {
     id: 243,
@@ -4885,7 +4885,7 @@ const SITE_DATA = {
     date: "2025-03-13",
     gradient: "linear-gradient(135deg, hsl(294.44400000000314, 70%, 30%), hsl(334.44400000000314, 60%, 20%))",
     thumbnail: "img/thumbs/video-243.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000243"
+    embedUrl: "https://www.eporner.com/embed/gprkUJgyMrw"
   },
   {
     id: 244,
@@ -4905,7 +4905,7 @@ const SITE_DATA = {
     date: "2025-02-13",
     gradient: "linear-gradient(135deg, hsl(71.95200000000477, 70%, 30%), hsl(111.95200000000477, 60%, 20%))",
     thumbnail: "img/thumbs/video-244.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000244"
+    embedUrl: "https://www.eporner.com/embed/cIGqU5X2DLP"
   },
   {
     id: 245,
@@ -4925,7 +4925,7 @@ const SITE_DATA = {
     date: "2025-04-20",
     gradient: "linear-gradient(135deg, hsl(209.45999999999913, 70%, 30%), hsl(249.45999999999913, 60%, 20%))",
     thumbnail: "img/thumbs/video-245.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000245"
+    embedUrl: "https://www.eporner.com/embed/ZBu89dbc1Xx"
   },
   {
     id: 246,
@@ -4945,7 +4945,7 @@ const SITE_DATA = {
     date: "2025-04-23",
     gradient: "linear-gradient(135deg, hsl(346.96800000000076, 70%, 30%), hsl(26.968000000000757, 60%, 20%))",
     thumbnail: "img/thumbs/video-246.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000246"
+    embedUrl: "https://www.eporner.com/embed/pGH5aloKLRv"
   },
   {
     id: 247,
@@ -4965,7 +4965,7 @@ const SITE_DATA = {
     date: "2025-01-19",
     gradient: "linear-gradient(135deg, hsl(124.47600000000239, 70%, 30%), hsl(164.4760000000024, 60%, 20%))",
     thumbnail: "img/thumbs/video-247.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000247"
+    embedUrl: "https://www.eporner.com/embed/QbP7746j1vK"
   },
   {
     id: 248,
@@ -4985,7 +4985,7 @@ const SITE_DATA = {
     date: "2025-05-10",
     gradient: "linear-gradient(135deg, hsl(261.984000000004, 70%, 30%), hsl(301.984000000004, 60%, 20%))",
     thumbnail: "img/thumbs/video-248.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000248"
+    embedUrl: "https://www.eporner.com/embed/04wxoZBc8Tw"
   },
   {
     id: 249,
@@ -5005,7 +5005,7 @@ const SITE_DATA = {
     date: "2025-03-21",
     gradient: "linear-gradient(135deg, hsl(39.492000000005646, 70%, 30%), hsl(79.49200000000565, 60%, 20%))",
     thumbnail: "img/thumbs/video-249.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000249"
+    embedUrl: "https://www.eporner.com/embed/cOL4ilBc76M"
   },
   {
     id: 250,
@@ -5025,7 +5025,7 @@ const SITE_DATA = {
     date: "2025-05-11",
     gradient: "linear-gradient(135deg, hsl(177, 70%, 30%), hsl(217, 60%, 20%))",
     thumbnail: "img/thumbs/video-250.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000250"
+    embedUrl: "https://www.eporner.com/embed/NVdE8e0hxZw"
   },
   {
     id: 251,
@@ -5045,7 +5045,7 @@ const SITE_DATA = {
     date: "2025-05-22",
     gradient: "linear-gradient(135deg, hsl(314.50800000000163, 70%, 30%), hsl(354.50800000000163, 60%, 20%))",
     thumbnail: "img/thumbs/video-251.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000251"
+    embedUrl: "https://www.eporner.com/embed/FF04KNN5TVm"
   },
   {
     id: 252,
@@ -5065,7 +5065,7 @@ const SITE_DATA = {
     date: "2025-01-12",
     gradient: "linear-gradient(135deg, hsl(92.01600000000326, 70%, 30%), hsl(132.01600000000326, 60%, 20%))",
     thumbnail: "img/thumbs/video-252.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000252"
+    embedUrl: "https://www.eporner.com/embed/eD20rPu99FY"
   },
   {
     id: 253,
@@ -5085,7 +5085,7 @@ const SITE_DATA = {
     date: "2025-02-20",
     gradient: "linear-gradient(135deg, hsl(229.5240000000049, 70%, 30%), hsl(269.5240000000049, 60%, 20%))",
     thumbnail: "img/thumbs/video-253.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000253"
+    embedUrl: "https://www.eporner.com/embed/7nIk6j1Ssq4"
   },
   {
     id: 254,
@@ -5105,7 +5105,7 @@ const SITE_DATA = {
     date: "2025-05-03",
     gradient: "linear-gradient(135deg, hsl(7.031999999999243, 70%, 30%), hsl(47.03199999999924, 60%, 20%))",
     thumbnail: "img/thumbs/video-254.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000254"
+    embedUrl: "https://www.eporner.com/embed/4BU8rJ0yUpC"
   },
   {
     id: 255,
@@ -5125,7 +5125,7 @@ const SITE_DATA = {
     date: "2025-05-03",
     gradient: "linear-gradient(135deg, hsl(144.54000000000087, 70%, 30%), hsl(184.54000000000087, 60%, 20%))",
     thumbnail: "img/thumbs/video-255.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000255"
+    embedUrl: "https://www.eporner.com/embed/RSlA0FZG9yg"
   },
   {
     id: 256,
@@ -5145,7 +5145,7 @@ const SITE_DATA = {
     date: "2025-02-20",
     gradient: "linear-gradient(135deg, hsl(282.0480000000025, 70%, 30%), hsl(322.0480000000025, 60%, 20%))",
     thumbnail: "img/thumbs/video-256.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000256"
+    embedUrl: "https://www.eporner.com/embed/ztBvfPTW0lC"
   },
   {
     id: 257,
@@ -5165,7 +5165,7 @@ const SITE_DATA = {
     date: "2025-05-28",
     gradient: "linear-gradient(135deg, hsl(59.55600000000413, 70%, 30%), hsl(99.55600000000413, 60%, 20%))",
     thumbnail: "img/thumbs/video-257.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000257"
+    embedUrl: "https://www.eporner.com/embed/Efb9DPy0Zjs"
   },
   {
     id: 258,
@@ -5185,7 +5185,7 @@ const SITE_DATA = {
     date: "2025-03-09",
     gradient: "linear-gradient(135deg, hsl(197.06400000000576, 70%, 30%), hsl(237.06400000000576, 60%, 20%))",
     thumbnail: "img/thumbs/video-258.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000258"
+    embedUrl: "https://www.eporner.com/embed/CrAvNSqyjjr"
   },
   {
     id: 259,
@@ -5205,7 +5205,7 @@ const SITE_DATA = {
     date: "2025-04-19",
     gradient: "linear-gradient(135deg, hsl(334.5720000000001, 70%, 30%), hsl(14.572000000000116, 60%, 20%))",
     thumbnail: "img/thumbs/video-259.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000259"
+    embedUrl: "https://www.eporner.com/embed/iHqC3Yy4WCA"
   },
   {
     id: 260,
@@ -5225,7 +5225,7 @@ const SITE_DATA = {
     date: "2025-04-23",
     gradient: "linear-gradient(135deg, hsl(112.08000000000175, 70%, 30%), hsl(152.08000000000175, 60%, 20%))",
     thumbnail: "img/thumbs/video-260.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000260"
+    embedUrl: "https://www.eporner.com/embed/eDmrVKgGkJ9"
   },
   {
     id: 261,
@@ -5245,7 +5245,7 @@ const SITE_DATA = {
     date: "2025-05-07",
     gradient: "linear-gradient(135deg, hsl(249.58800000000338, 70%, 30%), hsl(289.5880000000034, 60%, 20%))",
     thumbnail: "img/thumbs/video-261.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000261"
+    embedUrl: "https://www.eporner.com/embed/VR3AUvW2hQD"
   },
   {
     id: 262,
@@ -5265,7 +5265,7 @@ const SITE_DATA = {
     date: "2025-01-20",
     gradient: "linear-gradient(135deg, hsl(27.096000000005006, 70%, 30%), hsl(67.096000000005, 60%, 20%))",
     thumbnail: "img/thumbs/video-262.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000262"
+    embedUrl: "https://www.eporner.com/embed/v8DedwwVXCL"
   },
   {
     id: 263,
@@ -5285,7 +5285,7 @@ const SITE_DATA = {
     date: "2025-03-15",
     gradient: "linear-gradient(135deg, hsl(164.60399999999936, 70%, 30%), hsl(204.60399999999936, 60%, 20%))",
     thumbnail: "img/thumbs/video-263.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000263"
+    embedUrl: "https://www.eporner.com/embed/hDIzL4QY1BD"
   },
   {
     id: 264,
@@ -5305,7 +5305,7 @@ const SITE_DATA = {
     date: "2025-01-25",
     gradient: "linear-gradient(135deg, hsl(302.112000000001, 70%, 30%), hsl(342.112000000001, 60%, 20%))",
     thumbnail: "img/thumbs/video-264.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000264"
+    embedUrl: "https://www.eporner.com/embed/lgeTuKd9fob"
   },
   {
     id: 265,
@@ -5325,7 +5325,7 @@ const SITE_DATA = {
     date: "2025-03-06",
     gradient: "linear-gradient(135deg, hsl(79.62000000000262, 70%, 30%), hsl(119.62000000000262, 60%, 20%))",
     thumbnail: "img/thumbs/video-265.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000265"
+    embedUrl: "https://www.eporner.com/embed/6xALQeiTWbM"
   },
   {
     id: 266,
@@ -5345,7 +5345,7 @@ const SITE_DATA = {
     date: "2025-02-12",
     gradient: "linear-gradient(135deg, hsl(217.12800000000425, 70%, 30%), hsl(257.12800000000425, 60%, 20%))",
     thumbnail: "img/thumbs/video-266.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000266"
+    embedUrl: "https://www.eporner.com/embed/Tp7ds4N5rjZ"
   },
   {
     id: 267,
@@ -5365,7 +5365,7 @@ const SITE_DATA = {
     date: "2025-01-25",
     gradient: "linear-gradient(135deg, hsl(354.6360000000059, 70%, 30%), hsl(34.63600000000588, 60%, 20%))",
     thumbnail: "img/thumbs/video-267.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000267"
+    embedUrl: "https://www.eporner.com/embed/1bKAqoce7Qg"
   },
   {
     id: 268,
@@ -5385,7 +5385,7 @@ const SITE_DATA = {
     date: "2025-04-21",
     gradient: "linear-gradient(135deg, hsl(132.14400000000023, 70%, 30%), hsl(172.14400000000023, 60%, 20%))",
     thumbnail: "img/thumbs/video-268.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000268"
+    embedUrl: "https://www.eporner.com/embed/A3Ct5cmsvR6"
   },
   {
     id: 269,
@@ -5405,7 +5405,7 @@ const SITE_DATA = {
     date: "2025-04-14",
     gradient: "linear-gradient(135deg, hsl(269.65200000000186, 70%, 30%), hsl(309.65200000000186, 60%, 20%))",
     thumbnail: "img/thumbs/video-269.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000269"
+    embedUrl: "https://www.eporner.com/embed/HXR6UhuvfSG"
   },
   {
     id: 270,
@@ -5425,7 +5425,7 @@ const SITE_DATA = {
     date: "2025-03-13",
     gradient: "linear-gradient(135deg, hsl(47.16000000000349, 70%, 30%), hsl(87.16000000000349, 60%, 20%))",
     thumbnail: "img/thumbs/video-270.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000270"
+    embedUrl: "https://www.eporner.com/embed/lfgx7WzK8QF"
   },
   {
     id: 271,
@@ -5445,7 +5445,7 @@ const SITE_DATA = {
     date: "2025-05-10",
     gradient: "linear-gradient(135deg, hsl(184.66800000000512, 70%, 30%), hsl(224.66800000000512, 60%, 20%))",
     thumbnail: "img/thumbs/video-271.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000271"
+    embedUrl: "https://www.eporner.com/embed/P84LgmzNudQ"
   },
   {
     id: 272,
@@ -5465,7 +5465,7 @@ const SITE_DATA = {
     date: "2025-03-23",
     gradient: "linear-gradient(135deg, hsl(322.1759999999995, 70%, 30%), hsl(2.175999999999476, 60%, 20%))",
     thumbnail: "img/thumbs/video-272.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000272"
+    embedUrl: "https://www.eporner.com/embed/f7Xd6aEg9wQ"
   },
   {
     id: 273,
@@ -5485,7 +5485,7 @@ const SITE_DATA = {
     date: "2025-01-27",
     gradient: "linear-gradient(135deg, hsl(99.6840000000011, 70%, 30%), hsl(139.6840000000011, 60%, 20%))",
     thumbnail: "img/thumbs/video-273.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000273"
+    embedUrl: "https://www.eporner.com/embed/QfMDuDssOyn"
   },
   {
     id: 274,
@@ -5505,7 +5505,7 @@ const SITE_DATA = {
     date: "2025-05-26",
     gradient: "linear-gradient(135deg, hsl(237.19200000000274, 70%, 30%), hsl(277.19200000000274, 60%, 20%))",
     thumbnail: "img/thumbs/video-274.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000274"
+    embedUrl: "https://www.eporner.com/embed/DuOIFU4ozqy"
   },
   {
     id: 275,
@@ -5525,7 +5525,7 @@ const SITE_DATA = {
     date: "2025-01-08",
     gradient: "linear-gradient(135deg, hsl(14.700000000004366, 70%, 30%), hsl(54.700000000004366, 60%, 20%))",
     thumbnail: "img/thumbs/video-275.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000275"
+    embedUrl: "https://www.eporner.com/embed/SGLByVfcgwg"
   },
   {
     id: 276,
@@ -5545,7 +5545,7 @@ const SITE_DATA = {
     date: "2025-05-15",
     gradient: "linear-gradient(135deg, hsl(152.208000000006, 70%, 30%), hsl(192.208000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-276.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000276"
+    embedUrl: "https://www.eporner.com/embed/Tq128a1RnUp"
   },
   {
     id: 277,
@@ -5565,7 +5565,7 @@ const SITE_DATA = {
     date: "2025-02-13",
     gradient: "linear-gradient(135deg, hsl(289.71600000000035, 70%, 30%), hsl(329.71600000000035, 60%, 20%))",
     thumbnail: "img/thumbs/video-277.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000277"
+    embedUrl: "https://www.eporner.com/embed/vElLjmqt6qE"
   },
   {
     id: 278,
@@ -5585,7 +5585,7 @@ const SITE_DATA = {
     date: "2025-01-01",
     gradient: "linear-gradient(135deg, hsl(67.22400000000198, 70%, 30%), hsl(107.22400000000198, 60%, 20%))",
     thumbnail: "img/thumbs/video-278.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000278"
+    embedUrl: "https://www.eporner.com/embed/q7QcsKoxnjz"
   },
   {
     id: 279,
@@ -5605,7 +5605,7 @@ const SITE_DATA = {
     date: "2025-03-16",
     gradient: "linear-gradient(135deg, hsl(204.7320000000036, 70%, 30%), hsl(244.7320000000036, 60%, 20%))",
     thumbnail: "img/thumbs/video-279.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000279"
+    embedUrl: "https://www.eporner.com/embed/pcrJhheWbQc"
   },
   {
     id: 280,
@@ -5625,7 +5625,7 @@ const SITE_DATA = {
     date: "2025-02-15",
     gradient: "linear-gradient(135deg, hsl(342.24000000000524, 70%, 30%), hsl(22.24000000000524, 60%, 20%))",
     thumbnail: "img/thumbs/video-280.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000280"
+    embedUrl: "https://www.eporner.com/embed/jdk8HGlRlKf"
   },
   {
     id: 281,
@@ -5645,7 +5645,7 @@ const SITE_DATA = {
     date: "2025-04-15",
     gradient: "linear-gradient(135deg, hsl(119.74799999999959, 70%, 30%), hsl(159.7479999999996, 60%, 20%))",
     thumbnail: "img/thumbs/video-281.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000281"
+    embedUrl: "https://www.eporner.com/embed/jF6JmomAN1s"
   },
   {
     id: 282,
@@ -5665,7 +5665,7 @@ const SITE_DATA = {
     date: "2025-01-27",
     gradient: "linear-gradient(135deg, hsl(257.2560000000012, 70%, 30%), hsl(297.2560000000012, 60%, 20%))",
     thumbnail: "img/thumbs/video-282.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000282"
+    embedUrl: "https://www.eporner.com/embed/NKTjRL5imKX"
   },
   {
     id: 283,
@@ -5685,7 +5685,7 @@ const SITE_DATA = {
     date: "2025-03-16",
     gradient: "linear-gradient(135deg, hsl(34.76400000000285, 70%, 30%), hsl(74.76400000000285, 60%, 20%))",
     thumbnail: "img/thumbs/video-283.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000283"
+    embedUrl: "https://www.eporner.com/embed/aOvNywVTwNU"
   },
   {
     id: 284,
@@ -5705,7 +5705,7 @@ const SITE_DATA = {
     date: "2025-05-21",
     gradient: "linear-gradient(135deg, hsl(172.27200000000448, 70%, 30%), hsl(212.27200000000448, 60%, 20%))",
     thumbnail: "img/thumbs/video-284.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000284"
+    embedUrl: "https://www.eporner.com/embed/bMVOS8KBM8R"
   },
   {
     id: 285,
@@ -5725,7 +5725,7 @@ const SITE_DATA = {
     date: "2025-02-27",
     gradient: "linear-gradient(135deg, hsl(309.7800000000061, 70%, 30%), hsl(349.7800000000061, 60%, 20%))",
     thumbnail: "img/thumbs/video-285.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000285"
+    embedUrl: "https://www.eporner.com/embed/Mv7h6Bfc8Th"
   },
   {
     id: 286,
@@ -5745,7 +5745,7 @@ const SITE_DATA = {
     date: "2025-05-04",
     gradient: "linear-gradient(135deg, hsl(87.28800000000047, 70%, 30%), hsl(127.28800000000047, 60%, 20%))",
     thumbnail: "img/thumbs/video-286.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000286"
+    embedUrl: "https://www.eporner.com/embed/vbB78eaFsJa"
   },
   {
     id: 287,
@@ -5765,7 +5765,7 @@ const SITE_DATA = {
     date: "2025-05-04",
     gradient: "linear-gradient(135deg, hsl(224.7960000000021, 70%, 30%), hsl(264.7960000000021, 60%, 20%))",
     thumbnail: "img/thumbs/video-287.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000287"
+    embedUrl: "https://www.eporner.com/embed/rlXrwJwiIRL"
   },
   {
     id: 288,
@@ -5785,7 +5785,7 @@ const SITE_DATA = {
     date: "2025-04-05",
     gradient: "linear-gradient(135deg, hsl(2.3040000000037253, 70%, 30%), hsl(42.304000000003725, 60%, 20%))",
     thumbnail: "img/thumbs/video-288.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000288"
+    embedUrl: "https://www.eporner.com/embed/RKkCbMH29F7"
   },
   {
     id: 289,
@@ -5805,7 +5805,7 @@ const SITE_DATA = {
     date: "2025-01-21",
     gradient: "linear-gradient(135deg, hsl(139.81200000000536, 70%, 30%), hsl(179.81200000000536, 60%, 20%))",
     thumbnail: "img/thumbs/video-289.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000289"
+    embedUrl: "https://www.eporner.com/embed/mWqqor935Mn"
   },
   {
     id: 290,
@@ -5825,7 +5825,7 @@ const SITE_DATA = {
     date: "2025-05-13",
     gradient: "linear-gradient(135deg, hsl(277.3199999999997, 70%, 30%), hsl(317.3199999999997, 60%, 20%))",
     thumbnail: "img/thumbs/video-290.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000290"
+    embedUrl: "https://www.eporner.com/embed/i1VvAZDADgg"
   },
   {
     id: 291,
@@ -5845,7 +5845,7 @@ const SITE_DATA = {
     date: "2025-01-04",
     gradient: "linear-gradient(135deg, hsl(54.82800000000134, 70%, 30%), hsl(94.82800000000134, 60%, 20%))",
     thumbnail: "img/thumbs/video-291.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000291"
+    embedUrl: "https://www.eporner.com/embed/vnSejrEQvcz"
   },
   {
     id: 292,
@@ -5865,7 +5865,7 @@ const SITE_DATA = {
     date: "2025-04-01",
     gradient: "linear-gradient(135deg, hsl(192.33600000000297, 70%, 30%), hsl(232.33600000000297, 60%, 20%))",
     thumbnail: "img/thumbs/video-292.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000292"
+    embedUrl: "https://www.eporner.com/embed/jNHxolO9heO"
   },
   {
     id: 293,
@@ -5885,7 +5885,7 @@ const SITE_DATA = {
     date: "2025-02-08",
     gradient: "linear-gradient(135deg, hsl(329.8440000000046, 70%, 30%), hsl(9.844000000004598, 60%, 20%))",
     thumbnail: "img/thumbs/video-293.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000293"
+    embedUrl: "https://www.eporner.com/embed/65lHQ3lzHqG"
   },
   {
     id: 294,
@@ -5905,7 +5905,7 @@ const SITE_DATA = {
     date: "2025-02-01",
     gradient: "linear-gradient(135deg, hsl(107.35200000000623, 70%, 30%), hsl(147.35200000000623, 60%, 20%))",
     thumbnail: "img/thumbs/video-294.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000294"
+    embedUrl: "https://www.eporner.com/embed/xKPjysOt2Qo"
   },
   {
     id: 295,
@@ -5925,7 +5925,7 @@ const SITE_DATA = {
     date: "2025-05-05",
     gradient: "linear-gradient(135deg, hsl(244.86000000000058, 70%, 30%), hsl(284.8600000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-295.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000295"
+    embedUrl: "https://www.eporner.com/embed/hr4yyrOoTfd"
   },
   {
     id: 296,
@@ -5945,7 +5945,7 @@ const SITE_DATA = {
     date: "2025-05-16",
     gradient: "linear-gradient(135deg, hsl(22.368000000002212, 70%, 30%), hsl(62.36800000000221, 60%, 20%))",
     thumbnail: "img/thumbs/video-296.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000296"
+    embedUrl: "https://www.eporner.com/embed/zk8tZkRmaN7"
   },
   {
     id: 297,
@@ -5965,7 +5965,7 @@ const SITE_DATA = {
     date: "2025-03-27",
     gradient: "linear-gradient(135deg, hsl(159.87600000000384, 70%, 30%), hsl(199.87600000000384, 60%, 20%))",
     thumbnail: "img/thumbs/video-297.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000297"
+    embedUrl: "https://www.eporner.com/embed/NltvEJBlPef"
   },
   {
     id: 298,
@@ -5985,7 +5985,7 @@ const SITE_DATA = {
     date: "2025-05-11",
     gradient: "linear-gradient(135deg, hsl(297.38400000000547, 70%, 30%), hsl(337.38400000000547, 60%, 20%))",
     thumbnail: "img/thumbs/video-298.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000298"
+    embedUrl: "https://www.eporner.com/embed/VOxi3AHhL0G"
   },
   {
     id: 299,
@@ -6005,7 +6005,7 @@ const SITE_DATA = {
     date: "2025-05-15",
     gradient: "linear-gradient(135deg, hsl(74.89199999999983, 70%, 30%), hsl(114.89199999999983, 60%, 20%))",
     thumbnail: "img/thumbs/video-299.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000299"
+    embedUrl: "https://www.eporner.com/embed/woCHxQlXRsp"
   },
   {
     id: 300,
@@ -6025,7 +6025,7 @@ const SITE_DATA = {
     date: "2025-03-06",
     gradient: "linear-gradient(135deg, hsl(212.40000000000146, 70%, 30%), hsl(252.40000000000146, 60%, 20%))",
     thumbnail: "img/thumbs/video-300.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000300"
+    embedUrl: "https://www.eporner.com/embed/xVU6d9Aqvnz"
   },
   {
     id: 301,
@@ -6045,7 +6045,7 @@ const SITE_DATA = {
     date: "2025-02-26",
     gradient: "linear-gradient(135deg, hsl(349.9080000000031, 70%, 30%), hsl(29.908000000003085, 60%, 20%))",
     thumbnail: "img/thumbs/video-301.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000301"
+    embedUrl: "https://www.eporner.com/embed/CM98vXPEnMJ"
   },
   {
     id: 302,
@@ -6065,7 +6065,7 @@ const SITE_DATA = {
     date: "2025-05-19",
     gradient: "linear-gradient(135deg, hsl(127.41600000000471, 70%, 30%), hsl(167.41600000000471, 60%, 20%))",
     thumbnail: "img/thumbs/video-302.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000302"
+    embedUrl: "https://www.eporner.com/embed/HlSQxWw84q8"
   },
   {
     id: 303,
@@ -6085,7 +6085,7 @@ const SITE_DATA = {
     date: "2025-03-19",
     gradient: "linear-gradient(135deg, hsl(264.92400000000634, 70%, 30%), hsl(304.92400000000634, 60%, 20%))",
     thumbnail: "img/thumbs/video-303.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000303"
+    embedUrl: "https://www.eporner.com/embed/Jlyj7Ro8O7k"
   },
   {
     id: 304,
@@ -6105,7 +6105,7 @@ const SITE_DATA = {
     date: "2025-05-13",
     gradient: "linear-gradient(135deg, hsl(42.4320000000007, 70%, 30%), hsl(82.4320000000007, 60%, 20%))",
     thumbnail: "img/thumbs/video-304.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000304"
+    embedUrl: "https://www.eporner.com/embed/si7PfWDfXEX"
   },
   {
     id: 305,
@@ -6125,7 +6125,7 @@ const SITE_DATA = {
     date: "2025-05-10",
     gradient: "linear-gradient(135deg, hsl(179.94000000000233, 70%, 30%), hsl(219.94000000000233, 60%, 20%))",
     thumbnail: "img/thumbs/video-305.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000305"
+    embedUrl: "https://www.eporner.com/embed/BZ13uqZn94U"
   },
   {
     id: 306,
@@ -6145,7 +6145,7 @@ const SITE_DATA = {
     date: "2025-04-17",
     gradient: "linear-gradient(135deg, hsl(317.44800000000396, 70%, 30%), hsl(357.44800000000396, 60%, 20%))",
     thumbnail: "img/thumbs/video-306.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000306"
+    embedUrl: "https://www.eporner.com/embed/oSNWMZ7Uk4q"
   },
   {
     id: 307,
@@ -6165,7 +6165,7 @@ const SITE_DATA = {
     date: "2025-01-01",
     gradient: "linear-gradient(135deg, hsl(94.95600000000559, 70%, 30%), hsl(134.9560000000056, 60%, 20%))",
     thumbnail: "img/thumbs/video-307.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000307"
+    embedUrl: "https://www.eporner.com/embed/Scqctua0TjV"
   },
   {
     id: 308,
@@ -6185,7 +6185,7 @@ const SITE_DATA = {
     date: "2025-02-03",
     gradient: "linear-gradient(135deg, hsl(232.46399999999994, 70%, 30%), hsl(272.46399999999994, 60%, 20%))",
     thumbnail: "img/thumbs/video-308.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000308"
+    embedUrl: "https://www.eporner.com/embed/kTO3gPTfSU5"
   },
   {
     id: 309,
@@ -6205,7 +6205,7 @@ const SITE_DATA = {
     date: "2025-03-04",
     gradient: "linear-gradient(135deg, hsl(9.972000000001572, 70%, 30%), hsl(49.97200000000157, 60%, 20%))",
     thumbnail: "img/thumbs/video-309.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000309"
+    embedUrl: "https://www.eporner.com/embed/tIaKpvacThd"
   },
   {
     id: 310,
@@ -6225,7 +6225,7 @@ const SITE_DATA = {
     date: "2025-02-11",
     gradient: "linear-gradient(135deg, hsl(147.4800000000032, 70%, 30%), hsl(187.4800000000032, 60%, 20%))",
     thumbnail: "img/thumbs/video-310.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000310"
+    embedUrl: "https://www.eporner.com/embed/Dxa6BhQSLaD"
   },
   {
     id: 311,
@@ -6245,7 +6245,7 @@ const SITE_DATA = {
     date: "2025-01-24",
     gradient: "linear-gradient(135deg, hsl(284.98800000000483, 70%, 30%), hsl(324.98800000000483, 60%, 20%))",
     thumbnail: "img/thumbs/video-311.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000311"
+    embedUrl: "https://www.eporner.com/embed/lppwRQ5tCav"
   },
   {
     id: 312,
@@ -6265,7 +6265,7 @@ const SITE_DATA = {
     date: "2025-05-27",
     gradient: "linear-gradient(135deg, hsl(62.49600000000646, 70%, 30%), hsl(102.49600000000646, 60%, 20%))",
     thumbnail: "img/thumbs/video-312.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000312"
+    embedUrl: "https://www.eporner.com/embed/wwuCbaQD2hw"
   },
   {
     id: 313,
@@ -6285,7 +6285,7 @@ const SITE_DATA = {
     date: "2025-04-24",
     gradient: "linear-gradient(135deg, hsl(200.00400000000081, 70%, 30%), hsl(240.00400000000081, 60%, 20%))",
     thumbnail: "img/thumbs/video-313.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000313"
+    embedUrl: "https://www.eporner.com/embed/ORVRyuYQfCX"
   },
   {
     id: 314,
@@ -6305,7 +6305,7 @@ const SITE_DATA = {
     date: "2025-04-16",
     gradient: "linear-gradient(135deg, hsl(337.51200000000244, 70%, 30%), hsl(17.512000000002445, 60%, 20%))",
     thumbnail: "img/thumbs/video-314.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000314"
+    embedUrl: "https://www.eporner.com/embed/1vU5K4phdWg"
   },
   {
     id: 315,
@@ -6325,7 +6325,7 @@ const SITE_DATA = {
     date: "2025-01-23",
     gradient: "linear-gradient(135deg, hsl(115.02000000000407, 70%, 30%), hsl(155.02000000000407, 60%, 20%))",
     thumbnail: "img/thumbs/video-315.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000315"
+    embedUrl: "https://www.eporner.com/embed/XSTB1d5vu0G"
   },
   {
     id: 316,
@@ -6345,7 +6345,7 @@ const SITE_DATA = {
     date: "2025-02-19",
     gradient: "linear-gradient(135deg, hsl(252.5280000000057, 70%, 30%), hsl(292.5280000000057, 60%, 20%))",
     thumbnail: "img/thumbs/video-316.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000316"
+    embedUrl: "https://www.eporner.com/embed/zruj27aUlAe"
   },
   {
     id: 317,
@@ -6365,7 +6365,7 @@ const SITE_DATA = {
     date: "2025-01-01",
     gradient: "linear-gradient(135deg, hsl(30.036000000000058, 70%, 30%), hsl(70.03600000000006, 60%, 20%))",
     thumbnail: "img/thumbs/video-317.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000317"
+    embedUrl: "https://www.eporner.com/embed/sm91Zemxx5h"
   },
   {
     id: 318,
@@ -6385,7 +6385,7 @@ const SITE_DATA = {
     date: "2025-05-11",
     gradient: "linear-gradient(135deg, hsl(167.5440000000017, 70%, 30%), hsl(207.5440000000017, 60%, 20%))",
     thumbnail: "img/thumbs/video-318.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000318"
+    embedUrl: "https://www.eporner.com/embed/cPG5z4hW1Zr"
   },
   {
     id: 319,
@@ -6405,7 +6405,7 @@ const SITE_DATA = {
     date: "2025-04-18",
     gradient: "linear-gradient(135deg, hsl(305.0520000000033, 70%, 30%), hsl(345.0520000000033, 60%, 20%))",
     thumbnail: "img/thumbs/video-319.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000319"
+    embedUrl: "https://www.eporner.com/embed/an4NIF4ORLO"
   },
   {
     id: 320,
@@ -6425,7 +6425,7 @@ const SITE_DATA = {
     date: "2025-01-22",
     gradient: "linear-gradient(135deg, hsl(82.56000000000495, 70%, 30%), hsl(122.56000000000495, 60%, 20%))",
     thumbnail: "img/thumbs/video-320.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000320"
+    embedUrl: "https://www.eporner.com/embed/UqW23TQuOOw"
   },
   {
     id: 321,
@@ -6445,7 +6445,7 @@ const SITE_DATA = {
     date: "2025-01-02",
     gradient: "linear-gradient(135deg, hsl(220.06800000000658, 70%, 30%), hsl(260.0680000000066, 60%, 20%))",
     thumbnail: "img/thumbs/video-321.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000321"
+    embedUrl: "https://www.eporner.com/embed/qFgu5t8V9jn"
   },
   {
     id: 322,
@@ -6465,7 +6465,7 @@ const SITE_DATA = {
     date: "2025-03-13",
     gradient: "linear-gradient(135deg, hsl(357.57600000000093, 70%, 30%), hsl(37.57600000000093, 60%, 20%))",
     thumbnail: "img/thumbs/video-322.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000322"
+    embedUrl: "https://www.eporner.com/embed/0wYRXcPeE89"
   },
   {
     id: 323,
@@ -6485,7 +6485,7 @@ const SITE_DATA = {
     date: "2025-02-07",
     gradient: "linear-gradient(135deg, hsl(135.08400000000256, 70%, 30%), hsl(175.08400000000256, 60%, 20%))",
     thumbnail: "img/thumbs/video-323.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000323"
+    embedUrl: "https://www.eporner.com/embed/e4ok8wH0kKi"
   },
   {
     id: 324,
@@ -6505,7 +6505,7 @@ const SITE_DATA = {
     date: "2025-05-06",
     gradient: "linear-gradient(135deg, hsl(272.5920000000042, 70%, 30%), hsl(312.5920000000042, 60%, 20%))",
     thumbnail: "img/thumbs/video-324.svg",
-    embedUrl: "https://www.redtube.com/embed/rt000324"
+    embedUrl: "https://www.eporner.com/embed/ju5JHDZgkwp"
   },
   {
     id: 325,
@@ -6525,7 +6525,7 @@ const SITE_DATA = {
     date: "2025-05-08",
     gradient: "linear-gradient(135deg, hsl(50.10000000000582, 70%, 30%), hsl(90.10000000000582, 60%, 20%))",
     thumbnail: "img/thumbs/video-325.svg",
-    embedUrl: "https://www.xvideos.com/embedframe/xv000325"
+    embedUrl: "https://www.eporner.com/embed/rRa29b69cd6"
   },
   {
     id: 326,
@@ -6545,7 +6545,7 @@ const SITE_DATA = {
     date: "2025-03-09",
     gradient: "linear-gradient(135deg, hsl(187.60800000000017, 70%, 30%), hsl(227.60800000000017, 60%, 20%))",
     thumbnail: "img/thumbs/video-326.svg",
-    embedUrl: "https://www.pornhub.com/embed/ph000326"
+    embedUrl: "https://www.eporner.com/embed/jONoRdRzZu9"
   },
   {
     id: 327,
@@ -6565,7 +6565,7 @@ const SITE_DATA = {
     date: "2025-01-14",
     gradient: "linear-gradient(135deg, hsl(325.1160000000018, 70%, 30%), hsl(5.116000000001804, 60%, 20%))",
     thumbnail: "img/thumbs/video-327.svg",
-    embedUrl: "https://www.xnxx.com/embedframe/xn000327"
+    embedUrl: "https://www.eporner.com/embed/5vZMkCaAyeW"
   },
   {
     id: 328,
@@ -6585,7 +6585,7 @@ const SITE_DATA = {
     date: "2025-03-07",
     gradient: "linear-gradient(135deg, hsl(102.62400000000343, 70%, 30%), hsl(142.62400000000343, 60%, 20%))",
     thumbnail: "img/thumbs/video-328.svg",
-    embedUrl: "https://xhamster.com/embed/xh_video_000328"
+    embedUrl: "https://www.eporner.com/embed/5vLEYuRZV1Z"
   }
 ],
 

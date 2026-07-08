@@ -88,6 +88,13 @@ const EMBED = {
     return /\.(mp4|webm|ogg|mov|m3u8)(\?.*)?$/i.test(url);
   },
 
+  /* --- Adicionar parâmetro de autoplay à URL do iframe --- */
+  addAutoplayParam(url, autoplay = false) {
+    if (!autoplay) return url;
+    const separator = url.includes('?') ? '&' : '?';
+    return url + separator + 'autoplay=1';
+  },
+
   /* ============================================
      HTML5 NATIVE PLAYER
      ============================================ */
@@ -684,25 +691,49 @@ const EMBED = {
     const originalUrl = this.getOriginalUrl(embedUrl);
     const playerId = 'iframe-player-' + Date.now();
 
+    // Adicionar autoplay se solicitado
+    const finalUrl = this.addAutoplayParam(embedUrl, options.autoplay);
+
     container.innerHTML = `
       <div id="${playerId}" style="position:relative;width:100%;height:100%;background:#000;overflow:hidden;">
         <iframe
-          src="${embedUrl}"
+          src="${finalUrl}"
           style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;background:#000;"
-          allow="autoplay; encrypted-media; picture-in-picture"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
           allowfullscreen
           loading="lazy"
-          sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+          referrerpolicy="origin"
+          sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox"
         ></iframe>
         <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.75);padding:4px 10px;border-radius:4px;font-size:0.7rem;color:rgba(255,255,255,0.5);z-index:5;pointer-events:none;">
           🎬 ${platformName}
         </div>
         <a href="${originalUrl}" target="_blank" rel="noopener" style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.75);padding:4px 10px;border-radius:4px;font-size:0.7rem;color:#ff2d5c;z-index:5;text-decoration:none;transition:color 0.2s ease;" 
            onmouseover="this.style.color='white'" onmouseout="this.style.color='#ff2d5c'">
-          ↗ Source
+          ↗ Open in ${platformName}
         </a>
+        <!-- Error overlay (hidden by default) -->
+        <div class="ph-iframe-error" style="position:absolute;inset:0;z-index:20;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.9);gap:12px;">
+          <div style="font-size:2.5rem;opacity:0.5;">⚠️</div>
+          <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">Could not load embedded video</p>
+          <a href="${originalUrl}" target="_blank" rel="noopener" style="padding:10px 24px;background:linear-gradient(135deg,#ff2d5c,#b829e0);color:white;border:none;border-radius:24px;font-weight:600;font-size:0.85rem;cursor:pointer;text-decoration:none;">
+            Watch on ${platformName} ↗
+          </a>
+        </div>
       </div>
     `;
+
+    // Monitorar carregamento do iframe
+    const iframe = container.querySelector('iframe');
+    if (iframe) {
+      iframe.addEventListener('load', () => {
+        console.log('[Player] Iframe loaded successfully:', platformName);
+        iframe.dataset.loaded = 'true';
+        // Esconder error overlay se estiver visível
+        const errorEl = container.querySelector('.ph-iframe-error');
+        if (errorEl) errorEl.style.display = 'none';
+      });
+    }
   },
 
   /* ============================================
@@ -714,7 +745,12 @@ const EMBED = {
    */
   loadIntoPlayer(containerId, url, videoTitle = '', options = {}) {
     const container = document.getElementById(containerId);
-    if (!container) return null;
+    if (!container) {
+      console.error('[Player] Container not found:', containerId);
+      return null;
+    }
+    
+    console.log('[Player] Loading video:', videoTitle, 'URL:', url);
     
     const parent = container.closest('.video-player-wrapper') || container.parentElement;
 
@@ -722,38 +758,65 @@ const EMBED = {
     container.style.opacity = '0';
     container.style.transition = 'opacity 0.3s ease';
 
-    setTimeout(() => {
-      // Determinar tamanhos
-      const width = parent ? parent.offsetWidth : container.offsetWidth;
-      const height = parent ? parent.offsetHeight : container.offsetHeight;
+    // Monitorar timeout do iframe (fallback se não carregar em 10s)
+    let iframeTimer = null;
+    if (this.detectIframePlatform(url)) {
+      iframeTimer = setTimeout(() => {
+        const errorEl = container.querySelector('.ph-iframe-error');
+        const iframe = container.querySelector('iframe');
+        if (errorEl && iframe && !iframe.dataset.loaded) {
+          console.warn('[Player] Iframe load timeout - showing fallback');
+          errorEl.style.display = 'flex';
+        }
+      }, 10000);
+    }
 
-      // 1. Se for URL de vídeo direto (MP4, WebM, etc)
-      if (this.isDirectVideoUrl(url)) {
-        this.createNativePlayer(container, url, {
-          title: videoTitle,
-          autoplay: options.autoplay !== false,
-          volume: options.volume || 1,
-          ...options
-        });
-      }
-      // 2. Se for embed de iframe (XVideos, Pornhub, etc)
-      else if (this.detectIframePlatform(url)) {
-        this.createIframePlayer(container, url, options);
-      }
-      // 3. Fallback: exibe placeholder estilizado
-      else {
+    setTimeout(() => {
+      try {
+        // 1. Se for URL de vídeo direto (MP4, WebM, etc)
+        if (this.isDirectVideoUrl(url)) {
+          console.log('[Player] Detected direct video URL');
+          if (iframeTimer) clearTimeout(iframeTimer);
+          this.createNativePlayer(container, url, {
+            title: videoTitle,
+            autoplay: options.autoplay !== false,
+            volume: options.volume || 1,
+            ...options
+          });
+        }
+        // 2. Se for embed de iframe (XVideos, Pornhub, Eporner, etc)
+        else if (this.detectIframePlatform(url)) {
+          console.log('[Player] Detected iframe platform:', this.getPlatformName(url));
+          this.createIframePlayer(container, url, options);
+        }
+        // 3. Fallback: exibe placeholder estilizado
+        else {
+          console.warn('[Player] Unknown URL format, showing fallback:', url);
+          if (iframeTimer) clearTimeout(iframeTimer);
+          container.innerHTML = `
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#0a0a0f);gap:12px;padding:20px;text-align:center;">
+              <div style="width:64px;height:64px;background:linear-gradient(135deg,#ff2d5c,#b829e0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 0 30px rgba(255,45,92,0.2);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+              <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;">${videoTitle || 'Video Player'}</p>
+              <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;">Video URL format not recognized</p>
+            </div>
+          `;
+        }
+      } catch (err) {
+        console.error('[Player] Error loading video:', err);
+        if (iframeTimer) clearTimeout(iframeTimer);
+        // Em caso de erro, mostrar fallback
         container.innerHTML = `
           <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#0a0a0f);gap:12px;padding:20px;text-align:center;">
-            <div style="width:64px;height:64px;background:linear-gradient(135deg,#ff2d5c,#b829e0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 0 30px rgba(255,45,92,0.2);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
-            </div>
-            <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;">${videoTitle || 'Video Player'}</p>
-            <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;">Configure the video URL in data.js</p>
+            <div style="font-size:2.5rem;opacity:0.5;">⚠️</div>
+            <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Error loading player</p>
+            <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;">${err.message || 'Unknown error'}</p>
           </div>
         `;
       }
 
-      // Fade in
+      // Fade in (sempre executado, mesmo em caso de erro)
       container.style.opacity = '1';
     }, 300);
 
@@ -787,7 +850,7 @@ const EMBED = {
       case 'xhamster': return `https://xhamster.com/videos/${info.id}`;
       case 'xnxx': return `https://www.xnxx.com/video-${info.id}`;
       case 'redtube': return `https://www.redtube.com/${info.id}`;
-      case 'eporner': return `https://www.eporner.com/embed/${info.id}`;
+      case 'eporner': return `https://www.eporner.com/video-${info.id}`;
       default: return url;
     }
   }

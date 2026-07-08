@@ -1445,8 +1445,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
           <div class="video-player-wrapper">
             <div class="player-placeholder" id="playerPlaceholder">
               <div style="text-align: center;">
-                <div class="big-play-btn" id="playBtn">▶</div>
-                <p style="margin-top: 16px;">Click to play the video</p>
+                <div class="big-play-btn" id="playBtn">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+                </div>
+                <p style="margin-top: 16px;">Click to play</p>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;" id="videoMetaPlayer">Loading...</p>
               </div>
             </div>
@@ -1609,29 +1611,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       document.getElementById('playBtn').addEventListener('click', () => {
         const placeholder = document.getElementById('playerPlaceholder');
         
-        // Check if embed URL is configured
-        if (video.embedUrl && typeof EMBED !== 'undefined') {
-          EMBED.loadIntoPlayer('playerPlaceholder', video.embedUrl, video.title);
+        if (typeof EMBED !== 'undefined') {
+          EMBED.loadIntoPlayer('playerPlaceholder', video.embedUrl, video.title, { autoplay: true });
           
           // Tracking
           if (typeof ANALYTICS !== 'undefined') {
             ANALYTICS.trackVideoEvent('play', video);
           }
-        } else {
-          // Fallback if no embed is configured
-          placeholder.innerHTML = `
-            <div style="text-align: center; padding: 40px;">
-              <div style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 16px;">🎬 Video Player</div>
-              <div style="font-size: 4rem; margin-bottom: 16px; opacity: 0.3;">▶</div>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">
-                ${video.title}<br>
-                <span style="font-size: 0.8rem;">${video.quality} • ${video.duration}</span>
-              </p>
-              <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 16px;">
-                Configure the embed URL in data.js to activate the real player
-              </p>
-            </div>
-          `;
         }
       });
 
@@ -1644,7 +1630,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         item.style.cssText = 'display: flex; gap: 10px; background: var(--bg-card); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s ease; cursor: pointer;';
         item.innerHTML = `
           <div style="width: 120px; min-height: 68px; background: ${v.gradient}; flex-shrink: 0; position: relative;">
-            <img src="${v.thumb}" alt="${v.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none'">
+            <img src="${v.thumbnail}" alt="${v.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none'">
             <span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.85); padding: 1px 5px; border-radius: 3px; font-size: 0.65rem; font-weight: 600;">${v.duration}</span>
           </div>
           <div style="padding: 8px 8px 8px 0; flex: 1;">
