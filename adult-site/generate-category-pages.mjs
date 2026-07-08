@@ -64,7 +64,7 @@ const TEMPLATE = (cat) => `<!DOCTYPE html>
   <script type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
   <script type="text/javascript">
     aclib.runAutoTag({
-      zoneId: 'jhy3sbhcwe',
+      zoneId: 'cmbzjmxz1i',
     });
   </script>
 
