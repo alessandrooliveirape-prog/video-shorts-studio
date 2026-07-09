@@ -1,0 +1,42 @@
+# ─── Environment ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Dependencies ────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ─── Build Output ────────────────────────────────────
+dist/
+build/
+
+# ─── Backend Outputs ─────────────────────────────────
+backend/outputs/
+backend/__pycache__/
+*.pyc
+*.pyo
+__pycache__/
+
+# ─── Logs ────────────────────────────────────────────
+*.log
+backend_server.log
+frontend.log
+npm-debug.log*
+
+# ─── IDE / Editor ────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Testing / Coverage ──────────────────────────────
+coverage/
+.nyc_output/
+
+# ─── Misc ────────────────────────────────────────────
+*.tsbuildinfo
