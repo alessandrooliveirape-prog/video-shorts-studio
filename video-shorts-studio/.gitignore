@@ -40,3 +40,7 @@ coverage/
 
 # ─── Misc ────────────────────────────────────────────
 *.tsbuildinfo
+
+# ─── Windows Special Files ───────────────────────────
+nul
+**/nul

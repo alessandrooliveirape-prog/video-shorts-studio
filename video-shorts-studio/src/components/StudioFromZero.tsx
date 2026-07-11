@@ -82,6 +82,7 @@ export default function StudioFromZero({
       const backendProjectId = scriptData.projectId || projectId;
       setProject((prev) => ({ ...prev, id: backendProjectId, scenes: scenes, status: 'generating', progress: 40 }));
       onCaptionsChange?.(scenes.map((s) => s.caption));
+      
       // Step 2: Generate video blocks for each scene
       for (let i = 0; i < scenes.length; i++) {
         setActiveScene(i);
@@ -172,15 +173,15 @@ export default function StudioFromZero({
   return (
     <div className="flex flex-col gap-5">
       {/* Idea Input Card */}
-      <div className="glass-card-solid rounded-2xl p-5">
+      <div className="glass-card-solid rounded-2xl p-5 border border-violet-500/20">
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-purple-500" />
+          <div className="w-8 h-8 rounded-xl bg-violet-950/20 flex items-center justify-center border border-violet-500/20">
+            <Sparkles className="w-4 h-4 text-violet-400" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-slate-800">Estúdio de Hollywood IA</h3>
+            <h3 className="text-sm font-bold text-slate-100">Estúdio do Zero IA</h3>
             <p className="text-[10px] text-slate-400 font-medium">
-              Gere vídeos completos do zero com consistência de personagem
+              Gere vídeos completos do zero com roteirização e B-roll por IA
             </p>
           </div>
         </div>
@@ -191,7 +192,7 @@ export default function StudioFromZero({
           placeholder="Descreva sua ideia para o vídeo..."
           disabled={isProcessing}
           rows={3}
-          className="w-full px-4 py-3 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-purple-200 focus:border-purple-300 resize-none disabled:opacity-40 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 text-xs bg-slate-900/50 border border-slate-800 rounded-xl outline-none transition-all font-medium text-slate-100 placeholder:text-slate-500 focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 resize-none disabled:opacity-40 disabled:cursor-not-allowed"
         />
 
         <div className="flex flex-wrap gap-1.5 mt-3">
@@ -200,9 +201,9 @@ export default function StudioFromZero({
               key={idx}
               onClick={() => setIdea(suggestion)}
               disabled={isProcessing}
-              className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-100/80 hover:bg-slate-200/60 text-slate-600 text-[9px] font-semibold rounded-lg transition-colors border border-slate-200/50 disabled:opacity-40"
+              className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-900/40 hover:bg-slate-800/60 text-slate-300 text-[9px] font-semibold rounded-lg transition-colors border border-slate-800 disabled:opacity-40 cursor-pointer"
             >
-              <Lightbulb className="w-2.5 h-2.5 text-amber-500" />
+              <Lightbulb className="w-2.5 h-2.5 text-fuchsia-400" />
               {suggestion}
             </button>
           ))}
@@ -211,7 +212,7 @@ export default function StudioFromZero({
         <button
           onClick={handleGenerate}
           disabled={!idea.trim() || isProcessing}
-          className="mt-4 w-full px-5 py-3 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 disabled:from-slate-300 disabled:to-slate-300 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md shadow-purple-200/30"
+          className="mt-4 w-full px-5 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-violet-500/15 cursor-pointer"
         >
           {isProcessing ? (
             <>
@@ -238,26 +239,26 @@ export default function StudioFromZero({
           >
             {/* Progress Card */}
             {(project.status === 'scripting' || project.status === 'generating' || project.status === 'stitching') && (
-              <div className="glass-card-solid rounded-2xl p-5">
+              <div className="glass-card-solid rounded-2xl p-5 border border-violet-500/20">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin text-purple-500" />
-                    <span className="text-xs font-bold font-mono text-purple-600">
-                      {project.status === 'scripting' && 'Roteirizando com IA...'}
+                    <Loader2 className="w-4 h-4 animate-spin text-violet-400" />
+                    <span className="text-xs font-bold font-mono text-violet-300">
+                      {project.status === 'scripting' && 'Roteirizando com Gemini 3.5...'}
                       {project.status === 'generating' && `Gerando cena ${activeScene + 1} de ${project.scenes.length}...`}
-                      {project.status === 'stitching' && 'Montando vídeo final...'}
+                      {project.status === 'stitching' && 'Concatenando cenas e efeitos...'}
                     </span>
                   </div>
                   <span className="text-[10px] font-mono font-bold text-slate-400">
                     {project.progress}%
                   </span>
                 </div>
-                <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-1.5 bg-slate-900 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${project.progress}%` }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
-                    className="h-full rounded-full bg-gradient-to-r from-purple-400 to-emerald-400 processing-pulse"
+                    className="h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 processing-pulse"
                   />
                 </div>
               </div>
@@ -265,14 +266,14 @@ export default function StudioFromZero({
 
             {/* Error */}
             {project.status === 'error' && project.error && (
-              <div className="glass-card-solid rounded-2xl p-5 border-red-100">
+              <div className="glass-card-solid rounded-2xl p-5 border border-red-500/20">
                 <div className="flex items-start gap-2">
                   <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-[11px] font-semibold text-red-700">{project.error}</p>
+                    <p className="text-[11px] font-semibold text-red-300">{project.error}</p>
                     <button
                       onClick={() => setProject({ id: '', idea: '', status: 'idle', progress: 0, scenes: [] })}
-                      className="text-[10px] font-bold text-red-500 hover:text-red-700 underline mt-1"
+                      className="text-[10px] font-bold text-red-400 hover:text-red-300 underline mt-1 cursor-pointer"
                     >
                       Tentar novamente
                     </button>
@@ -283,12 +284,12 @@ export default function StudioFromZero({
 
             {/* Scene Blocks */}
             {project.scenes.length > 0 && (
-              <div className="glass-card-solid rounded-2xl p-5">
+              <div className="glass-card-solid rounded-2xl p-5 border border-violet-500/20">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                     Roteiro ({project.scenes.length} cenas)
                   </span>
-                  <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono font-bold text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded border border-violet-500/20">
                     ~30s total
                   </span>
                 </div>
@@ -315,28 +316,28 @@ export default function StudioFromZero({
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="glass-card-solid rounded-2xl p-5 border-emerald-100"
+                className="glass-card-solid rounded-2xl p-5 border border-violet-500/20"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  <div className="w-8 h-8 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-4 h-4 text-violet-400" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-emerald-700">Vídeo gerado com sucesso!</h4>
+                    <h4 className="text-xs font-bold text-violet-300">Vídeo gerado com sucesso!</h4>
                     <p className="text-[10px] text-slate-400">Seu Short está pronto para download ou publicação</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={handleDownload}
-                    className="flex-1 min-w-[120px] px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-sm"
+                    className="flex-1 min-w-[120px] px-4 py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md shadow-violet-500/10 cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
                     Download do Short
                   </button>
                   <button
                     onClick={handlePublish}
-                    className="flex-1 min-w-[120px] px-4 py-2.5 bg-white hover:bg-slate-50 text-red-600 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] border border-red-200 hover:border-red-300 shadow-sm"
+                    className="flex-1 min-w-[120px] px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-red-400 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] border border-red-950 cursor-pointer shadow-sm"
                   >
                     <Youtube className="w-4 h-4" />
                     Publicar Shorts

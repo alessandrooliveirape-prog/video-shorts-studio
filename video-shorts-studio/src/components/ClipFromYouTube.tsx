@@ -187,38 +187,39 @@ export default function ClipFromYouTube({
   }, [job]);
 
   const resetJob = () => {
+    setUrl('');
     setJob({ id: '', youtubeUrl: '', status: 'idle', progress: 0 });
     onProcessingChange?.(false);
   };
 
   const statusColors: Record<string, string> = {
-    downloading: 'text-blue-500',
-    analyzing: 'text-amber-500',
-    clipping: 'text-emerald-500',
-    done: 'text-emerald-600',
-    error: 'text-red-500',
+    downloading: 'text-violet-400',
+    analyzing: 'text-fuchsia-400',
+    clipping: 'text-pink-400',
+    done: 'text-violet-400',
+    error: 'text-red-400',
   };
 
   const statusLabels: Record<string, string> = {
     downloading: 'Baixando vídeo...',
-    analyzing: 'Analisando com IA...',
-    clipping: 'Recortando Short...',
-    done: 'Concluído!',
-    error: 'Erro',
+    analyzing: 'Analisando com Gemini...',
+    clipping: 'Aplicando Edições FFmpeg...',
+    done: 'Concluído com Sucesso!',
+    error: 'Erro no Processamento',
   };
 
   return (
     <div className="flex flex-col gap-5">
       {/* URL Input Card */}
-      <div className="glass-card-solid rounded-2xl p-5">
+      <div className="glass-card-solid rounded-2xl p-5 border border-violet-500/20">
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-red-950/20 flex items-center justify-center border border-red-500/20">
             <Youtube className="w-4 h-4 text-red-500" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-slate-800">Clipping do YouTube</h3>
+            <h3 className="text-sm font-bold text-slate-100">Clipping do YouTube</h3>
             <p className="text-[10px] text-slate-400 font-medium">
-              Extraia os melhores momentos para Shorts virais
+              Extraia os melhores momentos para Shorts virais com IA e FFmpeg
             </p>
           </div>
         </div>
@@ -231,14 +232,14 @@ export default function ClipFromYouTube({
               onChange={(e) => handleUrlChange(e.target.value)}
               placeholder="https://youtube.com/watch?v=... ou https://youtu.be/..."
               disabled={job.status !== 'idle' && job.status !== 'error'}
-              className={`w-full px-4 py-3 text-xs bg-slate-50 border rounded-xl outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400 ${
+              className={`w-full px-4 py-3 text-xs bg-slate-900/50 border rounded-xl outline-none transition-all font-medium text-slate-100 placeholder:text-slate-500 ${
                 urlError
-                  ? 'border-red-300 focus:ring-2 focus:ring-red-200'
-                  : 'border-slate-200 focus:ring-2 focus:ring-emerald-200 focus:border-emerald-300'
+                  ? 'border-red-500 focus:ring-2 focus:ring-red-500/20'
+                  : 'border-slate-800 focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500'
               } disabled:opacity-40 disabled:cursor-not-allowed`}
             />
             {urlError && (
-              <p className="flex items-center gap-1 text-[10px] text-red-500 mt-1.5 ml-1 font-medium">
+              <p className="flex items-center gap-1 text-[10px] text-red-400 mt-1.5 ml-1 font-medium">
                 <AlertCircle className="w-3 h-3" />
                 {urlError}
               </p>
@@ -250,7 +251,7 @@ export default function ClipFromYouTube({
             disabled={
               !url.trim() || !!urlError || (job.status !== 'idle' && job.status !== 'error')
             }
-            className="px-5 py-3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-sm shadow-emerald-200/50"
+            className="px-5 py-3 bg-violet-600 hover:bg-violet-700 disabled:bg-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-violet-500/10 cursor-pointer"
           >
             {job.status === 'idle' || job.status === 'error' ? (
               <>
@@ -270,10 +271,11 @@ export default function ClipFromYouTube({
         <div className="mt-3 relative">
           <button
             onClick={() => setShowAudioOptions(!showAudioOptions)}
-            className="flex items-center gap-2 text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors px-1"
+            disabled={job.status !== 'idle' && job.status !== 'error'}
+            className="flex items-center gap-2 text-[11px] font-semibold text-slate-400 hover:text-slate-200 transition-colors px-1 cursor-pointer disabled:opacity-50"
           >
             <Music className="w-3.5 h-3.5" />
-            <span>Efeito de áudio: <span className="text-slate-700">{audioOptions.find((a) => a.value === audioEffect)?.label}</span></span>
+            <span>Mixagem de áudio: <span className="text-violet-400">{audioOptions.find((a) => a.value === audioEffect)?.label}</span></span>
             <ChevronDown className={`w-3 h-3 transition-transform ${showAudioOptions ? 'rotate-180' : ''}`} />
           </button>
 
@@ -283,7 +285,7 @@ export default function ClipFromYouTube({
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
-                className="absolute top-full left-0 mt-1 w-64 bg-white border border-slate-200 rounded-xl shadow-lg z-20 p-2"
+                className="absolute top-full left-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl z-20 p-2"
               >
                 {audioOptions.map((opt) => (
                   <button
@@ -292,14 +294,14 @@ export default function ClipFromYouTube({
                       setAudioEffect(opt.value);
                       setShowAudioOptions(false);
                     }}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors ${
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors cursor-pointer ${
                       audioEffect === opt.value
-                        ? 'bg-emerald-50 text-emerald-700 font-semibold'
-                        : 'text-slate-600 hover:bg-slate-50'
+                        ? 'bg-violet-500/20 text-violet-300 font-semibold'
+                        : 'text-slate-300 hover:bg-slate-800'
                     }`}
                   >
                     <span className="font-semibold">{opt.label}</span>
-                    <span className="block text-[10px] text-slate-400 font-normal">{opt.desc}</span>
+                    <span className="block text-[10px] text-slate-500 font-normal">{opt.desc}</span>
                   </button>
                 ))}
               </motion.div>
@@ -315,14 +317,14 @@ export default function ClipFromYouTube({
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
-            className="glass-card-solid rounded-2xl p-5"
+            className="glass-card-solid rounded-2xl p-5 border border-violet-500/20"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <span className={`text-xs font-bold font-mono ${statusColors[job.status]}`}>
                   {statusLabels[job.status]}
                 </span>
-                {job.status === 'done' && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
+                {job.status === 'done' && <CheckCircle2 className="w-4 h-4 text-violet-400" />}
               </div>
               <span className="text-[10px] font-mono font-bold text-slate-400">
                 {job.progress}%
@@ -330,17 +332,17 @@ export default function ClipFromYouTube({
             </div>
 
             {/* Progress Bar */}
-            <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-slate-900 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${job.progress}%` }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 className={`h-full rounded-full ${
                   job.status === 'error'
-                    ? 'bg-red-400'
+                    ? 'bg-red-500'
                     : job.status === 'done'
-                    ? 'bg-emerald-400'
-                    : 'bg-emerald-500 processing-pulse'
+                    ? 'bg-violet-500'
+                    : 'bg-gradient-to-r from-violet-500 to-fuchsia-500 processing-pulse'
                 }`}
               />
             </div>
@@ -354,17 +356,17 @@ export default function ClipFromYouTube({
                 {job.segments.map((seg, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 bg-slate-50/60 p-2.5 rounded-xl border border-slate-100"
+                    className="flex items-start gap-2.5 bg-slate-900/40 p-2.5 rounded-xl border border-slate-800/80"
                   >
-                    <div className="shrink-0 w-6 h-6 rounded-lg bg-amber-100 flex items-center justify-center">
-                      <Sparkles className="w-3 h-3 text-amber-600" />
+                    <div className="shrink-0 w-6 h-6 rounded-lg bg-violet-500/10 flex items-center justify-center border border-violet-500/20">
+                      <Sparkles className="w-3 h-3 text-violet-400" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[11px] font-semibold text-slate-700 leading-relaxed">
+                      <p className="text-[11px] font-semibold text-slate-200 leading-relaxed">
                         {seg.viralHook}
                       </p>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-[9px] font-mono font-medium text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">
+                        <span className="text-[9px] font-mono font-medium text-slate-300 bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700/50">
                           <Clock className="w-2.5 h-2.5 inline mr-0.5" />
                           {seg.start.toFixed(1)}s - {seg.end.toFixed(1)}s
                         </span>
@@ -380,13 +382,13 @@ export default function ClipFromYouTube({
 
             {/* Error message */}
             {job.status === 'error' && job.error && (
-              <div className="mt-3 flex items-start gap-2 bg-red-50 p-3 rounded-xl border border-red-100">
+              <div className="mt-3 flex items-start gap-2 bg-red-950/20 p-3 rounded-xl border border-red-900/40">
                 <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-[11px] font-semibold text-red-700">{job.error}</p>
+                  <p className="text-[11px] font-semibold text-red-300">{job.error}</p>
                   <button
                     onClick={resetJob}
-                    className="text-[10px] font-bold text-red-500 hover:text-red-700 underline mt-1"
+                    className="text-[10px] font-bold text-red-400 hover:text-red-300 underline mt-1 cursor-pointer"
                   >
                     Tentar novamente
                   </button>
@@ -396,24 +398,24 @@ export default function ClipFromYouTube({
 
             {/* Action Buttons on Completion */}
             {job.status === 'done' && (
-              <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-100">
+              <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-800/80">
                 <button
                   onClick={handleDownload}
-                  className="flex-1 min-w-[120px] px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-sm"
+                  className="flex-1 min-w-[120px] px-4 py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md shadow-violet-500/10 cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   Download do Short
                 </button>
                 <button
                   onClick={handlePublish}
-                  className="flex-1 min-w-[120px] px-4 py-2.5 bg-white hover:bg-slate-50 text-red-600 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] border border-red-200 hover:border-red-300 shadow-sm"
+                  className="flex-1 min-w-[120px] px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-red-400 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] border border-red-950 shadow-sm cursor-pointer"
                 >
                   <Youtube className="w-4 h-4" />
                   Publicar Shorts
                 </button>
                 <button
                   onClick={resetJob}
-                  className="px-4 py-2.5 text-slate-500 hover:text-slate-700 text-xs font-semibold rounded-xl transition-all"
+                  className="px-4 py-2.5 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer"
                 >
                   Novo Clip
                 </button>
