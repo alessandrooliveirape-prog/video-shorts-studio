@@ -2,44 +2,60 @@
   "version": 2,
   "rewrites": [
     { "source": "/milf", "destination": "/milf.html" },
-    { "source": "/:path(([a-zA-Z0-9_-]+))", "destination": "/:path.html" },
-    { "source": "/:folder(([a-zA-Z0-9_-]+))/:file(([a-zA-Z0-9_-]+))", "destination": "/:folder/:file.html" }
+    { "source": "/latina", "destination": "/latina.html" },
+    { "source": "/amateur", "destination": "/amateur.html" },
+    { "source": "/hentai", "destination": "/hentai.html" },
+    { "source": "/lesbian", "destination": "/lesbian.html" },
+    { "source": "/brazilian", "destination": "/brazilian.html" },
+    { "source": "/anal", "destination": "/anal.html" },
+    { "source": "/teen", "destination": "/teen.html" },
+    { "source": "/gangbang", "destination": "/gangbang.html" },
+    { "source": "/solo", "destination": "/solo.html" },
+    { "source": "/couple", "destination": "/couple.html" },
+    { "source": "/fetish", "destination": "/fetish.html" },
+    { "source": "/orgy", "destination": "/orgy.html" },
+    { "source": "/trans", "destination": "/trans.html" },
+    { "source": "/interracial", "destination": "/interracial.html" },
+    { "source": "/cosplay", "destination": "/cosplay.html" },
+    { "source": "/brazilian-amateurs", "destination": "/brazilian-amateurs.html" },
+    { "source": "/horny-grannies", "destination": "/horny-grannies.html" },
+    { "source": "/category", "destination": "/category.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/dmca", "destination": "/dmca.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/video", "destination": "/video.html" },
+    { "source": "/video/:id", "destination": "/video/:id.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/:path((?!.*\\.).*)", "destination": "/404.html" }
   ],
   "headers": [
     {
       "source": "/(.*)\\.(css|js)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
       "source": "/(.*)\\.(png|jpg|jpeg|gif|webp|svg|ico)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400, stale-while-revalidate=604800"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, stale-while-revalidate=86400"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "no-referrer-when-downgrade" }
       ]
     }
   ]

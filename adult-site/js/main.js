@@ -1,8 +1,7 @@
 /* ============================================
-   PLEASUREHUB - Main Application
+   PLEASUREHUB v2.0 - Main Application
    ============================================ */
 
-// --- Utility: Debounce function ---
 function debounce(fn, delay = 150) {
   let timer;
   return function(...args) {
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const ageYes = document.getElementById('ageYes');
     const ageNo = document.getElementById('ageNo');
 
-    // Verificar localStorage
     if (localStorage.getItem('ph_age_verified') === 'true') {
       ageModal.style.display = 'none';
     }
@@ -29,11 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ageYes.addEventListener('click', () => {
         localStorage.setItem('ph_age_verified', 'true');
         ageModal.style.display = 'none';
-        // Iniciar AdCash após verificação
-        if (typeof ADCASH !== 'undefined') {
-          ADCASH.init();
-          setTimeout(() => ADCASH.loadPageAds(), 2000);
-        }
       });
     }
 
@@ -47,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Navigation Active State ---
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(item => {
-    item.addEventListener('click', function(e) {
+    item.addEventListener('click', function() {
       navItems.forEach(n => n.classList.remove('active'));
       this.classList.add('active');
     });
@@ -56,13 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Category Chips ---
   const catChips = document.querySelectorAll('.cat-chip');
   catChips.forEach(chip => {
-    chip.addEventListener('click', function(e) {
+    chip.addEventListener('click', function() {
       catChips.forEach(c => c.classList.remove('active'));
       this.classList.add('active');
-      
       const category = this.dataset.category;
       if (category && category !== 'all') {
-        window.location.href = `/category?cat=${category}`;
+        window.location.href = `/${category}`;
       }
     });
   });
@@ -73,34 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
       const action = this.dataset.action;
       const target = action === 'like' ? 'dislike' : 'like';
       const opposite = document.querySelector(`.video-action-btn[data-action="${target}"]`);
-      
       if (opposite) opposite.classList.remove('liked');
       this.classList.toggle('liked');
     });
   });
 
   // --- Share Button ---
-  const shareBtn = document.querySelector('[data-action="share"]');
+  const shareBtn = document.querySelector('.share-btn');
   if (shareBtn) {
     shareBtn.addEventListener('click', () => {
       if (navigator.share) {
-        navigator.share({
-          title: document.title,
-          url: window.location.href
-        }).catch(() => {});
+        navigator.share({ title: document.title, url: window.location.href }).catch(() => {});
       } else {
-        // Fallback: copiar link
         navigator.clipboard.writeText(window.location.href).then(() => {
           shareBtn.innerHTML = '✅ Link copied!';
-          setTimeout(() => {
-            shareBtn.innerHTML = '🔗 Share';
-          }, 2000);
+          setTimeout(() => { shareBtn.innerHTML = '🔗 Share'; }, 2000);
         });
       }
     });
   }
 
-  // --- Search Functionality ---
+  // --- Search ---
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('keydown', (e) => {
@@ -116,71 +101,52 @@ document.addEventListener('DOMContentLoaded', () => {
     loadMoreBtn.addEventListener('click', function() {
       this.textContent = 'Loading...';
       this.disabled = true;
-      
       setTimeout(() => {
-        // Simular carregamento de mais conteúdo
-        const grid = document.querySelector('.content-grid');
-        if (grid) {
-          // Adicionar mais cards (exemplo)
-          this.textContent = 'Load more videos';
-          this.disabled = false;
-        }
+        this.textContent = 'Load more videos';
+        this.disabled = false;
       }, 1000);
     });
   }
 
-  // --- Scroll suave para links âncora ---
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // --- Responsive Menu Toggle (mobile) ---
-  const menuToggle = document.createElement('button');
-  menuToggle.className = 'mobile-menu-toggle';
-  menuToggle.setAttribute('aria-label', 'Menu');
-  menuToggle.innerHTML = '<span></span><span></span><span></span>';
+  // --- Mobile Menu Toggle (improved - no duplicate) ---
+  let menuToggle = document.querySelector('.mobile-menu-toggle');
   
-  const headerActions = document.querySelector('.header-actions');
-  if (headerActions && window.innerWidth <= 768) {
-    headerActions.parentNode.insertBefore(menuToggle, headerActions);
+  function setupMobileMenu() {
+    const headerActions = document.querySelector('.header-actions');
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile && !menuToggle && headerActions) {
+      menuToggle = document.createElement('button');
+      menuToggle.className = 'mobile-menu-toggle';
+      menuToggle.setAttribute('aria-label', 'Menu');
+      menuToggle.innerHTML = '<span></span><span></span><span></span>';
+      headerActions.parentNode.insertBefore(menuToggle, headerActions);
+      
+      menuToggle.addEventListener('click', () => {
+        const nav = document.querySelector('.main-nav');
+        if (nav) {
+          nav.classList.toggle('nav-open');
+          menuToggle.classList.toggle('active');
+        }
+      });
+    } else if (!isMobile && menuToggle) {
+      menuToggle.remove();
+      menuToggle = null;
+      const nav = document.querySelector('.main-nav');
+      if (nav) nav.classList.remove('nav-open');
+    }
   }
 
-  menuToggle.addEventListener('click', () => {
-    const nav = document.querySelector('.main-nav');
-    if (nav) {
-      nav.classList.toggle('nav-open');
-      menuToggle.classList.toggle('active');
-    }
-  });
+  setupMobileMenu();
+  window.addEventListener('resize', debounce(setupMobileMenu, 200));
 
-  // Reajustar na mudança de tamanho (debounced)
-  window.addEventListener('resize', debounce(() => {
-    const nav = document.querySelector('.main-nav');
-    if (nav && window.innerWidth > 768) {
-      nav.classList.remove('nav-open');
-      menuToggle.classList.remove('active');
-    }
-    if (window.innerWidth <= 768) {
-      if (headerActions && !document.querySelector('.mobile-menu-toggle')) {
-        headerActions.parentNode.insertBefore(menuToggle, headerActions);
-      }
-    }
-  }, 200), { passive: true });
-
-  // --- Scroll Spy para nav items (debounced) ---
+  // --- Scroll Spy for nav items ---
   const sections = document.querySelectorAll('section[id]');
-  if (sections.length > 0 && navItems.length > 0) {
+  if (sections.length > 0) {
     window.addEventListener('scroll', debounce(() => {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
+        if (window.scrollY >= section.offsetTop - 100) {
           current = section.getAttribute('id');
         }
       });
@@ -193,6 +159,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100), { passive: true });
   }
 
+  // --- Scroll to Top Button ---
+  let scrollTopBtn = document.createElement('button');
+  scrollTopBtn.className = 'scroll-top';
+  scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+  scrollTopBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(scrollTopBtn);
+
+  window.addEventListener('scroll', debounce(() => {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }, 100), { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   console.log('[PleasureHub] Site loaded successfully! 🚀');
-  console.log('[PleasureHub] Configure the AdCash ID in js/adcash.js');
 });
