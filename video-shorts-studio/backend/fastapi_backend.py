@@ -802,8 +802,8 @@ def _create_kenburns_video(image_path: Path, output_path: Path, duration: float)
             f"d={frames}:s=1080x1920:fps={fps},"
             f"fade=t=in:st=0:d=0.5:color=black,fade=t=out:st={duration-0.5}:d=0.5:color=black",
             "-c:v", "libx264",
-            "-preset", "fast",
-            "-crf", "23",
+            "-preset", "ultrafast",
+            "-crf", "35",
             "-pix_fmt", "yuv420p",
             "-t", str(duration),
             "-y", str(output_path),
@@ -933,8 +933,8 @@ def process_veo_generation_job(job_id: str, project_id: str, video_prompts: list
                 "-i", vp,
                 "-vf", "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=black,fps=30",
                 "-c:v", "libx264",
-                "-preset", "fast",
-                "-crf", "23",
+                "-preset", "ultrafast",
+                "-crf", "35",
                 "-c:a", "aac",
                 "-ar", "44100",
                 "-ac", "2",
@@ -1061,8 +1061,8 @@ def _concat_with_xfade(
             "-map", f"[{prev_label_v}]",
             "-map", f"[{prev_label_a}]",
             "-c:v", "libx264",
-            "-preset", "fast",
-            "-crf", "23",
+            "-preset", "ultrafast",
+            "-crf", "35",
             "-c:a", "aac",
             "-ar", "44100",
             "-ac", "2",
@@ -1451,8 +1451,8 @@ async def _clip_extract_internal(req: ClipExtractRequest, job_id: str):
             
         cmd += [
             "-c:v", "libx264",
-            "-preset", "fast",
-            "-crf", "23",
+            "-preset", "ultrafast",
+            "-crf", "35",
             "-shortest",
             "-y", str(clip_out)
         ]
@@ -2033,7 +2033,7 @@ async def process_video_concat(
                     "-vf", drawtext_filter,
                     "-c:v", "libx264",
                     "-preset", "ultrafast",
-                    "-crf", "23",
+                    "-crf", "35",
                     "-c:a", "copy",
                     "-y", str(final_with_text)
                 ])
@@ -2208,7 +2208,7 @@ async def _upload_clip_internal(saved_name: str, job_id: str):
         cmd = [
             "-ss", format_timestamp(seg.start), "-i", str(local_video),
             "-t", format_timestamp(duration), "-vf", vf,
-            "-c:v", "libx264", "-preset", "fast", "-crf", "23",
+            "-c:v", "libx264", "-preset", "ultrafast", "-crf", "35",
             "-c:a", "aac", "-ar", "44100", "-ac", "2",
             "-shortest", "-y", str(clip_out)
         ]
