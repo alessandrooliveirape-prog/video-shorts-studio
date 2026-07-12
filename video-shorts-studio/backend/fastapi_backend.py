@@ -1244,20 +1244,49 @@ async def _clip_extract_internal(req: ClipExtractRequest, job_id: str):
     temp_dir.mkdir(parents=True, exist_ok=True)
     video_path = temp_dir / "source.mp4"
 
-    # 1. Download do vídeo original via yt-dlp
+    # 1. Download do vídeo original via yt-dlp (com retry)
     print(f"  [CLIPPING] Baixando vídeo: {req.youtube_url}")
     jobs[job_id]["progress"] = 20
-    try:
-        subprocess.run(
-            ["yt-dlp", "-f", "best[height<=720]", "-o", str(video_path),
-             "--no-playlist", "--quiet", req.youtube_url],
-            capture_output=True, text=True, timeout=120, check=True,
-        )
-    except subprocess.TimeoutExpired:
-        raise HTTPException(status_code=504, detail="Download do YouTube excedeu o limite de 2 minutos. Verifique a URL ou tente um vídeo menor.")
-    except subprocess.CalledProcessError as e:
-        error_msg = e.stderr[:300] if e.stderr else "Erro desconhecido"
-        raise HTTPException(status_code=400, detail=f"Falha ao baixar vídeo: {error_msg}")
+    
+    yt_dlp_cmd = [
+        "yt-dlp", "-f", "best[height<=720]", "-o", str(video_path),
+        "--no-playlist", "--quiet",
+        "--extractor-retries", "3",
+        "--retries", "5",
+        "--sleep-requests", "2.0",
+        "--sleep-interval", "5.0",
+        "--max-sleep-interval", "15.0",
+        req.youtube_url,
+    ]
+    
+    max_attempts = 3
+    last_error = None
+    for attempt in range(max_attempts):
+        if attempt > 0:
+            wait_time = 10 * attempt
+            print(f"  [CLIPPING] Tentativa {attempt+1}/{max_attempts} após {wait_time}s...")
+            time.sleep(wait_time)
+        try:
+            result = subprocess.run(
+                yt_dlp_cmd,
+                capture_output=True, text=True, timeout=180, check=False,
+            )
+            if result.returncode == 0:
+                last_error = None
+                break
+            last_error = result.stderr[:300] if result.stderr else f"yt-dlp exit code {result.returncode}"
+            print(f"  [CLIPPING] Tentativa {attempt+1} falhou: {last_error}")
+        except subprocess.TimeoutExpired:
+            last_error = "Download excedeu 3 minutos"
+            print(f"  [CLIPPING] Tentativa {attempt+1} timeout")
+        except Exception as e:
+            last_error = str(e)[:200]
+            print(f"  [CLIPPING] Tentativa {attempt+1} erro: {last_error}")
+    
+    if last_error:
+        raise HTTPException(status_code=400, detail=f"Falha ao baixar vídeo: {last_error}")
+    if not video_path.exists():
+        raise HTTPException(status_code=500, detail="Falha ao baixar vídeo do YouTube")
 
     if not video_path.exists():
         raise HTTPException(status_code=500, detail="Falha ao baixar vídeo do YouTube")

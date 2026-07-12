@@ -1,11 +1,16 @@
 FROM python:3.11-slim
 
-# Install system dependencies: FFmpeg + ferramentas essenciais
+# Install system dependencies: FFmpeg + Deno (JS runtime for yt-dlp) + ferramentas
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     wget \
     ca-certificates \
+    unzip \
+    curl \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Deno (JavaScript runtime for yt-dlp video decryption)
+RUN curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh -s -- -y
 
 # Set working directory
 WORKDIR /app
