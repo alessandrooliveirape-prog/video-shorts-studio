@@ -1252,8 +1252,8 @@ async def _clip_extract_internal(req: ClipExtractRequest, job_id: str):
         "yt-dlp", "-f", "best[height<=720]", "-o", str(video_path),
         "--no-playlist", "--quiet",
         "--extractor-retries", "3",
-        "--retries", "5",
-        "--sleep-requests", "2.0",
+        "--retries", "3",
+        "--sleep-requests", "5.0",
         "--sleep-interval", "5.0",
         "--max-sleep-interval", "15.0",
         req.youtube_url,
@@ -1265,7 +1265,7 @@ async def _clip_extract_internal(req: ClipExtractRequest, job_id: str):
         if attempt > 0:
             wait_time = 10 * attempt
             print(f"  [CLIPPING] Tentativa {attempt+1}/{max_attempts} após {wait_time}s...")
-            time.sleep(wait_time)
+            await asyncio.sleep(wait_time)
         try:
             result = subprocess.run(
                 yt_dlp_cmd,
