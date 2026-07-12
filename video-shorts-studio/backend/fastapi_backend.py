@@ -11,13 +11,15 @@ APIs gratuitas utilizadas:
 from __future__ import annotations
 
 import asyncio
+import io
 import json
 import os
 import re
 import shutil
 import subprocess
 import time
-import uuid
+import traceback
+uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional
@@ -28,6 +30,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 import requests as http_req
 from pydantic import BaseModel, Field
+from PIL import Image
 from google import genai
 from google.genai import types
 
@@ -36,8 +39,6 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", os.getenv("GOOGLE_API_KEY", ""))
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 HOST = os.getenv("HOST", "0.0.0.0")
 PORT = int(os.getenv("PORT", "8000"))
@@ -105,6 +106,9 @@ async def lifespan(app: FastAPI):
         print(f"  [OK] Google GenAI configurado com o modelo: {GEMINI_MODEL}")
     else:
         print("  [WARN] GEMINI_API_KEY/GOOGLE_API_KEY não definida - modo simulado ativado")
+    if not PEXELS_API_KEY:
+        print("  [WARN] PEXELS_API_KEY não definida - busca de B-roll no Pexels desativada")
+        print("         Cenas usarão gradientes animados como fallback visual.")
     if SYSTEM_FONT:
         print(f"  [OK] Fonte para legendas: {Path(SYSTEM_FONT).name}")
     else:
@@ -270,7 +274,6 @@ class HealthResponse(BaseSchema):
     status: str
     version: str
     ffmpeg_available: bool
-    groq_configured: bool  # Mantido para compatibilidade
     gemini_configured: bool
 
 # --- In-memory Job Store ---------------------------------------------
@@ -676,8 +679,9 @@ def _generate_cta_outro(output_path: Path, text: str, font_path: str) -> bool:
             # CTA outro padrão usa a formatação com quebra de linha de até 25 caracteres
             wrapped_text = wrap_text(text, max_chars=25)
             escaped_txt = wrapped_text.replace(chr(39), "").replace(':', '')
+            safe_font_path = font_path.replace(':', '\\:')
             drawtext_filter = (
-                f",drawtext=text='{escaped_txt}':fontfile='{font_path.replace(':', '\\:')}':"
+                f",drawtext=text='{escaped_txt}':fontfile='{safe_font_path}':"
                 f"fontsize=64:fontcolor=white:x=(w-text_w)/2:y=(h-text_h)/2:"
                 f"shadowcolor=black@0.6:shadowx=4:shadowy=4"
             )
@@ -732,8 +736,7 @@ def _generate_scene_image_gemini(visual_prompt: str, output_path: Path) -> bool:
             if hasattr(img, 'mode'):
                 if img.mode == 'RGBA':
                     # Criar fundo preto e mesclar canal alpha
-                    from PIL import Image as PILImage
-                    bg = PILImage.new('RGB', img.size, (0, 0, 0))
+                    bg = Image.new('RGB', img.size, (0, 0, 0))
                     bg.paste(img, mask=img.split()[3])
                     img = bg
                 elif img.mode != 'RGB':
@@ -741,10 +744,8 @@ def _generate_scene_image_gemini(visual_prompt: str, output_path: Path) -> bool:
             else:
                 # Se não for PIL Image, tentar converter
                 try:
-                    from PIL import Image as PILImage
                     if hasattr(img, 'image_bytes'):
-                        import io
-                        img = PILImage.open(io.BytesIO(img.image_bytes))
+                        img = Image.open(io.BytesIO(img.image_bytes))
                         if img.mode != 'RGB':
                             img = img.convert('RGB')
                 except Exception:
@@ -761,7 +762,6 @@ def _generate_scene_image_gemini(visual_prompt: str, output_path: Path) -> bool:
         return False
     except Exception as e:
         print(f"  [WARN] Gemini Imagen error: {e}")
-        import traceback
         traceback.print_exc()
         return False
 
@@ -777,8 +777,7 @@ def _create_kenburns_video(image_path: Path, output_path: Path, duration: float)
         frames = int(duration * fps)
         
         # Detectar orientação da imagem para escolher a escala correta
-        from PIL import Image as PILImage
-        with PILImage.open(image_path) as img_check:
+        with Image.open(image_path) as img_check:
             w, h = img_check.size
             is_portrait = h > w
         
@@ -1203,7 +1202,6 @@ async def health():
         status="ok",
         version="1.2.0",
         ffmpeg_available=True,
-        groq_configured=GEMINI_API_KEY != "", # Mantido para compatibilidade
         gemini_configured=GEMINI_API_KEY != "",
     )
 
