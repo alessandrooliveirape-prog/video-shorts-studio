@@ -153,11 +153,23 @@ export default function ClipFromYouTube({
             );
           } else if (status.status === 'error') {
             clearInterval(pollInterval);
-            throw new Error(status.error || 'Erro no processamento');
+            setJob((prev) => ({
+              ...prev,
+              status: 'error',
+              error: status.error || 'Erro no processamento',
+              progress: 0,
+            }));
+            onProcessingChange?.(false);
           }
         } catch {
           clearInterval(pollInterval);
-          throw new Error('Falha ao verificar status do processamento');
+          setJob((prev) => ({
+            ...prev,
+            status: 'error',
+            error: 'Falha ao verificar status do processamento',
+            progress: 0,
+          }));
+          onProcessingChange?.(false);
         }
       }, 2000);
       pollRef.current = pollInterval;

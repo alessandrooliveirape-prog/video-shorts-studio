@@ -362,6 +362,8 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
               ...prev,
               progress: 40 + Math.round((completed / scenes.length) * 50),
             }));
+          }).catch(() => {
+            // Erro tratado pelo Promise.all + catch externo
           });
         }
 
