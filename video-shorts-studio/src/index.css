@@ -137,7 +137,63 @@
   background: #94a3b8;
 }
 
+/* Transition Preview Animations */
+@keyframes transPreviewFade {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0; }
+  60% { opacity: 0; }
+}
+
+@keyframes transPreviewSlide {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes transPreviewSlideOut {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes transPreviewCircle {
+  0% { clip-path: circle(0% at 50% 50%); }
+  100% { clip-path: circle(71% at 50% 50%); }
+}
+
+@keyframes transPreviewWipe {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.trans-preview-fade .trans-preview-b {
+  animation: transPreviewFade 2s ease-in-out infinite;
+}
+
+.trans-preview-slide .trans-preview-b {
+  animation: transPreviewSlide 2s ease-in-out infinite;
+}
+
+.trans-preview-slide .trans-preview-a {
+  animation: transPreviewSlideOut 2s ease-in-out infinite;
+}
+
+.trans-preview-circle .trans-preview-b {
+  animation: transPreviewCircle 2s ease-in-out infinite;
+}
+
+.trans-preview-wipe .trans-preview-b {
+  animation: transPreviewWipe 2s ease-in-out infinite;
+}
+
 /* Smooth transitions */
 * {
   scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for template selector */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

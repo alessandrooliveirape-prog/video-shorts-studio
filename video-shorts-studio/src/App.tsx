@@ -5,6 +5,7 @@ import { AppTab, SceneScript } from './types';
 import Header from './components/Header';
 import PhoneSimulator from './components/PhoneSimulator';
 import ClipFromYouTube from './components/ClipFromYouTube';
+import ClipFromUpload from './components/ClipFromUpload';
 import StudioFromZero from './components/StudioFromZero';
 import ConcatStudio from './components/ConcatStudio';
 import { AudioEffect } from './types';
@@ -112,6 +113,22 @@ export default function App() {
                     onClipComplete={handleClipComplete}
                     onCaptionsChange={handleCaptionsChange}
                     onProcessingChange={(p) => handleProcessingChange(p, 'Processando clipe com IA...')}
+                  />
+                </motion.div>
+              )}
+              {activeTab === 'upload-clip' && (
+                <motion.div
+                  key="upload-clip"
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 12 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ClipFromUpload
+                    onClipComplete={handleClipComplete}
+                    onCaptionsChange={handleCaptionsChange}
+                    onProcessingChange={(p) => handleProcessingChange(p, 'Analisando vídeo com IA...')}
+                    onVideoPreview={setVideoPreview}
                   />
                 </motion.div>
               )}

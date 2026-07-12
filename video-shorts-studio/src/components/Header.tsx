@@ -1,4 +1,4 @@
-import { Scissors, Sparkles, Menu, X, Film } from 'lucide-react';
+import { Scissors, Sparkles, Menu, X, Film, Upload } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AppTab } from '@/src/types';
 
@@ -46,6 +46,12 @@ export default function Header({ activeTab, onTabChange, menuOpen, onMenuToggle 
               label="Clipping YouTube"
             />
             <TabButton
+              active={activeTab === 'upload-clip'}
+              onClick={() => onTabChange('upload-clip')}
+              icon={<Upload className="w-3.5 h-3.5" />}
+              label="Upload & Cortar"
+            />
+            <TabButton
               active={activeTab === 'studio'}
               onClick={() => onTabChange('studio')}
               icon={<Sparkles className="w-3.5 h-3.5" />}
@@ -84,6 +90,16 @@ export default function Header({ activeTab, onTabChange, menuOpen, onMenuToggle 
                 icon={<Scissors className="w-4 h-4" />}
                 label="Clipping do YouTube"
                 desc="Extraia Shorts de vídeos longos"
+              />
+              <MobileTabButton
+                active={activeTab === 'upload-clip'}
+                onClick={() => {
+                  onTabChange('upload-clip');
+                  onMenuToggle();
+                }}
+                icon={<Upload className="w-4 h-4" />}
+                label="Upload & Cortar"
+                desc="Envie vídeo e IA seleciona os melhores trechos"
               />
               <MobileTabButton
                 active={activeTab === 'studio'}

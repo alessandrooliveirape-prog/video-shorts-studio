@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Youtube,
@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Music,
   Loader2,
+  XCircle,
 } from 'lucide-react';
 import { ClipJob, ApiClipResponse, AudioEffect } from '@/src/types';
 
@@ -33,6 +34,8 @@ export default function ClipFromYouTube({
     status: 'idle',
     progress: 0,
   });
+  const cancelRef = useRef<(() => void) | null>(null);
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [audioEffect, setAudioEffect] = useState<AudioEffect>('original');
   const [showAudioOptions, setShowAudioOptions] = useState(false);
 
@@ -80,6 +83,12 @@ export default function ClipFromYouTube({
     try {
       // Step 1: Download & Analyze
       setJob((prev) => ({ ...prev, status: 'downloading', progress: 25 }));
+
+      // AbortController: permite cancelamento manual + timeout de 5 min
+      const controller = new AbortController();
+      const fetchTimeout = setTimeout(() => controller.abort(), 300000);
+      cancelRef.current = () => controller.abort();
+
       const clipResponse = await fetch('/api/clip/extract', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -87,7 +96,11 @@ export default function ClipFromYouTube({
           youtube_url: url.trim(),
           audio_effect: audioEffect,
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(fetchTimeout);
+      cancelRef.current = null;
 
       if (!clipResponse.ok) {
         const errData = await clipResponse.json().catch(() => ({}));
@@ -114,6 +127,7 @@ export default function ClipFromYouTube({
 
       // Step 3: Poll for completion
       const pollInterval = setInterval(async () => {
+        pollRef.current = pollInterval;
         try {
           const statusRes = await fetch(`/api/clip/status/${backendJobId}`);
           const status = await statusRes.json();
@@ -146,10 +160,18 @@ export default function ClipFromYouTube({
           throw new Error('Falha ao verificar status do processamento');
         }
       }, 2000);
+      pollRef.current = pollInterval;
 
-      // Safety timeout
-      setTimeout(() => clearInterval(pollInterval), 120000);
+      // Safety timeout: 5 minutos para o processamento completo
+      setTimeout(() => {
+        if (pollRef.current) {
+          clearInterval(pollRef.current);
+          pollRef.current = null;
+        }
+      }, 300000);
     } catch (err: any) {
+      // Ignorar erro de abortamento (cancelamento intencional)
+      if (err.name === 'AbortError') return;
       setJob((prev) => ({
         ...prev,
         status: 'error',
@@ -186,7 +208,38 @@ export default function ClipFromYouTube({
     }
   }, [job]);
 
+  const handleCancel = useCallback(async () => {
+    // Abortar fetch em andamento
+    if (cancelRef.current) {
+      cancelRef.current();
+      cancelRef.current = null;
+    }
+    // Parar polling se estiver ativo
+    if (pollRef.current) {
+      clearInterval(pollRef.current);
+      pollRef.current = null;
+    }
+    // Avisar backend para cancelar o job
+    if (job.id) {
+      try {
+        await fetch(`/api/clip/cancel/${job.id}`, { method: 'POST' });
+      } catch { /* ignore */ }
+    }
+    setJob((prev) => ({
+      ...prev,
+      status: 'error',
+      error: 'Processamento cancelado.',
+      progress: 0,
+    }));
+    onProcessingChange?.(false);
+  }, [job.id, onProcessingChange]);
+
   const resetJob = () => {
+    cancelRef.current = null;
+    if (pollRef.current) {
+      clearInterval(pollRef.current);
+      pollRef.current = null;
+    }
     setUrl('');
     setJob({ id: '', youtubeUrl: '', status: 'idle', progress: 0 });
     onProcessingChange?.(false);
@@ -377,6 +430,19 @@ export default function ClipFromYouTube({
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Cancel button during processing */}
+            {(job.status === 'downloading' || job.status === 'analyzing' || job.status === 'clipping') && (
+              <div className="mt-3 flex items-center justify-center">
+                <button
+                  onClick={handleCancel}
+                  className="flex items-center gap-1.5 px-4 py-2 bg-slate-800/80 hover:bg-red-900/40 text-slate-400 hover:text-red-300 text-[10px] font-bold rounded-xl border border-slate-700 hover:border-red-800/50 transition-all cursor-pointer active:scale-[0.97]"
+                >
+                  <XCircle className="w-3.5 h-3.5" />
+                  Cancelar processamento
+                </button>
               </div>
             )}
 
