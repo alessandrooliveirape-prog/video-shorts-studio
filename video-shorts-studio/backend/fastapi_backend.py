@@ -19,7 +19,7 @@ import shutil
 import subprocess
 import time
 import traceback
-uuid
+import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional
