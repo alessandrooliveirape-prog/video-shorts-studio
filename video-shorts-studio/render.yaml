@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shorts-studio-backend
+    runtime: docker
+    repo: https://github.com/seu-usuario/video-shorts-studio
+    plan: free
+    dockerCommand: "uvicorn fastapi_backend:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PEXELS_API_KEY
+        sync: false
+      - key: HOST
+        value: 0.0.0.0
+    healthCheckPath: /api/health
