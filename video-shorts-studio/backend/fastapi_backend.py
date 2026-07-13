@@ -231,6 +231,19 @@ class StudioGenerateResponse(BaseSchema):
     output_path: Optional[str] = None
     error: Optional[str] = None
 
+class StudioGenerateAllRequest(BaseModel):
+    project_id: str
+    scenes: list[SceneScript]
+    all_scenes: list[SceneScript]
+    subtitle_options: Optional[SubtitleOptions] = Field(None)
+    visual_engine: str = Field("pexels", description="Motor visual: pexels ou gemini")
+    voice: Optional[str] = Field(None, description="ID da voz Edge TTS")
+
+class StudioGenerateAllResponse(BaseSchema):
+    success: bool
+    scenes: Optional[list[dict]] = None
+    error: Optional[str] = None
+
 class StudioStitchResponse(BaseSchema):
     success: bool
     project_id: str
@@ -1781,6 +1794,160 @@ async def studio_generate_scene(req: StudioSceneGenerateRequest):
             scene_index=scene_idx,
             error=str(e),
         )
+
+# ── Geração Paralela de Todas as Cenas ──────────────────────
+async def _generate_single_scene(
+    project_id: str,
+    scene_idx: int,
+    scene_data: SceneScript,
+    all_scenes: list[SceneScript],
+    visual_engine: str,
+    subtitle_options: SubtitleOptions | None,
+    voice: str | None,
+    semaphore: asyncio.Semaphore,
+) -> dict:
+    """Gera uma única cena (B-roll + TTS + FFmpeg) — usada pelo asyncio.gather()."""
+    try:
+        scene_dir = OUTPUT_DIR / project_id / "scenes"
+        scene_dir.mkdir(parents=True, exist_ok=True)
+
+        output_path = scene_dir / f"scene_{scene_idx:03d}.mp4"
+        broll_path = scene_dir / f"broll_{scene_idx:03d}.mp4"
+        broll_query = scene_data.visual_prompt or scene_data.scene_description
+
+        has_broll = False
+
+        # ── B-roll / Imagem (I/O bound — roda sem semáforo) ──
+        if visual_engine == "gemini":
+            print(f"  [PARALLEL SCENE {scene_idx}] Gemini Imagen...")
+            imagen_path = scene_dir / f"imagen_{scene_idx:03d}.jpg"
+            imagem_ok = _generate_scene_image_gemini(broll_query, imagen_path)
+            if imagem_ok:
+                has_broll = _create_kenburns_video(imagen_path, broll_path, scene_data.duration)
+        else:
+            print(f"  [PARALLEL SCENE {scene_idx}] Pexels B-roll...")
+            has_broll = _search_and_download_broll(broll_query, broll_path)
+
+        # ── TTS (I/O bound — roda sem semáforo) ──
+        audio_path = scene_dir / f"audio_{scene_idx:03d}.mp3"
+        has_audio = await _generate_scene_audio(scene_data.caption, audio_path, voice=voice)
+
+        # ── FFmpeg render (CPU bound — usa semáforo para limitar concorrência) ──
+        async with semaphore:
+            print(f"  [PARALLEL SCENE {scene_idx}] Renderizando FFmpeg...")
+            temp_txt_path = scene_dir / f"caption_{scene_idx:03d}.txt"
+            _generate_scene_video(
+                output_path=output_path,
+                caption=scene_data.caption,
+                duration=scene_data.duration,
+                scene_index=scene_idx,
+                broll_path=broll_path if has_broll else None,
+                audio_path=audio_path if has_audio else None,
+                subtitle_options=subtitle_options,
+                temp_txt_path=temp_txt_path
+            )
+
+        success = output_path.exists()
+        print(f"  [PARALLEL SCENE {scene_idx}] {'OK' if success else 'FALHOU'}")
+        return {
+            "scene_index": scene_idx,
+            "success": success,
+            "output_path": str(output_path) if success else None,
+            "error": None if success else "Falha ao gerar cena",
+        }
+    except Exception as e:
+        print(f"  [PARALLEL SCENE ERROR {scene_idx}] {e}")
+        return {
+            "scene_index": scene_idx,
+            "success": False,
+            "output_path": None,
+            "error": str(e),
+        }
+
+
+@app.post("/api/studio/generate-all-scenes")
+async def studio_generate_all_scenes(req: StudioGenerateAllRequest):
+    """Gera TODAS as cenas em paralelo usando asyncio.gather().
+    
+    B-roll (Pexles/Gemini) e TTS rodam I/O bound em paralelo total.
+    FFmpeg renders usam semáforo para limitar CPUs concorrentes.
+    """
+    project_id = req.project_id
+    n_scenes = len(req.scenes)
+    
+    if n_scenes == 0:
+        raise HTTPException(status_code=400, detail="Nenhuma cena para gerar.")
+
+    try:
+        # Criar diretório das cenas
+        scene_dir = OUTPUT_DIR / project_id / "scenes"
+        scene_dir.mkdir(parents=True, exist_ok=True)
+
+        # Semáforo: máximo 2 FFmpeg concorrentes (CPU bound)
+        ffmpeg_semaphore = asyncio.Semaphore(2)
+
+        # Lançar TODAS as cenas em paralelo
+        tasks = [
+            _generate_single_scene(
+                project_id=project_id,
+                scene_idx=i,
+                scene_data=s,
+                all_scenes=req.all_scenes,
+                visual_engine=req.visual_engine,
+                subtitle_options=req.subtitle_options,
+                voice=req.voice,
+                semaphore=ffmpeg_semaphore,
+            )
+            for i, s in enumerate(req.scenes)
+        ]
+
+        # asyncio.gather() — TODAS as cenas rodam simultaneamente
+        # return_exceptions=True: se uma cena falha, as outras continuam
+        raw_results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # Converter exceções em dicts de erro
+        results = []
+        for i, r in enumerate(raw_results):
+            if isinstance(r, Exception):
+                results.append({
+                    "scene_index": i,
+                    "success": False,
+                    "output_path": None,
+                    "error": str(r),
+                })
+            else:
+                results.append(r)
+
+        # Registrar caminhos no job store
+        scenes_paths = []
+        all_success = True
+        for r in results:
+            if r.get("output_path"):
+                scenes_paths.append(r["output_path"])
+            if not r.get("success"):
+                all_success = False
+
+        if project_id in jobs:
+            jobs[project_id]["scenes_paths"] = sorted(scenes_paths)
+            jobs[project_id]["progress"] = 80 if all_success else 50
+            jobs[project_id]["status"] = "scenes_generated" if all_success else "partial_error"
+            jobs[project_id]["visual_engine"] = req.visual_engine
+
+        if not scenes_paths:
+            raise HTTPException(status_code=500, detail="Nenhuma cena foi gerada com sucesso.")
+
+        return StudioGenerateAllResponse(
+            success=all_success,
+            scenes=results,
+            error=None if all_success else "Algumas cenas falharam, mas outras foram geradas.",
+        )
+    except Exception as e:
+        print(f"  [ERROR] studio_generate_all_scenes: {e}")
+        return StudioGenerateAllResponse(
+            success=False,
+            error=str(e),
+        )
+
 
 @app.post("/api/studio/stitch")
 async def studio_stitch(req: StudioStitchRequest):

@@ -356,42 +356,43 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
         backendProjectId = scriptData.projectId || projectId;
         setProject((prev) => ({ ...prev, id: backendProjectId, scenes, status: 'generating', progress: 40 }));
         onCaptionsChange?.(scenes.map((s) => s.caption));
-      }        // Step 2: Gerar cenas em paralelo ⚡
-        const genPromises = scenes.map(async (scene, i) => {
-          const genRes = await fetch('/api/studio/generate-scene', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              project_id: backendProjectId,
-              scene_index: i,
-              scene,
-              all_scenes: scenes,
-              visual_engine: visualEngine,
-              subtitle_options: subOpts,
-              voice,
-            }),
-          });
-          if (!genRes.ok) throw new Error(`Falha ao gerar cena ${i + 1}`);
-          return i;
+      }
+        // Step 2: Gerar TODAS as cenas em paralelo via batch endpoint ⚡
+        setProject((prev) => ({ ...prev, status: 'generating', progress: 40 }));
+
+        const batchRes = await fetch('/api/studio/generate-all-scenes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            project_id: backendProjectId,
+            scenes,
+            all_scenes: scenes,
+            visual_engine: visualEngine,
+            subtitle_options: subOpts,
+            voice,
+          }),
         });
 
-        // Atualiza progresso a cada cena concluída
-        let completed = 0;
-        for (const promise of genPromises) {
-          promise.then((i) => {
-            completed++;
-            setActiveScene(i);
-            onPreviewUpdate?.(i);
-            setProject((prev) => ({
-              ...prev,
-              progress: 40 + Math.round((completed / scenes.length) * 50),
-            }));
-          }).catch(() => {
-            // Erro tratado pelo Promise.all + catch externo
-          });
+        if (!batchRes.ok) throw new Error('Falha ao gerar cenas em lote');
+        const batchData = await batchRes.json();
+        if (!batchData.success && !batchData.scenes?.some((s: any) => s.success)) {
+          throw new Error(batchData.error || 'Nenhuma cena foi gerada');
         }
 
-        await Promise.all(genPromises);
+        // Atualiza progresso conforme cenas concluídas
+        if (batchData.scenes) {
+          const completed = batchData.scenes.filter((s: any) => s.success).length;
+          setProject((prev) => ({
+            ...prev,
+            progress: 40 + Math.round((completed / scenes.length) * 50),
+          }));
+          // Mostrar última cena concluída
+          const lastCompleted = batchData.scenes.filter((s: any) => s.success).pop();
+          if (lastCompleted) {
+            setActiveScene(lastCompleted.scene_index);
+            onPreviewUpdate?.(lastCompleted.scene_index);
+          }
+        }
 
       // Step 3: Stitch all scenes together
       setProject((prev) => ({ ...prev, status: 'stitching', progress: 92 }));
