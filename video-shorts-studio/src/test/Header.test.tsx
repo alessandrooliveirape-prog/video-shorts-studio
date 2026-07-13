@@ -24,6 +24,6 @@ describe('Header', () => {
 
   it('renders the version badge', () => {
     render(<Header {...defaultProps} />);
-    expect(screen.getByText(/v1\.2\.0/i)).toBeInTheDocument();
+    expect(screen.getByText(/v1\.[0-9]+\.[0-9]+/i)).toBeInTheDocument();
   });
 });

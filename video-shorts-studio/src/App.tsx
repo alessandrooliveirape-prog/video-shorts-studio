@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles } from 'lucide-react';
 import { AppTab, SceneScript } from './types';
@@ -10,9 +10,40 @@ import StudioFromZero from './components/StudioFromZero';
 import ConcatStudio from './components/ConcatStudio';
 import { AudioEffect } from './types';
 
+type ThemeMode = 'dark' | 'light';
+type AccentColor = 'violet' | 'pink' | 'green' | 'amber' | 'cyan';
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<AppTab>('clip');
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Theme state
+  const [theme, setTheme] = useState<ThemeMode>(() => {
+    return (localStorage.getItem('shorts_theme') as ThemeMode) || 'dark';
+  });
+  const [accent, setAccent] = useState<AccentColor>(() => {
+    return (localStorage.getItem('shorts_accent') as AccentColor) || 'violet';
+  });
+
+  // Apply theme to document
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-accent', accent);
+    localStorage.setItem('shorts_theme', theme);
+    localStorage.setItem('shorts_accent', accent);
+  }, [theme, accent]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  }, []);
+
+  const cycleAccent = useCallback(() => {
+    const accents: AccentColor[] = ['violet', 'pink', 'green', 'amber', 'cyan'];
+    setAccent(prev => {
+      const idx = accents.indexOf(prev);
+      return accents[(idx + 1) % accents.length];
+    });
+  }, []);
 
   // Phone simulator state
   const [captions, setCaptions] = useState<string[]>([]);
@@ -61,7 +92,10 @@ export default function App() {
   }, [studioScenes]);
 
   return (
-    <div className="min-h-screen bg-slate-950 bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(236,72,153,0.15),transparent_50%)] flex flex-col font-sans text-slate-100 antialiased selection:bg-violet-500 selection:text-white">
+    <div className="min-h-screen flex flex-col font-sans antialiased" style={{
+      backgroundColor: 'var(--theme-bg-base)',
+      color: 'var(--theme-text-primary)',
+    }}>
       {/* Toast notification area */}
       <AnimatePresence>
         {isProcessing && (
@@ -83,6 +117,10 @@ export default function App() {
         onTabChange={setActiveTab}
         menuOpen={menuOpen}
         onMenuToggle={() => setMenuOpen(!menuOpen)}
+        theme={theme}
+        onThemeToggle={toggleTheme}
+        accent={accent}
+        onAccentChange={cycleAccent}
       />
 
       {/* Main Content */}
@@ -258,7 +296,11 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950/40 backdrop-blur-sm">
+      <footer style={{
+        borderTop: '1px solid var(--theme-border)',
+        backgroundColor: 'var(--theme-bg-surface)',
+        opacity: 0.96,
+      }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <span className="text-[10px] text-slate-500 font-medium">
             © 2026 Shorts Studio — Criado com Google Gemini & FFmpeg

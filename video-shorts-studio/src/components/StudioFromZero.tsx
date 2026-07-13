@@ -26,8 +26,10 @@ import {
   Save,
   FolderOpen,
   Trash2,
+  Music,
+  Eye,
 } from 'lucide-react';
-import { SceneScript, StudioProject, ApiStudioResponse, VisualEngine, SubtitleOptions, ScriptMode, TransitionType, AVAILABLE_VOICES, TEMPLATE_PRESETS, TemplatePreset, SavedProject } from '@/src/types';
+import { SceneScript, StudioProject, ApiStudioResponse, VisualEngine, SubtitleOptions, ScriptMode, TransitionType, AVAILABLE_VOICES, TEMPLATE_PRESETS, TemplatePreset, SavedProject, SCRIPT_TEMPLATES, ScriptTemplate, CustomAudioTrack } from '@/src/types';
 import SceneBlock from './SceneBlock';
 
 interface StudioFromZeroProps {
@@ -43,6 +45,14 @@ const IDEA_SUGGESTIONS = [
   'Transformação de ambiente com decoração DIY',
   'Mitos e verdades sobre alimentação saudável',
   'Tutorial de 30 segundos para aprender algo novo',
+];
+
+const LANGUAGE_GROUPS: { code: string; label: string; flag: string }[] = [
+  { code: 'pt-BR', label: 'Português', flag: '🇧🇷' },
+  { code: 'en-US', label: 'English (US)', flag: '🇺🇸' },
+  { code: 'en-GB', label: 'English (UK)', flag: '🇬🇧' },
+  { code: 'es-ES', label: 'Español', flag: '🇪🇸' },
+  { code: 'es-MX', label: 'Español MX', flag: '🇲🇽' },
 ];
 
 export default function StudioFromZero({
@@ -72,6 +82,20 @@ export default function StudioFromZero({
   const [showSaveLoad, setShowSaveLoad] = useState(false);
   const [savedProjects, setSavedProjects] = useState<SavedProject[]>([]);
   const [projectName, setProjectName] = useState('');
+
+  // Script templates
+  const [selectedScriptTemplate, setSelectedScriptTemplate] = useState<string | null>(null);
+  const [showScriptTemplates, setShowScriptTemplates] = useState(false);
+
+  // Custom audio upload
+  const [customAudio, setCustomAudio] = useState<CustomAudioTrack | null>(null);
+  const audioInputRef = useRef<HTMLInputElement>(null);
+
+  // Language filter for voices
+  const [voiceLanguageFilter, setVoiceLanguageFilter] = useState<string | null>(null);
+
+  // Preview before download
+  const [showPreview, setShowPreview] = useState(false);
   const dragIndex = useRef<number | null>(null);
 
   // Parse manual script text into SceneScript objects
@@ -382,6 +406,7 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
           subtitle_options: subOpts,
           transition_duration: transitionDuration,
           transition_type: transitionType,
+          custom_audio: customAudio?.savedName || null,
         }),
       });
 
@@ -453,14 +478,17 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
   return (
     <div className="flex flex-col gap-5">
       {/* Main Input Card */}
-      <div className="glass-card-solid rounded-2xl p-5 border border-violet-500/20">
+      <div className="glass-card-solid rounded-2xl p-5" style={{ borderColor: 'var(--theme-card-border)' }}>
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-violet-950/20 flex items-center justify-center border border-violet-500/20">
-            <Sparkles className="w-4 h-4 text-violet-400" />
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center border" style={{
+            backgroundColor: 'color-mix(in srgb, var(--theme-accent) 15%, transparent)',
+            borderColor: 'color-mix(in srgb, var(--theme-accent) 25%, transparent)',
+          }}>
+            <Sparkles className="w-4 h-4" style={{ color: 'var(--theme-accent)' }} />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-slate-100">Estúdio do Zero IA</h3>
-            <p className="text-[10px] text-slate-400 font-medium">
+            <h3 className="text-sm font-bold" style={{ color: 'var(--theme-text-primary)' }}>Estúdio do Zero IA</h3>
+            <p className="text-[10px] font-medium" style={{ color: 'var(--theme-text-secondary)' }}>
               Gere vídeos completos com roteirização e B-roll por IA
             </p>
           </div>
@@ -493,6 +521,52 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
               <Pencil className="w-3 h-3" />
               Meu roteiro
             </button>
+          </div>
+        )}
+
+        {/* Script Templates (only in AI mode) */}
+        {scriptMode === 'ai' && (
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'var(--theme-text-secondary)' }}>Templates de Roteiro</span>
+              {selectedScriptTemplate && (
+                <button
+                  onClick={() => { setSelectedScriptTemplate(null); setIdea(''); }}
+                  className="text-[8px] underline ml-auto cursor-pointer" style={{ color: 'var(--theme-text-muted)' }}
+                >
+                  Limpar
+                </button>
+              )}
+            </div>
+            <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+              {SCRIPT_TEMPLATES.map((tpl) => (
+                <button
+                  key={tpl.id}
+                  onClick={() => {
+                    setSelectedScriptTemplate(tpl.id);
+                    setScriptMode('ai');
+                    setIdea(tpl.id === 'top5' ? `Top 5 melhores ` : tpl.id === 'tutorial' ? `Tutorial: como fazer ` : tpl.id === 'comparison' ? `Antes e depois: transformação de ` : tpl.id === 'review' ? `Review honesto de ` : `Mito ou verdade sobre `);
+                  }}
+                  disabled={isProcessing}
+                  className={`flex-shrink-0 flex flex-col items-center gap-1 px-2.5 py-2 rounded-xl text-[9px] font-bold transition-all border cursor-pointer min-w-[76px] ${
+                    selectedScriptTemplate === tpl.id
+                      ? 'bg-violet-600/20 border-violet-500/40 text-violet-300 shadow-sm ring-1 ring-violet-500/30'
+                      : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:border-slate-700'
+                  } disabled:opacity-40 disabled:cursor-not-allowed`}
+                >
+                  <span className="text-base">{tpl.icon}</span>
+                  <span>{tpl.name}</span>
+                  <span className="text-[7px] font-normal text-slate-500 text-center leading-tight">{tpl.description}</span>
+                </button>
+              ))}
+            </div>
+            {selectedScriptTemplate && (
+              <div className="mt-2 p-2 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--theme-accent) 8%, transparent)', borderColor: 'color-mix(in srgb, var(--theme-accent) 15%, transparent)' }}>
+                <span className="text-[9px] font-medium" style={{ color: 'var(--theme-text-secondary)' }}>
+                  ✨ Template &ldquo;{SCRIPT_TEMPLATES.find(t => t.id === selectedScriptTemplate)?.name}&rdquo; selecionado — {SCRIPT_TEMPLATES.find(t => t.id === selectedScriptTemplate)?.scenes.length} cenas pré-definidas. Escreva o tema e gere!
+                </span>
+              </div>
+            )}
           </div>
         )}
 
@@ -625,14 +699,45 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
           </div>
         )}
 
-        {/* Voice Selector */}
+        {/* Voice Selector with Language Filter */}
         <div className="mt-4">
           <div className="flex items-center gap-2 mb-2">
-            <Mic className="w-3 h-3 text-violet-400" />
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Voz da Narração</span>
+            <Mic className="w-3 h-3" style={{ color: 'var(--theme-accent)' }} />
+            <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'var(--theme-text-secondary)' }}>Voz da Narração</span>
+          </div>
+          {/* Language filter tabs */}
+          <div className="flex gap-1 mb-2 overflow-x-auto scrollbar-none">
+            <button
+              onClick={() => setVoiceLanguageFilter(null)}
+              className={`px-2 py-1 rounded-lg text-[9px] font-bold transition-all border cursor-pointer whitespace-nowrap ${
+                voiceLanguageFilter === null
+                  ? 'border-violet-500/40 text-violet-300 bg-violet-600/20'
+                  : 'border-slate-800 text-slate-400 hover:border-slate-700 bg-slate-900/40'
+              }`}
+            >
+              🌐 Todos
+            </button>
+            {LANGUAGE_GROUPS.map((lang) => {
+              const count = AVAILABLE_VOICES.filter(v => v.language === lang.code).length;
+              return (
+                <button
+                  key={lang.code}
+                  onClick={() => setVoiceLanguageFilter(lang.code)}
+                  className={`px-2 py-1 rounded-lg text-[9px] font-bold transition-all border cursor-pointer whitespace-nowrap ${
+                    voiceLanguageFilter === lang.code
+                      ? 'border-violet-500/40 text-violet-300 bg-violet-600/20'
+                      : 'border-slate-800 text-slate-400 hover:border-slate-700 bg-slate-900/40'
+                  }`}
+                >
+                  {lang.flag} {lang.label} ({count})
+                </button>
+              );
+            })}
           </div>
           <div className="grid grid-cols-4 gap-1.5">
-            {AVAILABLE_VOICES.map((v) => (
+            {AVAILABLE_VOICES
+              .filter(v => !voiceLanguageFilter || v.language === voiceLanguageFilter)
+              .map((v) => (
               <button
                 key={v.id}
                 onClick={() => setVoice(v.id)}
@@ -718,6 +823,73 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
                 {pos === 'bottom' && 'Baixo'}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Custom Music Upload */}
+        <div className="mt-3">
+          <div className="flex items-center gap-2 mb-2">
+            <Music className="w-3 h-3" style={{ color: 'var(--theme-accent2)' }} />
+            <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'var(--theme-text-secondary)' }}>Música Personalizada</span>
+            {customAudio && (
+              <button
+                onClick={() => setCustomAudio(null)}
+                className="text-[8px] underline ml-auto cursor-pointer" style={{ color: 'var(--theme-text-muted)' }}
+              >
+                Remover
+              </button>
+            )}
+          </div>
+          <div
+            onClick={() => audioInputRef.current?.click()}
+            className={`border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all ${
+              customAudio
+                ? 'border-emerald-500/50 bg-emerald-500/5'
+                : 'border-slate-800 hover:border-slate-700 bg-slate-900/30'
+            }`}
+          >
+            <input
+              ref={audioInputRef}
+              type="file"
+              accept="audio/*,.mp3,.wav,.ogg,.m4a"
+              className="hidden"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const formData = new FormData();
+                formData.append('file', file);
+                try {
+                  const res = await fetch('/api/audio/upload', {
+                    method: 'POST',
+                    body: formData,
+                  });
+                  if (res.ok) {
+                    const data = await res.json();
+                    setCustomAudio({
+                      id: data.fileId || Math.random().toString(36),
+                      name: data.filename || file.name,
+                      savedName: data.savedName || '',
+                      fileSize: data.fileSize || file.size,
+                    });
+                  }
+                } catch { /* silint fail */ }
+              }}
+            />
+            {customAudio ? (
+              <div className="flex items-center justify-center gap-2 text-[10px]">
+                <span className="text-emerald-400">✅</span>
+                <span className="font-bold text-emerald-300">{customAudio.name}</span>
+                <span className="text-slate-500">({(customAudio.fileSize / 1024 / 1024).toFixed(1)} MB)</span>
+              </div>
+            ) : (
+              <>
+                <Music className="w-5 h-5 mx-auto mb-1" style={{ color: 'var(--theme-text-muted)' }} />
+                <p className="text-[10px] font-bold" style={{ color: 'var(--theme-text-secondary)' }}>
+                  Clique para enviar sua própria música de fundo
+                </p>
+                <p className="text-[8px]" style={{ color: 'var(--theme-text-muted)' }}>MP3, WAV, OGG — Max 20MB</p>
+              </>
+            )}
           </div>
         </div>
 
@@ -1043,31 +1215,70 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="glass-card-solid rounded-2xl p-5 border border-violet-500/20"
+                className="glass-card-solid rounded-2xl p-5" style={{ borderColor: 'var(--theme-card-border)' }}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-violet-400" />
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center border" style={{
+                    backgroundColor: 'color-mix(in srgb, var(--theme-accent) 10%, transparent)',
+                    borderColor: 'color-mix(in srgb, var(--theme-accent) 20%, transparent)',
+                  }}>
+                    <CheckCircle2 className="w-4 h-4" style={{ color: 'var(--theme-accent)' }} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-violet-300">Vídeo gerado com sucesso!</h4>
-                    <p className="text-[10px] text-slate-400">Seu Short está pronto para download ou publicação</p>
+                    <h4 className="text-xs font-bold" style={{ color: 'var(--theme-accent)' }}>Vídeo gerado com sucesso!</h4>
+                    <p className="text-[10px]" style={{ color: 'var(--theme-text-secondary)' }}>Seu Short está pronto! Pré-visualize, baixe ou publique</p>
                   </div>
                 </div>
+
+                {/* Preview Player */}
+                {showPreview && project.outputPath && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    className="mb-4 rounded-xl overflow-hidden border" style={{ borderColor: 'var(--theme-border)' }}
+                  >
+                    <video
+                      src={`/api/download/${project.id}`}
+                      controls
+                      className="w-full max-h-[400px] object-contain bg-black"
+                      autoPlay={false}
+                      preload="metadata"
+                    >
+                      Seu navegador não suporta vídeo.
+                    </video>
+                  </motion.div>
+                )}
+
                 <div className="flex flex-wrap gap-2">
                   <button
+                    onClick={() => setShowPreview(!showPreview)}
+                    className="flex-1 min-w-[100px] px-4 py-2.5 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md cursor-pointer"
+                    style={{
+                      backgroundColor: showPreview ? 'color-mix(in srgb, var(--theme-accent) 60%, black)' : 'var(--theme-accent)',
+                    }}
+                  >
+                    <Eye className="w-4 h-4" />
+                    {showPreview ? 'Fechar Preview' : 'Pré-visualizar'}
+                  </button>
+                  <button
                     onClick={handleDownload}
-                    className="flex-1 min-w-[120px] px-4 py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md shadow-violet-500/10 cursor-pointer"
+                    className="flex-1 min-w-[100px] px-4 py-2.5 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md shadow-violet-500/10 cursor-pointer"
+                    style={{ backgroundColor: 'var(--theme-accent)' }}
                   >
                     <Download className="w-4 h-4" />
-                    Download do Short
+                    Download
                   </button>
                   <button
                     onClick={handlePublish}
-                    className="flex-1 min-w-[120px] px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-red-400 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] border border-red-950 cursor-pointer shadow-sm"
+                    className="flex-1 min-w-[100px] px-4 py-2.5 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] border cursor-pointer"
+                    style={{
+                      color: 'var(--theme-accent2)',
+                      borderColor: 'color-mix(in srgb, var(--theme-accent2) 30%, transparent)',
+                      backgroundColor: 'color-mix(in srgb, var(--theme-accent2) 8%, transparent)',
+                    }}
                   >
                     <Youtube className="w-4 h-4" />
-                    Publicar Shorts
+                    Publicar
                   </button>
                 </div>
               </motion.div>

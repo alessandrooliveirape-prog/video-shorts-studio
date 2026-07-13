@@ -1,4 +1,4 @@
-import { Scissors, Sparkles, Menu, X, Film, Upload } from 'lucide-react';
+import { Scissors, Sparkles, Menu, X, Film, Upload, Sun, Moon, Palette } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AppTab } from '@/src/types';
 
@@ -7,9 +7,13 @@ interface HeaderProps {
   onTabChange: (tab: AppTab) => void;
   menuOpen: boolean;
   onMenuToggle: () => void;
+  theme: 'dark' | 'light';
+  onThemeToggle: () => void;
+  accent: string;
+  onAccentChange: () => void;
 }
 
-export default function Header({ activeTab, onTabChange, menuOpen, onMenuToggle }: HeaderProps) {
+export default function Header({ activeTab, onTabChange, menuOpen, onMenuToggle, theme, onThemeToggle, accent, onAccentChange }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40">
       <div className="glass-card border-b border-slate-800/50 shadow-lg">
@@ -65,10 +69,30 @@ export default function Header({ activeTab, onTabChange, menuOpen, onMenuToggle 
             />
           </nav>
 
-          {/* Version badge */}
-          <div className="flex items-center gap-2">
-            <span className="text-[9px] font-mono font-bold text-violet-400 bg-violet-500/10 px-2 py-1 rounded-lg border border-violet-500/20 hidden sm:inline">
-              v1.2.0
+          {/* Theme toggle + Accent + Version */}
+          <div className="flex items-center gap-1.5">
+            {/* Accent color cycler */}
+            <button
+              onClick={onAccentChange}
+              className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800 transition-all cursor-pointer"
+              title="Mudar cor de destaque"
+            >
+              <Palette className="w-4 h-4" style={{ color: accent === 'violet' ? '#a78bfa' : accent === 'pink' ? '#f9a8d4' : accent === 'green' ? '#6ee7b7' : accent === 'amber' ? '#fcd34d' : '#67e8f9' }} />
+            </button>
+            {/* Theme toggle */}
+            <button
+              onClick={onThemeToggle}
+              className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800 transition-all cursor-pointer"
+              title={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+            <span className="text-[9px] font-mono font-bold px-2 py-1 rounded-lg border hidden sm:inline" style={{
+              color: 'var(--theme-accent)',
+              backgroundColor: 'color-mix(in srgb, var(--theme-accent) 10%, transparent)',
+              borderColor: 'color-mix(in srgb, var(--theme-accent) 20%, transparent)',
+            }}>
+              v1.3.0
             </span>
           </div>
         </div>

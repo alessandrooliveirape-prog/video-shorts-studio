@@ -246,7 +246,7 @@ describe('StudioFromZero', () => {
         expect(screen.getByText(/vídeo gerado com sucesso/i)).toBeInTheDocument();
       }, {timeout: 10000});
 
-      expect(screen.getByText(/download do short/i)).toBeInTheDocument();
+      expect(screen.getByText(/pre.view/i)).toBeInTheDocument();
       expect(screen.getByText(/publicar shorts/i)).toBeInTheDocument();
       expect(onProcessingChange).toHaveBeenCalledWith(false);
       expect(onProjectComplete).toHaveBeenCalledWith(

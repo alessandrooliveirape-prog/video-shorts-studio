@@ -223,6 +223,7 @@ class StudioStitchRequest(BaseModel):
     visual_engine: str = Field("pexels", description="Motor visual usado na geração das cenas")
     transition_duration: Optional[float] = Field(None, description="Duração do crossfade entre cenas (0.3-1.0s)")
     transition_type: Optional[str] = Field(None, description="Tipo: fade, slideleft, circleopen, wipeleft")
+    custom_audio: Optional[str] = Field(None, alias="customAudio", description="Nome do arquivo de áudio personalizado enviado via /api/audio/upload")
 
 class StudioGenerateResponse(BaseSchema):
     success: bool
@@ -600,6 +601,7 @@ def _get_youtube_data_and_transcript(url: str, temp_dir: Path) -> str:
 
 # --- FFmpeg Synthesized Audio/Video Engines --------------------------
 AVAILABLE_VOICES = [
+    # 🇧🇷 Português
     "pt-BR-AntonioNeural",
     "pt-BR-FranciscaNeural",
     "pt-BR-ThalitaNeural",
@@ -608,6 +610,16 @@ AVAILABLE_VOICES = [
     "pt-BR-FabioNeural",
     "pt-BR-JulioNeural",
     "pt-BR-LeilaNeural",
+    # 🇺🇸 Inglês
+    "en-US-JennyNeural",
+    "en-US-GuyNeural",
+    "en-US-AriaNeural",
+    "en-GB-SoniaNeural",
+    "en-GB-RyanNeural",
+    # 🇪🇸 Espanhol
+    "es-ES-ElviraNeural",
+    "es-ES-AlvaroNeural",
+    "es-MX-DaliaNeural",
 ]
 
 def _resolve_voice(voice: str | None) -> str:
@@ -1795,8 +1807,17 @@ async def studio_stitch(req: StudioStitchRequest):
         cta_path = output_dir / "cta_outro.mp4"
         _generate_cta_outro(cta_path, "Siga para mais!", SYSTEM_FONT)
 
-        # 2. Obter ou gerar música de fundo (60s)
+        # 2. Obter ou gerar música de fundo (60s) ou usar áudio personalizado
         bgm_path = OUTPUT_DIR / "_bgm.wav"
+        use_custom_audio = False
+        
+        if req.custom_audio:
+            custom_audio_path = OUTPUT_DIR / "audio" / req.custom_audio
+            if custom_audio_path.exists():
+                bgm_path = custom_audio_path
+                use_custom_audio = True
+                print(f"  [STITCH] Usando áudio personalizado: {req.custom_audio}")
+        
         if not bgm_path.exists():
             _generate_background_music(bgm_path, 60.0)
 
@@ -1814,11 +1835,13 @@ async def studio_stitch(req: StudioStitchRequest):
         # 4. Mixar música de fundo nas cenas concatenadas
         scenes_with_bgm = output_dir / "scenes_with_bgm.mp4"
         if bgm_path.exists():
+            # Se for áudio personalizado, usar volume maior (0.5) para destaque
+            custom_vol = "0.5" if use_custom_audio else "0.08"
             ret, _, stderr = run_ffmpeg([
                 "-i", str(scenes_stitched_temp),
                 "-i", str(bgm_path),
                 "-filter_complex",
-                "[0:a]volume=1.0[a0];[1:a]volume=0.08[a1];[a0][a1]amix=inputs=2:duration=first[out]",
+                f"[0:a]volume=1.0[a0];[1:a]volume={custom_vol}[a1];[a0][a1]amix=inputs=2:duration=first[out]",
                 "-map", "0:v",
                 "-map", "[out]",
                 "-c:v", "copy",
@@ -2283,6 +2306,63 @@ async def concat_videos(req: VideoConcatRequest, background_tasks: BackgroundTas
         success=True,
         job_id=job_id
     )
+
+# --- Custom Audio Upload -----------------------------------------
+class AudioUploadResponse(BaseSchema):
+    success: bool
+    file_id: str
+    filename: str
+    saved_name: str
+    file_size: int
+    error: Optional[str] = None
+
+@app.post("/api/audio/upload", response_model=AudioUploadResponse)
+async def upload_audio(file: UploadFile = File(...)):
+    """Rota para upload de arquivos de áudio personalizados para música de fundo."""
+    try:
+        audio_dir = OUTPUT_DIR / "audio"
+        audio_dir.mkdir(exist_ok=True)
+        
+        file_id = uuid.uuid4().hex[:8]
+        ext = Path(file.filename).suffix or ".mp3"
+        saved_name = f"audio_{file_id}{ext}"
+        saved_path = audio_dir / saved_name
+        
+        content = await file.read()
+        max_size = 20 * 1024 * 1024  # 20MB
+        if len(content) > max_size:
+            return AudioUploadResponse(
+                success=False,
+                file_id="",
+                filename=file.filename or "",
+                saved_name="",
+                file_size=0,
+                error="Arquivo muito grande. Máximo 20MB."
+            )
+        
+        with open(saved_path, "wb") as buffer:
+            buffer.write(content)
+        
+        file_size = saved_path.stat().st_size
+        
+        return AudioUploadResponse(
+            success=True,
+            file_id=file_id,
+            filename=file.filename or "audio.mp3",
+            saved_name=saved_name,
+            file_size=file_size,
+        )
+    except Exception as e:
+        print(f"  [ERROR] upload_audio: {e}")
+        return AudioUploadResponse(
+            success=False,
+            file_id="",
+            filename="",
+            saved_name="",
+            file_size=0,
+            error=str(e)
+        )
+
 
 if __name__ == "__main__":
     import uvicorn

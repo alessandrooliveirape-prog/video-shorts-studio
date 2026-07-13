@@ -101,17 +101,29 @@ export interface VoiceOption {
   label: string;
   gender: 'male' | 'female';
   description: string;
+  language: string;
 }
 
 export const AVAILABLE_VOICES: VoiceOption[] = [
-  { id: 'pt-BR-AntonioNeural', label: 'Antonio', gender: 'male', description: 'Voz masculina padrão' },
-  { id: 'pt-BR-FranciscaNeural', label: 'Francisca', gender: 'female', description: 'Voz feminina clara' },
-  { id: 'pt-BR-ThalitaNeural', label: 'Thalita', gender: 'female', description: 'Voz feminina jovem' },
-  { id: 'pt-BR-BrendaNeural', label: 'Brenda', gender: 'female', description: 'Voz feminina natural' },
-  { id: 'pt-BR-DonatoNeural', label: 'Donato', gender: 'male', description: 'Voz masculina firme' },
-  { id: 'pt-BR-FabioNeural', label: 'Fabio', gender: 'male', description: 'Voz masculina enérgica' },
-  { id: 'pt-BR-JulioNeural', label: 'Julio', gender: 'male', description: 'Voz masculina calma' },
-  { id: 'pt-BR-LeilaNeural', label: 'Leila', gender: 'female', description: 'Voz feminina suave' },
+  // 🇧🇷 Português
+  { id: 'pt-BR-AntonioNeural', label: 'Antonio', gender: 'male', description: 'Voz masculina padrão', language: 'pt-BR' },
+  { id: 'pt-BR-FranciscaNeural', label: 'Francisca', gender: 'female', description: 'Voz feminina clara', language: 'pt-BR' },
+  { id: 'pt-BR-ThalitaNeural', label: 'Thalita', gender: 'female', description: 'Voz feminina jovem', language: 'pt-BR' },
+  { id: 'pt-BR-BrendaNeural', label: 'Brenda', gender: 'female', description: 'Voz feminina natural', language: 'pt-BR' },
+  { id: 'pt-BR-DonatoNeural', label: 'Donato', gender: 'male', description: 'Voz masculina firme', language: 'pt-BR' },
+  { id: 'pt-BR-FabioNeural', label: 'Fabio', gender: 'male', description: 'Voz masculina enérgica', language: 'pt-BR' },
+  { id: 'pt-BR-JulioNeural', label: 'Julio', gender: 'male', description: 'Voz masculina calma', language: 'pt-BR' },
+  { id: 'pt-BR-LeilaNeural', label: 'Leila', gender: 'female', description: 'Voz feminina suave', language: 'pt-BR' },
+  // 🇺🇸 Inglês
+  { id: 'en-US-JennyNeural', label: 'Jenny', gender: 'female', description: 'American English female', language: 'en-US' },
+  { id: 'en-US-GuyNeural', label: 'Guy', gender: 'male', description: 'American English male', language: 'en-US' },
+  { id: 'en-US-AriaNeural', label: 'Aria', gender: 'female', description: 'American English expressive', language: 'en-US' },
+  { id: 'en-GB-SoniaNeural', label: 'Sonia', gender: 'female', description: 'British English female', language: 'en-GB' },
+  { id: 'en-GB-RyanNeural', label: 'Ryan', gender: 'male', description: 'British English male', language: 'en-GB' },
+  // 🇪🇸 Espanhol
+  { id: 'es-ES-ElviraNeural', label: 'Elvira', gender: 'female', description: 'Spanish female', language: 'es-ES' },
+  { id: 'es-ES-AlvaroNeural', label: 'Alvaro', gender: 'male', description: 'Spanish male', language: 'es-ES' },
+  { id: 'es-MX-DaliaNeural', label: 'Dalia', gender: 'female', description: 'Mexican Spanish female', language: 'es-MX' },
 ];
 
 /* ─── Template Presets ─── */
@@ -257,6 +269,106 @@ export interface ApiConcatResponse {
   success: boolean;
   jobId: string;
   error?: string;
+}
+
+/* ─── Script Template Presets ─── */
+
+export interface ScriptTemplate {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  scenes: ScriptTemplateScene[];
+}
+
+export interface ScriptTemplateScene {
+  description: string;
+  duration: number;
+  caption: string;
+  visualPrompt: string;
+}
+
+export const SCRIPT_TEMPLATES: ScriptTemplate[] = [
+  {
+    id: 'top5',
+    name: 'Top 5',
+    description: 'Lista dos 5 melhores itens sobre o tema',
+    icon: '🏆',
+    scenes: [
+      { description: 'Abertura impactante com o tema do top 5', duration: 6, caption: 'Os 5 melhores que você precisa conhecer! 🔥', visualPrompt: 'opening countdown top 5 neon lights, energetic' },
+      { description: 'Número 5 da lista', duration: 5, caption: 'Número 5: Uma escolha clássica e surpreendente', visualPrompt: 'number 5 glowing, reveal effect' },
+      { description: 'Número 4 da lista', duration: 5, caption: 'Número 4: Melhor que a maioria imagina', visualPrompt: 'number 4 reveal, cinematic lighting' },
+      { description: 'Número 3 da lista', duration: 5, caption: 'Número 3: Entrando no top 3!', visualPrompt: 'number 3 dramatic reveal, sparks' },
+      { description: 'Número 2 da lista', duration: 6, caption: 'Número 2: Quase lá... esse é incrível!', visualPrompt: 'number 2 close-up, intense colors' },
+      { description: 'Número 1 - o melhor de todos', duration: 8, caption: 'NÚMERO 1: O melhor de todos! Imperdível! 👑', visualPrompt: 'number 1 golden crown, celebration effects' },
+      { description: 'CTA final convidando a seguir', duration: 5, caption: 'Qual sua opinião? Comenta aqui embaixo!', visualPrompt: 'person pointing, call to action' },
+    ],
+  },
+  {
+    id: 'tutorial',
+    name: 'Tutorial Rápido',
+    description: 'Passo a passo rápido de como fazer algo',
+    icon: '📚',
+    scenes: [
+      { description: 'Abertura mostrando o problema que vai resolver', duration: 5, caption: 'Vou te mostrar como resolver isso em 30 segundos! ⏱️', visualPrompt: 'person looking at problem, curious expression' },
+      { description: 'Passo 1: preparação e materiais', duration: 6, caption: 'Passo 1: Separe os materiais necessários', visualPrompt: 'hands preparing materials, organized desk' },
+      { description: 'Passo 2: execução principal', duration: 7, caption: 'Passo 2: Siga este movimento exato', visualPrompt: 'close-up hands doing the task, step by step' },
+      { description: 'Passo 3: finalização e dica extra', duration: 6, caption: 'Passo 3: Finalize com esta dica profissional', visualPrompt: 'finishing touches, detailed close-up' },
+      { description: 'Resultado final impressionante', duration: 5, caption: 'Veja o resultado incrível! 🎯', visualPrompt: 'beautiful final result, satisfying reveal' },
+      { description: 'CTA para salvar e compartilhar', duration: 5, caption: 'Salva esse vídeo pra não esquecer!', visualPrompt: 'person smiling, phone showing saved video' },
+    ],
+  },
+  {
+    id: 'comparison',
+    name: 'Antes & Depois',
+    description: 'Mostre a transformação ou comparação',
+    icon: '🔄',
+    scenes: [
+      { description: 'Mostrando o estado ANTES', duration: 5, caption: 'Antes: o cenário comum e sem graça 😕', visualPrompt: 'before state, dull lighting, messy environment' },
+      { description: 'Transição dramática para o resultado', duration: 4, caption: 'A transformação que mudou tudo! ✨', visualPrompt: 'dramatic transition effect, sparkles, magic' },
+      { description: 'Mostrando o resultado DEPOIS', duration: 7, caption: 'Depois: O resultado que todo mundo quer! 😍', visualPrompt: 'after result, beautiful lighting, clean organized' },
+      { description: 'Detalhes da transformação', duration: 6, caption: 'Cada detalhe foi pensado com carinho', visualPrompt: 'close-up details, premium quality' },
+      { description: 'Dica de como alcançar esse resultado', duration: 6, caption: 'Quer esse resultado também? Faz esse passo!', visualPrompt: 'hands showing the method, instructional' },
+      { description: 'CTA para compartilhar a transformação', duration: 5, caption: 'Mostra nos comentários sua transformação! 💬', visualPrompt: 'before and after side by side, comparison' },
+    ],
+  },
+  {
+    id: 'review',
+    name: 'Review Rápido',
+    description: 'Review honesto e direto de um produto/serviço',
+    icon: '⭐',
+    scenes: [
+      { description: 'Abertura com o produto em destaque', duration: 5, caption: 'REVIEW HONESTO: Vale a pena? 🤔', visualPrompt: 'product displayed, dramatic lighting' },
+      { description: 'Unboxing ou primeiras impressões', duration: 6, caption: 'Primeiras impressões: parece promissor!', visualPrompt: 'unboxing, hands opening package, exciting' },
+      { description: 'Teste prático do produto', duration: 8, caption: 'Testando na prática: será que funciona?', visualPrompt: 'hands using the product, close-up action' },
+      { description: 'Prós e contras', duration: 6, caption: 'Prós e contras: nada é perfeito', visualPrompt: 'pros and cons list, balanced view' },
+      { description: 'Nota final e veredito', duration: 6, caption: 'NOTA: 8.5/10 - Recomendo sim! 🎯', visualPrompt: 'rating display, score reveal, satisfaction' },
+      { description: 'CTA para perguntas e mais reviews', duration: 4, caption: 'Tem esse produto? Me conta sua experiência!', visualPrompt: 'person talking to camera, friendly' },
+    ],
+  },
+  {
+    id: 'mythbusting',
+    name: 'Mito ou Verdade',
+    description: 'Desvende mitos comuns sobre um tema',
+    icon: '🔍',
+    scenes: [
+      { description: 'Abertura misteriosa sobre os mitos', duration: 5, caption: 'Você acreditou nisso por anos? A verdade vai te chocar! 😱', visualPrompt: 'mysterious fog, question marks, dramatic' },
+      { description: 'Mito 1: desvendando a crença popular', duration: 7, caption: 'Mito 1: Isso é COMPLETAMENTE falso! ❌', visualPrompt: 'myth symbol, busted effect, red X' },
+      { description: 'Explicação científica/fática', duration: 7, caption: 'A verdade científica por trás disso', visualPrompt: 'scientific explanation, educational graphics' },
+      { description: 'Mito 2: outra crença comum', duration: 6, caption: 'Mito 2: Isso também não passa de lenda!', visualPrompt: 'another myth busting, blue checkmark' },
+      { description: 'Resumo final com todas as verdades', duration: 5, caption: 'Resumo: só a verdade importa! 📋', visualPrompt: 'truth summary, conclusions, checklist' },
+      { description: 'CTA para compartilhar a verdade', duration: 5, caption: 'Compartilha com quem ainda acredita nesses mitos!', visualPrompt: 'share button, spreading awareness' },
+    ],
+  },
+];
+
+/* ─── Custom Audio Upload ─── */
+
+export interface CustomAudioTrack {
+  id: string;
+  name: string;
+  savedName: string;
+  fileSize: number;
 }
 
 /* ─── Upload Clip Request/Response ─── */
