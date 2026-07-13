@@ -96,6 +96,10 @@ export default function StudioFromZero({
 
   // Preview before download
   const [showPreview, setShowPreview] = useState(false);
+  const [sceneProgress, setSceneProgress] = useState<Record<number, 'pending' | 'generating' | 'done' | 'error'>>({});
+  const wsRef = useRef<WebSocket | null>(null);
+  const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const completedCountRef = useRef(0);
   const dragIndex = useRef<number | null>(null);
 
   // Parse manual script text into SceneScript objects
@@ -360,6 +364,9 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
         // Step 2: Gerar TODAS as cenas em paralelo via batch endpoint ⚡
         setProject((prev) => ({ ...prev, status: 'generating', progress: 40 }));
 
+        // Conectar WebSocket para progresso em tempo real
+        connectProgressWS(backendProjectId);
+
         const batchRes = await fetch('/api/studio/generate-all-scenes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -379,14 +386,18 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
           throw new Error(batchData.error || 'Nenhuma cena foi gerada');
         }
 
-        // Atualiza progresso conforme cenas concluídas
-        if (batchData.scenes) {
+        // Atualiza progresso conforme cenas concluídas (fallback para quando não tem WS)
+        if (batchData.scenes && !wsRef.current) {
           const completed = batchData.scenes.filter((s: any) => s.success).length;
+          const progressMap: Record<number, 'done' | 'error'> = {};
+          batchData.scenes.forEach((s: any) => {
+            progressMap[s.scene_index] = s.success ? 'done' : 'error';
+          });
+          setSceneProgress((prev) => ({ ...prev, ...progressMap }));
           setProject((prev) => ({
             ...prev,
             progress: 40 + Math.round((completed / scenes.length) * 50),
           }));
-          // Mostrar última cena concluída
           const lastCompleted = batchData.scenes.filter((s: any) => s.success).pop();
           if (lastCompleted) {
             setActiveScene(lastCompleted.scene_index);
@@ -463,6 +474,137 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
 
   const isProcessing = project.status !== 'idle' && project.status !== 'done' && project.status !== 'error';
   const canGenerate = scriptMode === 'ai' ? idea.trim() : parseManualScript().length > 0;
+
+  // ── WebSocket / Polling para progresso em tempo real ──
+  const connectProgressWS = useCallback((projectId: string) => {
+    // Limpar conexões anteriores
+    if (wsRef.current) {
+      wsRef.current.close();
+      wsRef.current = null;
+    }
+    if (pollingRef.current) {
+      clearInterval(pollingRef.current);
+      pollingRef.current = null;
+    }
+
+    // Resetar progresso das cenas
+    setSceneProgress({});
+    completedCountRef.current = 0;
+
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = `${protocol}//${window.location.host}/api/ws/progress/${projectId}`;
+
+    let wsConnected = false;
+
+    try {
+      const ws = new WebSocket(wsUrl);
+      wsRef.current = ws;
+
+      ws.onopen = () => {
+        wsConnected = true;
+        console.log('[WS] Conectado ao progresso em tempo real');
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const msg = JSON.parse(event.data);
+
+          if (msg.type === 'batch_start') {
+            const initial: Record<number, 'pending'> = {};
+            for (let i = 0; i < (msg.total_scenes || 5); i++) {
+              initial[i] = 'pending';
+            }
+            setSceneProgress(initial);
+          }
+
+          if (msg.type === 'scene_complete') {
+            setSceneProgress((prev) => ({
+              ...prev,
+              [msg.scene_index]: msg.success ? 'done' : 'error',
+            }));
+            // Atualizar progresso geral (usando ref para evitar stale closure)
+            completedCountRef.current += 1;
+            setProject((prev) => {
+              const total = prev.scenes.length || msg.total_scenes || 5;
+              const pct = 40 + Math.round((completedCountRef.current / total) * 50);
+              return { ...prev, progress: Math.min(pct, 90) };
+            });
+            if (msg.success) {
+              setActiveScene(msg.scene_index);
+              onPreviewUpdate?.(msg.scene_index);
+            }
+          }
+
+          if (msg.type === 'batch_complete') {
+            console.log('[WS] Batch concluído');
+          }
+
+          if (msg.type === 'heartbeat') {
+            ws.send(JSON.stringify({ type: 'pong' }));
+          }
+        } catch { /* ignore parse errors */ }
+      };
+
+      ws.onerror = () => {
+        console.warn('[WS] Erro de conexão — usando polling fallback');
+        wsConnected = false;
+        startPollingFallback(projectId);
+      };
+
+      ws.onclose = () => {
+        if (!wsConnected) {
+          startPollingFallback(projectId);
+        }
+        wsRef.current = null;
+      };
+
+      // Timeout para fallback: se não conectar em 3s, usa polling
+      setTimeout(() => {
+        if (!wsConnected && !pollingRef.current) {
+          startPollingFallback(projectId);
+        }
+      }, 3000);
+    } catch {
+      startPollingFallback(projectId);
+    }
+  }, [onPreviewUpdate]);
+
+  const startPollingFallback = useCallback((projectId: string) => {
+    if (pollingRef.current) return;
+    console.log('[POLL] Iniciando polling HTTP como fallback');
+    pollingRef.current = setInterval(async () => {
+      try {
+        const res = await fetch(`/api/clip/status/${projectId}`);
+        const data = await res.json();
+        if (data.progress) {
+          setProject((prev) => ({
+            ...prev,
+            progress: Math.max(prev.progress, Math.min(data.progress || 0, 98)),
+          }));
+        }
+        if (data.status === 'done' || data.status === 'error') {
+          if (pollingRef.current) {
+            clearInterval(pollingRef.current);
+            pollingRef.current = null;
+          }
+        }
+      } catch { /* ignore */ }
+    }, 3000);
+  }, []);
+
+  // Cleanup WebSocket e polling ao desmontar
+  useEffect(() => {
+    return () => {
+      if (wsRef.current) {
+        wsRef.current.close();
+        wsRef.current = null;
+      }
+      if (pollingRef.current) {
+        clearInterval(pollingRef.current);
+        pollingRef.current = null;
+      }
+    };
+  }, []);
 
   // Estilos de legenda com labels amigáveis
   const SUBTITLE_STYLES: { value: SubtitleOptions['style']; label: string; desc: string; color: string }[] = [
@@ -1018,7 +1160,7 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
                     <Loader2 className="w-4 h-4 animate-spin text-violet-400" />
                     <span className="text-xs font-bold font-mono text-violet-300">
                       {project.status === 'scripting' && 'Roteirizando com Gemini 3.5...'}
-                      {project.status === 'generating' && `Gerando cena ${activeScene + 1} de ${project.scenes.length}...`}
+                      {project.status === 'generating' && `Renderizando ${Object.values(sceneProgress).filter(v => v === 'done' || v === 'error').length} de ${project.scenes.length} cenas...`}
                       {project.status === 'stitching' && 'Concatenando cenas e efeitos...'}
                     </span>
                   </div>
@@ -1192,6 +1334,27 @@ Formato: Descrição | Duração(s) | Legenda | Prompt visual Pexels`;
                     >
                       <div className="cursor-grab active:cursor-grabbing px-1 py-3 text-slate-500 hover:text-slate-300">
                         <GripVertical className="w-3 h-3" />
+                      </div>
+                      {/* Per-scene progress indicator */}
+                      <div className="flex-shrink-0 w-5 flex items-center justify-center">
+                        {sceneProgress[idx] === 'done' && (
+                          <div className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center">
+                            <CheckCircle2 className="w-2.5 h-2.5 text-emerald-400" />
+                          </div>
+                        )}
+                        {sceneProgress[idx] === 'error' && (
+                          <div className="w-3.5 h-3.5 rounded-full bg-red-500/20 border border-red-500/50 flex items-center justify-center">
+                            <AlertCircle className="w-2.5 h-2.5 text-red-400" />
+                          </div>
+                        )}
+                        {sceneProgress[idx] === 'pending' && (
+                          <div className="w-3.5 h-3.5 rounded-full bg-slate-700 border border-slate-600">
+                            <div className="w-full h-full rounded-full border-2 border-slate-500 border-t-transparent animate-spin" />
+                          </div>
+                        )}
+                        {!sceneProgress[idx] && (
+                          <div className="w-2 h-2 rounded-full bg-slate-600" />
+                        )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <SceneBlock

@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Optional
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
+from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 import requests as http_req
@@ -324,6 +324,52 @@ class HealthResponse(BaseSchema):
 
 # --- In-memory Job Store ---------------------------------------------
 jobs: dict[str, dict] = {}
+
+class ProgressManager:
+    """Gerencia conexões WebSocket por project_id e emite progresso em tempo real."""
+    def __init__(self):
+        self._connections: dict[str, list[WebSocket]] = {}
+        self._lock = asyncio.Lock()
+
+    async def connect(self, project_id: str, websocket: WebSocket):
+        await websocket.accept()
+        async with self._lock:
+            if project_id not in self._connections:
+                self._connections[project_id] = []
+            self._connections[project_id].append(websocket)
+        print(f"  [WS] Cliente conectado ao progresso de {project_id}")
+
+    async def disconnect(self, project_id: str, websocket: WebSocket):
+        async with self._lock:
+            if project_id in self._connections:
+                self._connections[project_id] = [
+                    ws for ws in self._connections[project_id] if ws != websocket
+                ]
+                if not self._connections[project_id]:
+                    del self._connections[project_id]
+        print(f"  [WS] Cliente desconectado de {project_id}")
+
+    async def publish(self, project_id: str, data: dict):
+        """Envia mensagem JSON para TODOS os clientes conectados ao project_id."""
+        async with self._lock:
+            clients = self._connections.get(project_id, []).copy()
+        dead = []
+        for ws in clients:
+            try:
+                await ws.send_json(data)
+            except Exception:
+                dead.append(ws)
+        if dead:
+            async with self._lock:
+                for ws in dead:
+                    if project_id in self._connections and ws in self._connections[project_id]:
+                        self._connections[project_id].remove(ws)
+                if project_id in self._connections and not self._connections[project_id]:
+                    del self._connections[project_id]
+
+
+progress_manager = ProgressManager()
+
 
 def get_job(job_id: str) -> dict:
     if job_id not in jobs:
@@ -1876,6 +1922,7 @@ async def _generate_single_scene(
     subtitle_options: SubtitleOptions | None,
     voice: str | None,
     semaphore: asyncio.Semaphore,
+    publish_progress: bool = False,
 ) -> dict:
     """Gera uma única cena (B-roll + TTS + FFmpeg) — usada pelo asyncio.gather()."""
     try:
@@ -1920,6 +1967,17 @@ async def _generate_single_scene(
 
         success = output_path.exists()
         print(f"  [PARALLEL SCENE {scene_idx}] {'OK' if success else 'FALHOU'}")
+
+        # Emitir progresso via WebSocket se solicitado
+        if publish_progress:
+            await progress_manager.publish(project_id, {
+                "type": "scene_complete",
+                "scene_index": scene_idx,
+                "success": success,
+                "output_path": str(output_path) if success else None,
+                "error": None if success else "Falha ao gerar cena",
+            })
+
         return {
             "scene_index": scene_idx,
             "success": success,
@@ -1957,8 +2015,15 @@ async def studio_generate_all_scenes(req: StudioGenerateAllRequest):
         # Semáforo: máximo 2 FFmpeg concorrentes (CPU bound)
         ffmpeg_semaphore = asyncio.Semaphore(2)
 
-        # Lançar TODAS as cenas em paralelo
-        tasks = [
+        # Emitir progresso inicial via WebSocket
+        await progress_manager.publish(project_id, {
+            "type": "batch_start",
+            "total_scenes": n_scenes,
+            "visual_engine": req.visual_engine,
+        })
+
+        # Criar tarefas com publish_progress=True para emitir resultados individuais
+        coros = [
             _generate_single_scene(
                 project_id=project_id,
                 scene_idx=i,
@@ -1968,13 +2033,14 @@ async def studio_generate_all_scenes(req: StudioGenerateAllRequest):
                 subtitle_options=req.subtitle_options,
                 voice=req.voice,
                 semaphore=ffmpeg_semaphore,
+                publish_progress=True,
             )
             for i, s in enumerate(req.scenes)
         ]
 
-        # asyncio.gather() — TODAS as cenas rodam simultaneamente
+        # Usar asyncio.gather() — TODAS as cenas rodam simultaneamente
         # return_exceptions=True: se uma cena falha, as outras continuam
-        raw_results = await asyncio.gather(*tasks, return_exceptions=True)
+        raw_results = await asyncio.gather(*coros, return_exceptions=True)
         
         # Converter exceções em dicts de erro
         results = []
@@ -2003,6 +2069,15 @@ async def studio_generate_all_scenes(req: StudioGenerateAllRequest):
             jobs[project_id]["progress"] = 80 if all_success else 50
             jobs[project_id]["status"] = "scenes_generated" if all_success else "partial_error"
             jobs[project_id]["visual_engine"] = req.visual_engine
+
+        # Emitir progresso final via WebSocket
+        await progress_manager.publish(project_id, {
+            "type": "batch_complete",
+            "total_scenes": n_scenes,
+            "success": all_success,
+            "scenes": results,
+            "scenes_paths": sorted(scenes_paths),
+        })
 
         if not scenes_paths:
             raise HTTPException(status_code=500, detail="Nenhuma cena foi gerada com sucesso.")
