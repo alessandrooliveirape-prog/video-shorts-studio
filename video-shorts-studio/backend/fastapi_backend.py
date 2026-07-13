@@ -11,6 +11,7 @@ APIs gratuitas utilizadas:
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import io
 import json
 import os
@@ -47,6 +48,37 @@ PORT = int(os.getenv("PORT", "8000"))
 BASE_DIR = Path(__file__).parent
 OUTPUT_DIR = BASE_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
+
+# --- B-roll Cache (Pexels) ------------------------------------------
+BROLL_CACHE_DIR = OUTPUT_DIR / "broll_cache"
+BROLL_CACHE_DIR.mkdir(exist_ok=True)
+BROLL_CACHE_TTL = 24 * 60 * 60  # 24 horas em segundos
+
+
+def _get_broll_cache_key(query: str) -> str:
+    """Gera uma chave de cache única para uma query de B-roll."""
+    import hashlib
+    normalized = query.strip().lower()[:80]
+    return hashlib.md5(normalized.encode()).hexdigest()
+
+
+def _clean_broll_cache():
+    """Remove arquivos de cache expirados (mais de 24h)."""
+    if not BROLL_CACHE_DIR.exists():
+        return
+    now = time.time()
+    removed = 0
+    for f in BROLL_CACHE_DIR.iterdir():
+        if f.is_file() and f.suffix in (".mp4", ".webm", ".json"):
+            age = now - f.stat().st_mtime
+            if age > BROLL_CACHE_TTL:
+                f.unlink(missing_ok=True)
+                removed += 1
+    if removed:
+        print(f"  [BROLL CACHE] Limpos {removed} arquivos expirados do cache")
+
+
+_clean_broll_cache()
 
 # --- Google GenAI Client ---------------------------------------------
 gemini_client: genai.Client | None = None
@@ -415,13 +447,34 @@ def format_timestamp(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:06.3f}"
 
 def _search_and_download_broll(query: str, output_path: Path, timeout: int = 45) -> bool:
-    """Busca vídeo B-roll no Pexels e baixa para o caminho especificado."""
+    """Busca vídeo B-roll no Pexels e baixa para o caminho especificado.
+    
+    Com cache local: se a mesma query já foi baixada nas últimas 24h,
+    copia do cache em vez de baixar novamente.
+    """
     if not PEXELS_API_KEY:
         return False
+    
+    keywords = query[:80].strip()
+    cache_key = _get_broll_cache_key(keywords)
+    cache_video_path = BROLL_CACHE_DIR / f"{cache_key}.mp4"
+    cache_meta_path = BROLL_CACHE_DIR / f"{cache_key}.json"
+    
+    # ── Verificar cache ──
+    if cache_video_path.exists() and cache_video_path.stat().st_size > 1024:
+        cache_age = time.time() - cache_video_path.stat().st_mtime
+        if cache_age < BROLL_CACHE_TTL:
+            # Cache hit! Copiar para o destino
+            print(f"  [B-ROLL CACHE] Cache hit para \"{keywords}\" ({cache_age/60:.0f}min atrás) — copiando...")
+            shutil.copy2(cache_video_path, output_path)
+            return output_path.exists() and output_path.stat().st_size > 1024
+        else:
+            print(f"  [B-ROLL CACHE] Cache expirado para \"{keywords}\" ({cache_age/3600:.1f}h) — baixando novamente")
+    
+    # ── Cache miss: buscar e baixar ──
     try:
         url = "https://api.pexels.com/videos/search"
         headers = {"Authorization": PEXELS_API_KEY}
-        keywords = query[:80].strip()
         params = {"query": keywords, "per_page": 5, "orientation": "portrait", "size": "medium"}
         
         resp = http_req.get(url, headers=headers, params=params, timeout=15)
@@ -449,16 +502,34 @@ def _search_and_download_broll(query: str, output_path: Path, timeout: int = 45)
             return False
         
         video_url = selected["link"]
-        print(f"  [B-ROLL] Baixando: {video_url[:60]}...")
+        print(f"  [B-ROLL] Downloading fresh: {video_url[:60]}...")
         
         video_resp = http_req.get(video_url, timeout=timeout, stream=True)
         if video_resp.status_code != 200:
             return False
         
-        with open(output_path, "wb") as f:
+        # Baixar para cache primeiro
+        with open(cache_video_path, "wb") as f:
             for chunk in video_resp.iter_content(chunk_size=8192):
                 if chunk:
                     f.write(chunk)
+        
+        # Salvar metadados da busca
+        try:
+            with open(cache_meta_path, "w") as f:
+                json.dump({
+                    "query": keywords,
+                    "cached_at": time.time(),
+                    "source_url": video_url,
+                    "pexels_id": video.get("id", 0),
+                    "duration": video.get("duration", 0),
+                }, f)
+        except Exception:
+            pass
+        
+        # Copiar do cache para o destino
+        shutil.copy2(cache_video_path, output_path)
+        print(f"  [B-ROLL CACHE] Salvo em cache: {cache_key}.mp4")
         
         return output_path.exists() and output_path.stat().st_size > 1024
     except Exception as e:
