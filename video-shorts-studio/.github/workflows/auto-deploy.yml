@@ -1,0 +1,56 @@
+name: 🔄 Auto Deploy Vercel (Keep Alive)
+
+on:
+  schedule:
+    # A cada 12 horas — executa às 06:00 e 18:00 UTC (03:00 e 15:00 BRT)
+    - cron: '0 */12 * * *'
+  push:
+    branches: [master]
+  workflow_dispatch:  # Permite executar manualmente pelo GitHub
+
+jobs:
+  deploy:
+    name: 🚀 Deploy para Vercel
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: ⚡ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Instalar dependências
+        run: npm ci --prefer-offline
+
+      - name: 🔧 Build
+        run: npm run build
+        env:
+          CI: false
+
+      - name: 🔗 Vincular projeto Vercel
+        run: |
+          mkdir -p .vercel
+          cat > .vercel/project.json << 'EOF'
+          {
+            "orgId": "${{ secrets.VERCEL_ORG_ID }}",
+            "projectId": "${{ secrets.VERCEL_PROJECT_ID }}"
+          }
+          EOF
+
+      - name: 🚀 Deploy para Vercel (Produção)
+        run: |
+          npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes 2>&1
+
+      - name: 🔄 Ping para aquecer o site
+        run: |
+          echo "🌐 Pingando Vercel..."
+          curl -s -o /dev/null -w "Status: %{http_code}\n" \
+            "https://video-shorts-studio.vercel.app" || true
+          echo "🌐 Pingando Render..."
+          curl -s -o /dev/null -w "API Status: %{http_code}\n" \
+            "https://video-shorts-studio-1.onrender.com/api/health" || true
