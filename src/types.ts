@@ -360,6 +360,58 @@ export const SCRIPT_TEMPLATES: ScriptTemplate[] = [
       { description: 'CTA para compartilhar a verdade', duration: 5, caption: 'Compartilha com quem ainda acredita nesses mitos!', visualPrompt: 'share button, spreading awareness' },
     ],
   },
+  {
+    id: 'tech_ai',
+    name: 'Revolução da IA & Tech',
+    description: 'Ferramentas do futuro e novidades que mudam o mundo',
+    icon: '🤖',
+    scenes: [
+      { description: 'Gancho bombástico de abertura sobre nova IA', duration: 5, caption: 'Essa nova Inteligência Artificial acabou de mudar o jogo! 🤯', visualPrompt: 'futuristic neural network glow, neon blue sparks, matrix code' },
+      { description: 'Apresentação da funcionalidade inacreditável', duration: 7, caption: 'Ela faz em 5 segundos o que levava uma semana inteira!', visualPrompt: 'rapid futuristic holographic UI computer interface' },
+      { description: 'Demonstração do caso de uso prático', duration: 7, caption: 'Olha só o resultado gerado automaticamente em tempo real.', visualPrompt: 'high tech developer coding AI dashboard robot fingers' },
+      { description: 'Como qualquer pessoa pode começar a usar hoje', duration: 6, caption: 'E a melhor parte: você pode testar gratuitamente agora!', visualPrompt: 'excited person smiling looking at glowing smartphone screen' },
+      { description: 'CTA focado em futurismo e salvar dica', duration: 5, caption: 'Curtiu? Salva agora e me segue para mais dicas de IA! 🚀', visualPrompt: 'neon arrow pointing down save button glowing modern' },
+    ],
+  },
+  {
+    id: 'psychology_hacks',
+    name: 'Gatilhos da Mente',
+    description: 'Comportamento humano, linguagem corporal e persuasão',
+    icon: '🧠',
+    scenes: [
+      { description: 'Gancho provocativo sobre a mente humana', duration: 5, caption: '93% das pessoas caem nesse truque psicológico sem perceber! 🤫', visualPrompt: 'silhouette thinking head glowing brain neural pathways' },
+      { description: 'O segredo da psicologia comportamental', duration: 7, caption: 'Quando você faz isso, a pessoa concorda quase instantaneamente.', visualPrompt: 'two business people talking confident handshake psychological test' },
+      { description: 'Exemplo prático de aplicação no dia a dia', duration: 7, caption: 'Use isso em negociações, entrevistas ou conversas difíceis.', visualPrompt: 'expressive eye contact intense focus cinematic slow motion' },
+      { description: 'O efeito colateral e como se defender', duration: 6, caption: 'E repare se alguém já tentou usar esse método com você!', visualPrompt: 'mirror reflection observant person deep thought' },
+      { description: 'CTA instigando debate nos comentários', duration: 5, caption: 'Você já conhecia essa técnica? Comenta aqui embaixo! 👇', visualPrompt: 'thoughtful nod direct camera engagement cinematic' },
+    ],
+  },
+  {
+    id: 'wealth_habits',
+    name: 'Mentalidade Financeira',
+    description: 'Princípios de riqueza, investimentos e disciplina',
+    icon: '📈',
+    scenes: [
+      { description: 'Comparação entre quem gasta e quem multiplica', duration: 5, caption: 'A diferença brutal entre a classe média e os 1% mais ricos! 💰', visualPrompt: 'stacks of gold coins growth chart financial district sunrise' },
+      { description: 'Regra de ouro que as escolas não ensinam', duration: 7, caption: 'Regra 1: Pague a você mesmo antes de pagar as contas do mês.', visualPrompt: 'hands holding piggy bank investment portfolio compound interest' },
+      { description: 'O poder dos juros compostos ao longo do tempo', duration: 7, caption: 'Pequenos aportes constantes vencem grandes saltos esporádicos.', visualPrompt: 'exponential curved line graph glowing upward financial freedom' },
+      { description: 'O erro que drena o dinheiro sem a pessoa notar', duration: 6, caption: 'Corte imediatamente esse tipo de passivo disfarçado de luxo.', visualPrompt: 'credit card receipt luxury watch decision making' },
+      { description: 'CTA para transformar finanças', duration: 5, caption: 'Compartilha com um amigo que precisa enriquecer junto com você!', visualPrompt: 'two friends laughing confident walking towards city skyline' },
+    ],
+  },
+  {
+    id: 'mindblowing_facts',
+    name: 'Fatos Inacreditáveis',
+    description: 'Curiosidades científicas e mistérios do universo',
+    icon: '🌌',
+    scenes: [
+      { description: 'Abertura cósmica de arrepiar', duration: 5, caption: 'Esse fato sobre o espaço vai fazer você se sentir minúsculo! 🪐', visualPrompt: 'deep space nebula spiral galaxy stars zooming fast' },
+      { description: 'O dado científico que desafia o senso comum', duration: 7, caption: 'Existe um planeta inteiro feito de diamante flutuando lá fora!', visualPrompt: 'glowing crystal diamond planet in deep space starlight reflections' },
+      { description: 'Comparação inacreditável de escala', duration: 7, caption: 'E a distância para alcançá-lo levaria mais de 40 anos-luz.', visualPrompt: 'spaceship warp speed hyperspace stars streaking' },
+      { description: 'A reflexão sobre a nossa própria existência', duration: 6, caption: 'Ainda assim, toda a água do nosso corpo veio de estrelas mortas.', visualPrompt: 'water droplet macro cosmic star dust connection' },
+      { description: 'CTA instigando a curiosidade', duration: 5, caption: 'Se sua mente explodiu, me segue para explorar o universo todo dia! ✨', visualPrompt: 'astronaut looking back at Earth beautiful horizon' },
+    ],
+  },
 ];
 
 /* ─── Custom Audio Upload ─── */

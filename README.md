@@ -67,17 +67,17 @@ flowchart LR
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/alessandrooliveirape-prog/video-shorts-studio.git
-cd video-shorts-studio/video-shorts-studio
+cd video-shorts-studio
 ```
 
 ### 2. Configure Environment Variables
 Copy the example environment file:
 ```bash
-cp ../.env.example .env
+cp .env.example .env
 ```
 Fill in your API keys (optional: app can also run in simulated mode without active keys):
 ```env
-GROQ_API_KEY="your-groq-api-key"
+GEMINI_API_KEY="your-gemini-api-key"
 PEXELS_API_KEY="your-pexels-api-key"
 ```
 

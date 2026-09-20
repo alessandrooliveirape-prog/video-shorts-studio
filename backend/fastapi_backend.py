@@ -39,7 +39,7 @@ from google.genai import types
 load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", os.getenv("GOOGLE_API_KEY", ""))
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 HOST = os.getenv("HOST", "0.0.0.0")
 PORT = int(os.getenv("PORT", "8000"))
@@ -1382,12 +1382,18 @@ async def clip_extract(req: ClipExtractRequest):
 
 async def _clip_extract_internal(req: ClipExtractRequest, job_id: str):
     """Lógica interna de clipping encapsulada para timeout global."""
+    clean_url = (req.youtube_url or "").strip()
+    if not clean_url:
+        raise HTTPException(status_code=400, detail="URL do YouTube não pode ser vazia")
+    if not clean_url.startswith("http") or not ("youtube.com" in clean_url or "youtu.be" in clean_url):
+        raise HTTPException(status_code=400, detail="URL inválida. Forneça um link válido do YouTube.")
+
     temp_dir = OUTPUT_DIR / job_id
     temp_dir.mkdir(parents=True, exist_ok=True)
     video_path = temp_dir / "source.mp4"
 
     # 1. Download do vídeo original via yt-dlp (com retry)
-    print(f"  [CLIPPING] Baixando vídeo: {req.youtube_url}")
+    print(f"  [CLIPPING] Baixando vídeo: {clean_url}")
     jobs[job_id]["progress"] = 20
     
     yt_dlp_cmd = [

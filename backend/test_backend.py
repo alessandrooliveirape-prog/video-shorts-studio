@@ -89,11 +89,10 @@ class TestClipExtractValidation:
 class TestYouTubeDownloadRetry:
     """Testes do mecanismo de retry no download do YouTube."""
 
+    @patch("fastapi_backend.asyncio.sleep", return_value=None)
     @patch("fastapi_backend.subprocess.run")
-    def test_retry_on_429_success_on_retry(self, mock_run, client):
+    def test_retry_on_429_success_on_retry(self, mock_run, mock_sleep, client):
         """429 no download deve acionar retry e ter sucesso na 2a tentativa."""
-        # Simular: 1a tentativa falha (exit 1), 2a tentativa sucesso
-        # Após download bem-sucedido, o endpoint falha pq o arquivo não existe no disco
         mock_run.side_effect = [
             MagicMock(returncode=1, stdout="", stderr="HTTP Error 429: Too Many Requests"),
             MagicMock(returncode=0, stdout="", stderr=""),
@@ -103,11 +102,11 @@ class TestYouTubeDownloadRetry:
             "youtube_url": "https://youtube.com/watch?v=test429retry"
         })
 
-        # Verificar que o retry rodou (pelo menos 2 chamadas de subprocess para yt-dlp)
         assert mock_run.call_count >= 2
 
+    @patch("fastapi_backend.asyncio.sleep", return_value=None)
     @patch("fastapi_backend.subprocess.run")
-    def test_retry_exhausted_returns_error(self, mock_run, client):
+    def test_retry_exhausted_returns_error(self, mock_run, mock_sleep, client):
         """Após 3 tentativas falhas, deve retornar erro de download."""
         mock_run.return_value = MagicMock(
             returncode=1,
@@ -119,13 +118,13 @@ class TestYouTubeDownloadRetry:
             "youtube_url": "https://youtube.com/watch?v=test429exhaust"
         })
 
-        # Após esgotar retries, deve retornar 400 com mensagem de falha
         assert resp.status_code == 400
         data = resp.json()
         assert "Falha ao baixar vídeo" in data.get("detail", "")
 
+    @patch("fastapi_backend.asyncio.sleep", return_value=None)
     @patch("fastapi_backend.subprocess.run")
-    def test_retry_uses_yt_dlp_flags(self, mock_run, client):
+    def test_retry_uses_yt_dlp_flags(self, mock_run, mock_sleep, client):
         """O comando yt-dlp deve incluir as flags de retry e sleep."""
         mock_run.side_effect = [
             MagicMock(returncode=1, stdout="", stderr="HTTP Error 429: Too Many Requests"),
@@ -137,7 +136,6 @@ class TestYouTubeDownloadRetry:
             "youtube_url": "https://youtube.com/watch?v=testflags"
         })
 
-        # Verificar que TODAS as flags de retry foram passadas
         required_flags = ["--retries", "--sleep-requests", "--sleep-interval", "--extractor-retries"]
         for call_args in mock_run.call_args_list:
             cmd = call_args[0][0]
@@ -146,12 +144,12 @@ class TestYouTubeDownloadRetry:
                 assert all(flag in full_cmd for flag in required_flags), \
                     f"Flags faltando em: {full_cmd[:200]}"
 
+    @patch("fastapi_backend.asyncio.sleep", return_value=None)
     @patch("fastapi_backend.subprocess.run")
-    def test_retry_with_timeout_fallback(self, mock_run, client):
+    def test_retry_with_timeout_fallback(self, mock_run, mock_sleep, client):
         """Timeout no subprocess deve ser tratado e acionar retry."""
         from subprocess import TimeoutExpired
 
-        # 1a tentativa: timeout, 2a: sucesso
         mock_run.side_effect = [
             TimeoutExpired(cmd="yt-dlp", timeout=180, output="", stderr="timeout"),
             MagicMock(returncode=0, stdout="", stderr=""),
@@ -228,16 +226,20 @@ class TestDownload:
 class TestSchemaValidation:
     """Testes de validação de schemas Pydantic."""
 
-    def test_clip_extract_with_audio_effect(self, client):
+    @patch("fastapi_backend.asyncio.sleep", return_value=None)
+    @patch("fastapi_backend.subprocess.run", return_value=MagicMock(returncode=1, stderr="mock error"))
+    def test_clip_extract_with_audio_effect(self, mock_run, mock_sleep, client):
         """Campo audio_effect opcional deve ser aceito."""
         resp = client.post("/api/clip/extract", json={
             "youtube_url": "https://youtube.com/watch?v=test",
             "audio_effect": "original"
         })
-        # 422 se falhar validação, senão 400 (URL inválida) ou 200 (mock)
+        # 422 se falhar validação, senão 400 (URL inválida/falha download) ou 200 (mock)
         assert resp.status_code in (200, 400, 422)
 
-    def test_clip_extract_with_subtitle_options(self, client):
+    @patch("fastapi_backend.asyncio.sleep", return_value=None)
+    @patch("fastapi_backend.subprocess.run", return_value=MagicMock(returncode=1, stderr="mock error"))
+    def test_clip_extract_with_subtitle_options(self, mock_run, mock_sleep, client):
         """Campo subtitleOptions deve aceitar configurações de legenda."""
         resp = client.post("/api/clip/extract", json={
             "youtube_url": "https://youtube.com/watch?v=test",

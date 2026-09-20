@@ -35,6 +35,8 @@ env/
 temp/
 downloads/
 output/
+outputs/
+backend/outputs/
 
 # Logs & OS Files
 npm-debug.log*

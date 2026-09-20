@@ -207,15 +207,14 @@ describe('StudioFromZero', () => {
         })
         .mockResolvedValueOnce({
           ok: true,
-          json: async () => ({success: true, sceneIndex: 0}),
-        })
-        .mockResolvedValueOnce({
-          ok: true,
-          json: async () => ({success: true, sceneIndex: 1}),
-        })
-        .mockResolvedValueOnce({
-          ok: true,
-          json: async () => ({success: true, sceneIndex: 2}),
+          json: async () => ({
+            success: true,
+            scenes: [
+              { sceneIndex: 0, success: true },
+              { sceneIndex: 1, success: true },
+              { sceneIndex: 2, success: true },
+            ],
+          }),
         })
         .mockResolvedValue({
           ok: true,
@@ -246,8 +245,8 @@ describe('StudioFromZero', () => {
         expect(screen.getByText(/vídeo gerado com sucesso/i)).toBeInTheDocument();
       }, {timeout: 10000});
 
-      expect(screen.getByText(/pre.view/i)).toBeInTheDocument();
-      expect(screen.getByText(/publicar shorts/i)).toBeInTheDocument();
+      expect(screen.getByText(/pré-visualizar/i)).toBeInTheDocument();
+      expect(screen.getByText(/publicar/i)).toBeInTheDocument();
       expect(onProcessingChange).toHaveBeenCalledWith(false);
       expect(onProjectComplete).toHaveBeenCalledWith(
         MOCK_SCENES,
@@ -373,15 +372,14 @@ describe('StudioFromZero', () => {
         })
         .mockResolvedValueOnce({
           ok: true,
-          json: async () => ({success: true, sceneIndex: 0}),
-        })
-        .mockResolvedValueOnce({
-          ok: true,
-          json: async () => ({success: true, sceneIndex: 1}),
-        })
-        .mockResolvedValueOnce({
-          ok: true,
-          json: async () => ({success: true, sceneIndex: 2}),
+          json: async () => ({
+            success: true,
+            scenes: [
+              { sceneIndex: 0, success: true },
+              { sceneIndex: 1, success: true },
+              { sceneIndex: 2, success: true },
+            ],
+          }),
         })
         .mockResolvedValue({
           ok: false,
